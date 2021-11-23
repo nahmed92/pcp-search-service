@@ -6,9 +6,9 @@ FROM openjdk:11-jre
 
 MAINTAINER Delta Dental Group Member Online - DCM
 VOLUME /tmp
-ADD pcp-search-service-0.0.1-SNAPSHOT.jar pcp-search-service-0.0.1-SNAPSHOT.jar
+ADD pcp-search-service-3.0.0.jar pcp-search-service-3.0.0.jar
 ADD contrast.jar contrast.jar
-RUN sh -c 'touch /pcp-search-service-0.0.1-SNAPSHOT.jar'
+RUN sh -c 'touch /pcp-search-service-3.0.0.jar'
 RUN sh -c 'touch /contrast.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT java $JAVA_OPTS \
@@ -84,4 +84,4 @@ ENTRYPOINT java $JAVA_OPTS \
 	-Dserver.compression.enabled=${TOMCAT_SERVER_COMPRESSION_ENABLED} \
   -Dserver.compression.mime-types=${TOMCAT_SERVER_COMPRESSION_MIME_TYPES} \
   -Dserver.compression.min-response-size=${TOMCAT_SERVER_COMPRESSION_MIN_RESPONSE_SIZE} \
-	-jar /pcp-search-service-0.0.1-SNAPSHOT.jar
+	-jar /pcp-search-service-3.0.0.jar
