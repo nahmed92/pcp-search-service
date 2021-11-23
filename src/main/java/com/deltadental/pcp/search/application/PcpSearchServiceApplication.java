@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.service;
+package com.deltadental.pcp.search.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
