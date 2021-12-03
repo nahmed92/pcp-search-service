@@ -174,7 +174,7 @@
 		</dependency>
 
 		<!-- Open API (Swagger) Specification Dependencies -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-boot-starter</artifactId>
 		    <version>${springfox.swagger.version}</version>
@@ -184,15 +184,20 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${springfox.swagger.version}</version>
-			<!-- <scope>compile</scope> -->
-		</dependency>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger-ui</artifactId>
 		    <version>${springfox.swagger.version}</version>
 		    <scope>compile</scope>
-		</dependency>
+		</dependency> -->
 		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -332,6 +337,7 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
