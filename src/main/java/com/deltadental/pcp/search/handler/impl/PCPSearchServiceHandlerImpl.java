@@ -17,8 +17,21 @@ import com.deltadental.pcp.search.handler.PCPSearchServiceHandler;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
+import com.deltadental.platform.pcp.stub.FacilitySearchResponse;
+import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevels;
+import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevelsResponse;
+import com.deltadental.platform.pcp.stub.GetBussinessLevels;
+import com.deltadental.platform.pcp.stub.GetBussinessLevelsResponse;
 import com.deltadental.platform.pcp.stub.GetProviders;
 import com.deltadental.platform.pcp.stub.GetProvidersResponse;
+import com.deltadental.platform.pcp.stub.GetStatePCPAssignment;
+import com.deltadental.platform.pcp.stub.GetStatePCPAssignmentResponse;
+import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
+import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
+import com.deltadental.platform.pcp.stub.ProviderValidate;
+import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
+import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
+import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
 @Component
 public class PCPSearchServiceHandlerImpl implements PCPSearchServiceHandler {
@@ -34,20 +47,28 @@ public class PCPSearchServiceHandlerImpl implements PCPSearchServiceHandler {
 	
 	@Override
 	public FacilityResponse facilitySearch(FacilitySearchRequest facilitySearchRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		com.deltadental.platform.pcp.stub.FacilitySearchRequest searchRequest = pcpSearchRequestTransformer.transformFacilitySearchRequest(facilitySearchRequest);
+		FacilitySearchResponse facilitySearchResponse =  pcpAssignmentSoapClient.facilitySearch(searchRequest);
+		FacilityResponse facilityResponse = pcpSearchResponseTransformer.transformFaclilitySearchResponse(facilitySearchResponse);
+		return facilityResponse;
 	}
 
 	@Override
 	public BlResolutionResponse getBPsAndBussinessLevels(BlServiceRequest blServiceRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformBlServiceRequest(blServiceRequest);
+		GetBPsAndBussinessLevels getBPsAndBussinessLevels = new GetBPsAndBussinessLevels();
+		getBPsAndBussinessLevels.setArg0(getBussinessLevels.getArg0());
+		GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevelsResponse = pcpAssignmentSoapClient.getBPsAndBussinessLevels(getBPsAndBussinessLevels);
+		BlResolutionResponse blResolutionResponse = pcpSearchResponseTransformer.transformGetBPsAndBussinessLevelsResponse(getBPsAndBussinessLevelsResponse);
+		return blResolutionResponse;
 	}
 
 	@Override
 	public BlResolutionResponse getBusinessLevels(BlServiceRequest blServiceRequest) {
-		
-		return null;
+		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformBlServiceRequest(blServiceRequest);
+		GetBussinessLevelsResponse getBussinessLevelsResponse = pcpAssignmentSoapClient.getBussinessLevels(getBussinessLevels);
+		BlResolutionResponse blResolutionResponse = pcpSearchResponseTransformer.transformStubGetBussinessLevelsResponse(getBussinessLevelsResponse);
+		return blResolutionResponse;
 	}
 
 	@Override
@@ -60,26 +81,36 @@ public class PCPSearchServiceHandlerImpl implements PCPSearchServiceHandler {
 
 	@Override
 	public StatePcpAssignmentResponse getStatePCPAssignment(StatePcpAssignmentRequest statePcpAssignmentRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		GetStatePCPAssignment stubGetStatePCPAssignment = pcpSearchRequestTransformer.transformStatePCPAssignmentRequest(statePcpAssignmentRequest);
+		GetStatePCPAssignmentResponse getStatePCPAssignmentResponse = pcpAssignmentSoapClient.getStatePCPAssignment(stubGetStatePCPAssignment);
+		StatePcpAssignmentResponse statePcpAssignmentResponse = pcpSearchResponseTransformer.transformGetStatePCPAssignmentResponse(getStatePCPAssignmentResponse);
+		return statePcpAssignmentResponse;
 	}
 
 	@Override
 	public BPBLResolutionResponse groupBenefitPackBussinessLevel(BlServiceRequest blServiceRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel = pcpSearchRequestTransformer.transferGroupBenefitPackBussinessLevel(blServiceRequest);
+		GroupBenefitPackBussinessLevelResponse groupBenefitPackBussinessLevelResponse = pcpAssignmentSoapClient.groupBenefitPackBussinessLevel(groupBenefitPackBussinessLevel);
+		BPBLResolutionResponse bpblResolutionResponse = pcpSearchResponseTransformer.transformStubGroupBenefitPackBussinessLevelResponse(groupBenefitPackBussinessLevelResponse);
+		return bpblResolutionResponse;
 	}
 
 	@Override
 	public PCPAssignmentResponse providerValidate(PcpAssignmentRequest pcpAssignmentRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		ProviderValidate stubProviderValidate = pcpSearchRequestTransformer.transformProviderValidate(pcpAssignmentRequest);
+		ProviderValidateResponse providerValidateResponse = pcpAssignmentSoapClient.providerValidate(stubProviderValidate);
+		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchResponseTransformer.transformStubProviderValidateResponse(providerValidateResponse);
+		return pcpAssignmentResponse;
 	}
 
 	@Override
 	public RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroups(String retrieveDistinct) {
-		// TODO Auto-generated method stub
-		return null;
+		RetrieveDistinctExceptionGroups retrieveDistinctExceptionGroups = new RetrieveDistinctExceptionGroups();
+		retrieveDistinctExceptionGroups.setArg0(retrieveDistinct);
+		RetrieveDistinctExceptionGroupsResponse retrieveDistinctExceptionGroupsResponse = pcpAssignmentSoapClient.retrieveDistinctExceptionGroups(retrieveDistinctExceptionGroups);
+		RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroupsRes = new RetrieveDistinctExceptionGroupsRes();
+		retrieveDistinctExceptionGroupsRes.setRetrieveDistinctExceptionGroupsResponse(retrieveDistinctExceptionGroupsResponse.getReturn());
+		return retrieveDistinctExceptionGroupsRes;
 	}
 
 }

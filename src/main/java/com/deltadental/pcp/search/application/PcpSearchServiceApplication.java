@@ -1,5 +1,6 @@
 package com.deltadental.pcp.search.application;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,10 @@ public class PcpSearchServiceApplication {
 //	    messageFactory.setSoapVersion(SoapVersion.SOAP_12);
 //	    return messageFactory;
 //	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(PcpSearchServiceApplication.class, args);
+	}
 //	
 	@Bean
 	public MessageSource messageSource() {
