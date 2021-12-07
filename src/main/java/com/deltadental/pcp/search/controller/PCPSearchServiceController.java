@@ -22,7 +22,7 @@ import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
-import com.deltadental.pcp.search.handler.PCPSearchServiceHandler;
+import com.deltadental.pcp.search.service.PCPSearchService;
 import com.deltadental.platform.common.annotation.aop.MethodExecutionTime;
 import com.deltadental.platform.common.exception.ServiceError;
 
@@ -40,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PCPSearchServiceController {
 
 	@Autowired
-	PCPSearchServiceHandler pcpSearchServiceHandler;
+	PCPSearchService pcpSearchServiceHandler;
 	
 	@ApiOperation(
 			value = PCPSearchServiceConstants.SUMMARY_GET_PROVIDERS, 

@@ -18,18 +18,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackages = { "com.deltadental.pcp.search.*" })
 @EnableSwagger2
 public class PcpSearchServiceApplication {
-
-//	@Bean
-//	public SaajSoapMessageFactory messageFactory() {
-//	    SaajSoapMessageFactory messageFactory = new SaajSoapMessageFactory();
-//	    messageFactory.setSoapVersion(SoapVersion.SOAP_12);
-//	    return messageFactory;
-//	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PcpSearchServiceApplication.class, args);
 	}
-//	
+
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

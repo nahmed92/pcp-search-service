@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.handler;
+package com.deltadental.pcp.search.service;
 
 import com.deltadental.pcp.search.domain.BPBLResolutionResponse;
 import com.deltadental.pcp.search.domain.BlResolutionResponse;
@@ -12,7 +12,7 @@ import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
 import com.deltadental.platform.common.exception.ServiceException;
 
-public interface PCPSearchServiceHandler {
+public interface PCPSearchService {
 	
 	FacilityResponse facilitySearch(FacilitySearchRequest facilitySearchRequest) throws ServiceException;
 	BlResolutionResponse getBPsAndBussinessLevels(BlServiceRequest blServiceRequest) throws ServiceException;
