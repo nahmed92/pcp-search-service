@@ -1,6 +1,6 @@
 package com.deltadental.pcp.soap.client;
 
-import com.deltadental.platform.pcp.stub.FacilitySearchRequest;
+import com.deltadental.platform.pcp.stub.FacilitySearch;
 import com.deltadental.platform.pcp.stub.FacilitySearchResponse;
 import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevels;
 import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevelsResponse;
@@ -19,7 +19,7 @@ import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse
 
 public interface PCPAssignmentSoapClient {
 
-	FacilitySearchResponse facilitySearch(FacilitySearchRequest facilitySearchRequest);
+	FacilitySearchResponse facilitySearch(FacilitySearch facilitySearch);
 	GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevels(GetBPsAndBussinessLevels getBPsAndBussinessLevels);
 	GetBussinessLevelsResponse getBussinessLevels(GetBussinessLevels getBussinessLevels);
 	GetProvidersResponse getProviders(GetProviders getProviders);

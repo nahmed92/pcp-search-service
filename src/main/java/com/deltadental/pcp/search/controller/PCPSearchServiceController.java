@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "/pcpsearch", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/pcpsearch", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Api(value = "/pcpsearch")
 @Slf4j
 public class PCPSearchServiceController {
@@ -174,12 +174,12 @@ public class PCPSearchServiceController {
 			response = RetrieveDistinctExceptionGroupsRes.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully Retrived Distinct ServiceError Groups", response = RetrieveDistinctExceptionGroupsRes.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-//                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
+//                    @ApiResponse(code = 415, message = "Unsupported Media Type", response = ServiceError.class),
                     @ApiResponse(code = 404, message = "Unable to Retrive Distinct ServiceError Groups.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
 	@MethodExecutionTime
-    @GetMapping(value = PCPSearchServiceConstants.GET_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = PCPSearchServiceConstants.GET_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_URI, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<RetrieveDistinctExceptionGroupsRes> retrieveDistinctExceptionGroups(@RequestParam(name = "retrieveDistinct", required = true) String retrieveDistinct) {
 		RetrieveDistinctExceptionGroupsRes distinctExceptionGroupsRes = pcpSearchServiceHandler.retrieveDistinctExceptionGroups(retrieveDistinct);
 		ResponseEntity<RetrieveDistinctExceptionGroupsRes> responseEntity = new ResponseEntity<>(distinctExceptionGroupsRes, HttpStatus.OK); 

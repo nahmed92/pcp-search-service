@@ -17,6 +17,7 @@ import com.deltadental.pcp.search.handler.PCPSearchServiceHandler;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
+import com.deltadental.platform.pcp.stub.FacilitySearch;
 import com.deltadental.platform.pcp.stub.FacilitySearchResponse;
 import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevels;
 import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevelsResponse;
@@ -48,7 +49,9 @@ public class PCPSearchServiceHandlerImpl implements PCPSearchServiceHandler {
 	@Override
 	public FacilityResponse facilitySearch(FacilitySearchRequest facilitySearchRequest) {
 		com.deltadental.platform.pcp.stub.FacilitySearchRequest searchRequest = pcpSearchRequestTransformer.transformFacilitySearchRequest(facilitySearchRequest);
-		FacilitySearchResponse facilitySearchResponse =  pcpAssignmentSoapClient.facilitySearch(searchRequest);
+		FacilitySearch facilitySearch = new FacilitySearch();
+		facilitySearch.setArg0(searchRequest);
+		FacilitySearchResponse facilitySearchResponse =  pcpAssignmentSoapClient.facilitySearch(facilitySearch);
 		FacilityResponse facilityResponse = pcpSearchResponseTransformer.transformFaclilitySearchResponse(facilitySearchResponse);
 		return facilityResponse;
 	}

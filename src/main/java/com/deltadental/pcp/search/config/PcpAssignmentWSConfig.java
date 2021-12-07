@@ -19,9 +19,9 @@ public class PcpAssignmentWSConfig {
 
 	@Bean
 	public Jaxb2Marshaller marshaller() {
-		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-		marshaller.setContextPath(WS_STUB_PACKAGE);
-		return marshaller;
+		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
+		jaxb2Marshaller.setContextPath(WS_STUB_PACKAGE);
+		return jaxb2Marshaller;
 	}
 
 	@Bean(name = "pcpAssignmentSoapClient")
