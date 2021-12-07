@@ -14,6 +14,7 @@ import com.deltadental.pcp.search.domain.PCPRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.PrimaryEnrolleePCPInfo;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
+import com.deltadental.platform.pcp.stub.FacilitySearch;
 import com.deltadental.platform.pcp.stub.FacilityType;
 import com.deltadental.platform.pcp.stub.Facilityregion;
 import com.deltadental.platform.pcp.stub.Facilitystatus;
@@ -26,7 +27,10 @@ import com.deltadental.platform.pcp.stub.PcpRequest;
 import com.deltadental.platform.pcp.stub.PcpblEnrollee;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class PCPSearchRequestTransformer {
 
 	public GetProviders transformPcpAssignmentRequest(PcpAssignmentRequest pcpAssignmentRequest) {
@@ -36,7 +40,7 @@ public class PCPSearchRequestTransformer {
 		return getProviders;
 	}
 	
-	public com.deltadental.platform.pcp.stub.FacilitySearchRequest transformFacilitySearchRequest(FacilitySearchRequest facilitySearchRequest) {
+	public FacilitySearch transformFacilitySearchRequest(FacilitySearchRequest facilitySearchRequest) {
 		com.deltadental.platform.pcp.stub.FacilitySearchRequest searchRequest = new com.deltadental.platform.pcp.stub.FacilitySearchRequest();
 		searchRequest.setBenefitpackageID(facilitySearchRequest.getBenefitpackageID());
 		searchRequest.setDivisionNumber(facilitySearchRequest.getDivisionNumber());
@@ -47,7 +51,9 @@ public class PCPSearchRequestTransformer {
 		searchRequest.setFacilityregion(transformFacilityregion(facilitySearchRequest.getFacilityregion()));
 		searchRequest.setFacilitystatus(transformFacilityregion(facilitySearchRequest.getFacilitystatus()));
 		searchRequest.setFacilityType(transformFacilityregion(facilitySearchRequest.getFacilityType()));
-		return searchRequest;
+		FacilitySearch facilitySearch = new FacilitySearch();
+		facilitySearch.setArg0(searchRequest);
+		return facilitySearch;
 	}
 	
 	public GetBussinessLevels transformBlServiceRequest(BlServiceRequest blServiceRequest) {

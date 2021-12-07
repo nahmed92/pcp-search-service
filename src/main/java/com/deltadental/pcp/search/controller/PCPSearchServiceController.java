@@ -28,6 +28,7 @@ import com.deltadental.platform.common.exception.ServiceError;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
@@ -54,9 +55,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_PROVIDERS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<PCPAssignmentResponse> getProviders(@RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
-		log.info("");
+		log.info("START PCPSearchServiceController.getProviders");
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchServiceHandler.getProviders(pcpAssignmentRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.getProviders");
 		return responseEntity;
 	}
 
@@ -73,8 +75,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_FACILITY_SEARCH_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<FacilityResponse> facilitySearch(@RequestBody FacilitySearchRequest facilitySearchRequest) {
+		log.info("START PCPSearchServiceController.facilitySearch");
 		FacilityResponse facilityResponse = pcpSearchServiceHandler.facilitySearch(facilitySearchRequest);
-		ResponseEntity<FacilityResponse> responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK); 
+		ResponseEntity<FacilityResponse> responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK);
+		log.info("END PCPSearchServiceController.facilitySearch");
 		return responseEntity;
 	}
 
@@ -91,8 +95,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_BUSINESS_LEVELS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<BlResolutionResponse> getBusinessLevels(@RequestBody BlServiceRequest blServiceRequest)  {
+		log.info("START PCPSearchServiceController.getBusinessLevels");
 		BlResolutionResponse blResolutionResponse = pcpSearchServiceHandler.getBusinessLevels(blServiceRequest);
 		ResponseEntity<BlResolutionResponse> responseEntity = new ResponseEntity<>(blResolutionResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.getBusinessLevels");
 		return responseEntity;
 	}
 
@@ -109,8 +115,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_BP_AND_BUSINESS_LEVELS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<BlResolutionResponse> getBPsAndBussinessLevels(@RequestBody BlServiceRequest blServiceRequest) {
+		log.info("START PCPSearchServiceController.getBPsAndBussinessLevels");
 		BlResolutionResponse blResolutionResponse = pcpSearchServiceHandler.getBPsAndBussinessLevels(blServiceRequest);
 		ResponseEntity<BlResolutionResponse> responseEntity = new ResponseEntity<>(blResolutionResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.getBPsAndBussinessLevels");
 		return responseEntity;
 	}
 
@@ -127,8 +135,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_STATE_PCP_ASSIGNMENT_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<StatePcpAssignmentResponse> getStatePCPAssignment(@RequestBody StatePcpAssignmentRequest statePcpAssignmentRequest) {
+		log.info("START PCPSearchServiceController.getStatePCPAssignment");
 		StatePcpAssignmentResponse statePcpAssignmentResponse = pcpSearchServiceHandler.getStatePCPAssignment(statePcpAssignmentRequest);
 		ResponseEntity<StatePcpAssignmentResponse> responseEntity = new ResponseEntity<>(statePcpAssignmentResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.getStatePCPAssignment");
 		return responseEntity;
 	}
 
@@ -145,8 +155,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_GROUP_BENEFIT_PACK_BUSINESS_LEVEL_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<BPBLResolutionResponse> groupBenefitPackBussinessLevel(@RequestBody BlServiceRequest blServiceRequest) {
+		log.info("START PCPSearchServiceController.groupBenefitPackBussinessLevel");
 		BPBLResolutionResponse bpblResolutionResponse = pcpSearchServiceHandler.groupBenefitPackBussinessLevel(blServiceRequest);
 		ResponseEntity<BPBLResolutionResponse> responseEntity = new ResponseEntity<>(bpblResolutionResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.groupBenefitPackBussinessLevel");
 		return responseEntity;
 	}
 
@@ -163,8 +175,10 @@ public class PCPSearchServiceController {
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_PROVIDER_VALIDATION_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<PCPAssignmentResponse> providerValidate(@RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
+		log.info("START PCPSearchServiceController.providerValidate");
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchServiceHandler.providerValidate(pcpAssignmentRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.providerValidate");
 		return responseEntity;
 	}
 
@@ -172,7 +186,7 @@ public class PCPSearchServiceController {
 			value = PCPSearchServiceConstants.SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS, 
 			notes = PCPSearchServiceConstants.SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_NOTES, 
 			response = RetrieveDistinctExceptionGroupsRes.class)
-    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully Retrived Distinct ServiceError Groups", response = RetrieveDistinctExceptionGroupsRes.class),
+    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully Retrived Distinct Exception Groups", response = RetrieveDistinctExceptionGroupsRes.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
 //                    @ApiResponse(code = 415, message = "Unsupported Media Type", response = ServiceError.class),
                     @ApiResponse(code = 404, message = "Unable to Retrive Distinct ServiceError Groups.", response = ServiceError.class),
@@ -180,9 +194,11 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @GetMapping(value = PCPSearchServiceConstants.GET_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_URI, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<RetrieveDistinctExceptionGroupsRes> retrieveDistinctExceptionGroups(@RequestParam(name = "retrieveDistinct", required = true) String retrieveDistinct) {
+	public ResponseEntity<RetrieveDistinctExceptionGroupsRes> retrieveDistinctExceptionGroups( @ApiParam(value = "retrieveDistinct") @RequestParam(name = "retrieveDistinct", required = true) String retrieveDistinct) {
+		log.info("START PCPSearchServiceController.retrieveDistinctExceptionGroups");
 		RetrieveDistinctExceptionGroupsRes distinctExceptionGroupsRes = pcpSearchServiceHandler.retrieveDistinctExceptionGroups(retrieveDistinct);
 		ResponseEntity<RetrieveDistinctExceptionGroupsRes> responseEntity = new ResponseEntity<>(distinctExceptionGroupsRes, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.retrieveDistinctExceptionGroups");
 		return responseEntity;
 	}
 
