@@ -2,6 +2,7 @@ package com.deltadental.pcp.soap.client;
 
 import javax.xml.bind.JAXBElement;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
@@ -29,67 +30,78 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPAssignmentSoapClientImpl extends WebServiceGatewaySupport implements PCPAssignmentSoapClient {
     
+	@Autowired
+	private ObjectFactory objectFactory;
+	
 	@Override
 	public FacilitySearchResponse facilitySearch(FacilitySearch facilitySearch) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.facilitySearch");
 		JAXBElement<FacilitySearch> jaxbElementFacilitySearch = objectFactory.createFacilitySearch(facilitySearch);
 		JAXBElement<FacilitySearchResponse> facilitySearchResponse = (JAXBElement<FacilitySearchResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementFacilitySearch);
+		log.info("END PCPAssignmentSoapClientImpl.facilitySearch");
 		return facilitySearchResponse.getValue();
 	}
 
 	@Override
 	public GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevels(GetBPsAndBussinessLevels getBPsAndBussinessLevels) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.getBPsAndBussinessLevels");
 		JAXBElement<GetBPsAndBussinessLevels> jaxbGetBPsAndBussinessLevels = objectFactory.createGetBPsAndBussinessLevels(getBPsAndBussinessLevels);
 		JAXBElement<GetBPsAndBussinessLevelsResponse> getBPsAndBussinessLevelsResponse = (JAXBElement<GetBPsAndBussinessLevelsResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbGetBPsAndBussinessLevels);
+		log.info("END PCPAssignmentSoapClientImpl.getBPsAndBussinessLevels");
 		return getBPsAndBussinessLevelsResponse.getValue();
 	}
 
 	@Override
 	public GetBussinessLevelsResponse getBussinessLevels(GetBussinessLevels getBussinessLevels) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.getBussinessLevels");
 		JAXBElement<GetBussinessLevels> jaxbElementGetBussinessLevels = objectFactory.createGetBussinessLevels(getBussinessLevels);
 		JAXBElement<GetBussinessLevelsResponse> getBussinessLevelsResponse = (JAXBElement<GetBussinessLevelsResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementGetBussinessLevels);
+		log.info("END PCPAssignmentSoapClientImpl.getBussinessLevels");
 		return getBussinessLevelsResponse.getValue();
 	}
 
 	@Override
 	public GetProvidersResponse getProviders(GetProviders getProviders) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.getProviders");
 		JAXBElement<GetProviders> jaxbElementGetProviders = objectFactory.createGetProviders(getProviders);
 		JAXBElement<GetProvidersResponse> getProvidersResponse = (JAXBElement<GetProvidersResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementGetProviders);
+		log.info("END PCPAssignmentSoapClientImpl.getProviders");
 		return getProvidersResponse.getValue();
 	}
 
 	@Override
 	public GetStatePCPAssignmentResponse getStatePCPAssignment(GetStatePCPAssignment getStatePCPAssignment) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.getStatePCPAssignment");
 		JAXBElement<GetStatePCPAssignment> jaxbElementGetStatePCPAssignment = objectFactory.createGetStatePCPAssignment(getStatePCPAssignment);
 		JAXBElement<GetStatePCPAssignmentResponse> getStatePCPAssignmentResponse = (JAXBElement<GetStatePCPAssignmentResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementGetStatePCPAssignment);
+		log.info("END PCPAssignmentSoapClientImpl.getStatePCPAssignment");
 		return getStatePCPAssignmentResponse.getValue();
 	}
 
 	@Override
 	public GroupBenefitPackBussinessLevelResponse groupBenefitPackBussinessLevel(GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.groupBenefitPackBussinessLevel");
 		JAXBElement<GroupBenefitPackBussinessLevel> jaxbElementGroupBenefitPackBussinessLevel = objectFactory.createGroupBenefitPackBussinessLevel(groupBenefitPackBussinessLevel);
 		JAXBElement<GroupBenefitPackBussinessLevelResponse> groupBenefitPackBussinessLevelResponse = (JAXBElement<GroupBenefitPackBussinessLevelResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementGroupBenefitPackBussinessLevel);
+		log.info("END PCPAssignmentSoapClientImpl.groupBenefitPackBussinessLevel");
 		return groupBenefitPackBussinessLevelResponse.getValue();
 	}
 
 	@Override
 	public ProviderValidateResponse providerValidate(ProviderValidate providerValidate) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.providerValidate");
 		JAXBElement<ProviderValidate> jaxbElementProviderValidate = objectFactory.createProviderValidate(providerValidate);
 		JAXBElement<ProviderValidateResponse> facilitySearchResponse = (JAXBElement<ProviderValidateResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementProviderValidate);
+		log.info("END PCPAssignmentSoapClientImpl.providerValidate");
 		return facilitySearchResponse.getValue();
 	}
 
 	@Override
 	public RetrieveDistinctExceptionGroupsResponse retrieveDistinctExceptionGroups(RetrieveDistinctExceptionGroups retrieveDistinctExceptionGroups) {
-		ObjectFactory objectFactory = new ObjectFactory();
+		log.info("START PCPAssignmentSoapClientImpl.retrieveDistinctExceptionGroups");
 		JAXBElement<RetrieveDistinctExceptionGroups> jaxbElement = objectFactory.createRetrieveDistinctExceptionGroups(retrieveDistinctExceptionGroups);
 		JAXBElement<RetrieveDistinctExceptionGroupsResponse> retrieveDistinctExceptionGroupsResponse = (JAXBElement<RetrieveDistinctExceptionGroupsResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElement);
+		log.info("END PCPAssignmentSoapClientImpl.retrieveDistinctExceptionGroups");
 		return retrieveDistinctExceptionGroupsResponse.getValue();
 	}
 

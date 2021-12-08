@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
+import com.deltadental.platform.pcp.stub.ObjectFactory;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -49,4 +50,9 @@ public class PcpSearchServiceApplication {
 		return objectMapper;
 	}
 
+	@Bean
+	ObjectFactory objectFactory() {
+		ObjectFactory objectFactory = new ObjectFactory();
+		return objectFactory;
+	}
 }

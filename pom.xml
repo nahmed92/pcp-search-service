@@ -40,9 +40,6 @@
 		<!-- Delta Dental's Platform common library with frequently needed utilities -->
 		<services-common-library-version>1.0.12</services-common-library-version>
 
-		<!-- API Documentation using Swagger -->
-		<springfox.swagger.version>3.0.0</springfox.swagger.version>
-
 		<!-- Code Quality modules -->
 		<maven-check-style-plugin-version>2.17</maven-check-style-plugin-version>
 		<maven-jxr-plugin-version>2.5</maven-jxr-plugin-version>
@@ -64,7 +61,6 @@
 		<sonar.surefire.reportsPath>target/surefire-reports</sonar.surefire.reportsPath>
 		<sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
 
-		<finalName>${project.name}</finalName>
 		<checkstyle.version>8.4</checkstyle.version>
 
 		<!-- Logger versions -->
@@ -85,7 +81,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 		</dependency>
@@ -97,7 +93,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<!-- Spring boot Web starter -->
 		<dependency>
@@ -176,31 +172,6 @@
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
         </dependency>
-		<!-- Open API (Swagger) Specification Dependencies -->
-		<!-- <dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-boot-starter</artifactId>
-		    <version>${springfox.swagger.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.swagger.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.guava</groupId>
-					<artifactId>guava</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency> -->
-
-		<!-- <dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-swagger-ui</artifactId>
-		    <version>${springfox.swagger.version}</version>
-		    <scope>compile</scope>
-		</dependency> -->
 		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

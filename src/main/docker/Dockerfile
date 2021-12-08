@@ -32,6 +32,7 @@ ENTRYPOINT java $JAVA_OPTS \
 	-DplatformLogLevel=${PLATFORM_LOG_LEVEL} \
 	-DsystemLogLevel=${SYSTEM_LOG_LEVEL} \
 	-Dserver.port=${SERVER_PORT} \
+	-Dpcp.webservice.soap.uri=${PCP_WS_SOAP_URI} \
 	-Dservice.name=${SERVICE_NAME} \
 	-Dexternal.ciam.authz.service.base.url=${EXTERNAL_CIAM_AUTHZ_SERVICE_BASE_URL} \
 	-Dfile.polling.directory=${FILE_POLLING_DIRECTORY} \

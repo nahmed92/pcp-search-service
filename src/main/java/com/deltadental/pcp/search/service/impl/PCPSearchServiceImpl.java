@@ -44,19 +44,19 @@ import lombok.extern.slf4j.Slf4j;
 public class PCPSearchServiceImpl implements PCPSearchService {
 
 	@Autowired
-	PCPAssignmentSoapClient pcpAssignmentSoapClient;
+	private PCPAssignmentSoapClient pcpAssignmentSoapClient;
 	
 	@Autowired
-	PCPSearchRequestTransformer pcpSearchRequestTransformer;
+	private PCPSearchRequestTransformer pcpSearchRequestTransformer;
 	
 	@Autowired
-	PCPSearchResponseTransformer pcpSearchResponseTransformer;
+	private PCPSearchResponseTransformer pcpSearchResponseTransformer;
 	
 	@Override
 	@MethodExecutionTime
 	public FacilityResponse facilitySearch(@Valid FacilitySearchRequest facilitySearchRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.facilitySearch");
-		com.deltadental.platform.pcp.stub.FacilitySearch facilitySearch = pcpSearchRequestTransformer.transformFacilitySearchRequest(facilitySearchRequest);
+		com.deltadental.platform.pcp.stub.FacilitySearch facilitySearch = pcpSearchRequestTransformer.transformFacilitySearch(facilitySearchRequest);
 		FacilitySearchResponse facilitySearchResponse =  pcpAssignmentSoapClient.facilitySearch(facilitySearch);
 		FacilityResponse facilityResponse = pcpSearchResponseTransformer.transformFaclilitySearchResponse(facilitySearchResponse);
 		log.info("END PCPSearchServiceImpl.facilitySearch");
@@ -67,7 +67,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	@MethodExecutionTime
 	public BlResolutionResponse getBPsAndBussinessLevels(@Valid BlServiceRequest blServiceRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.getBPsAndBussinessLevels");
-		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformBlServiceRequest(blServiceRequest);
+		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformGetBussinessLevels(blServiceRequest);
 		GetBPsAndBussinessLevels getBPsAndBussinessLevels = new GetBPsAndBussinessLevels();
 		getBPsAndBussinessLevels.setArg0(getBussinessLevels.getArg0());
 		GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevelsResponse = pcpAssignmentSoapClient.getBPsAndBussinessLevels(getBPsAndBussinessLevels);
@@ -80,7 +80,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	@MethodExecutionTime
 	public BlResolutionResponse getBusinessLevels(@Valid BlServiceRequest blServiceRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.getBusinessLevels");
-		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformBlServiceRequest(blServiceRequest);
+		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformGetBussinessLevels(blServiceRequest);
 		GetBussinessLevelsResponse getBussinessLevelsResponse = pcpAssignmentSoapClient.getBussinessLevels(getBussinessLevels);
 		BlResolutionResponse blResolutionResponse = pcpSearchResponseTransformer.transformStubGetBussinessLevelsResponse(getBussinessLevelsResponse);
 		log.info("END PCPSearchServiceImpl.getBusinessLevels");
@@ -91,7 +91,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	@MethodExecutionTime
 	public PCPAssignmentResponse getProviders(@Valid PcpAssignmentRequest pcpAssignmentRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.getProviders");
-		GetProviders getProviders = pcpSearchRequestTransformer.transformPcpAssignmentRequest(pcpAssignmentRequest);
+		GetProviders getProviders = pcpSearchRequestTransformer.transformGetProviders(pcpAssignmentRequest);
 		GetProvidersResponse getProvidersResponse = pcpAssignmentSoapClient.getProviders(getProviders);
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchResponseTransformer.transformGetProvidersResponse(getProvidersResponse);
 		log.info("END PCPSearchServiceImpl.getProviders");
@@ -102,7 +102,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	@MethodExecutionTime
 	public StatePcpAssignmentResponse getStatePCPAssignment(@Valid StatePcpAssignmentRequest statePcpAssignmentRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.getStatePCPAssignment");
-		GetStatePCPAssignment stubGetStatePCPAssignment = pcpSearchRequestTransformer.transformStatePCPAssignmentRequest(statePcpAssignmentRequest);
+		GetStatePCPAssignment stubGetStatePCPAssignment = pcpSearchRequestTransformer.transformGetStatePCPAssignment(statePcpAssignmentRequest);
 		GetStatePCPAssignmentResponse getStatePCPAssignmentResponse = pcpAssignmentSoapClient.getStatePCPAssignment(stubGetStatePCPAssignment);
 		StatePcpAssignmentResponse statePcpAssignmentResponse = pcpSearchResponseTransformer.transformGetStatePCPAssignmentResponse(getStatePCPAssignmentResponse);
 		log.info("START PCPSearchServiceImpl.getStatePCPAssignment");
@@ -113,7 +113,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	@MethodExecutionTime
 	public BPBLResolutionResponse groupBenefitPackBussinessLevel(@Valid BlServiceRequest blServiceRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.groupBenefitPackBussinessLevel");
-		GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel = pcpSearchRequestTransformer.transferGroupBenefitPackBussinessLevel(blServiceRequest);
+		GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel = pcpSearchRequestTransformer.transformGroupBenefitPackBussinessLevel(blServiceRequest);
 		GroupBenefitPackBussinessLevelResponse groupBenefitPackBussinessLevelResponse = pcpAssignmentSoapClient.groupBenefitPackBussinessLevel(groupBenefitPackBussinessLevel);
 		BPBLResolutionResponse bpblResolutionResponse = pcpSearchResponseTransformer.transformStubGroupBenefitPackBussinessLevelResponse(groupBenefitPackBussinessLevelResponse);
 		log.info("END PCPSearchServiceImpl.groupBenefitPackBussinessLevel");
@@ -138,8 +138,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 		RetrieveDistinctExceptionGroups retrieveDistinctExceptionGroups = new RetrieveDistinctExceptionGroups();
 		retrieveDistinctExceptionGroups.setArg0(retrieveDistinct);
 		RetrieveDistinctExceptionGroupsResponse retrieveDistinctExceptionGroupsResponse = pcpAssignmentSoapClient.retrieveDistinctExceptionGroups(retrieveDistinctExceptionGroups);
-		RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroupsRes = new RetrieveDistinctExceptionGroupsRes();
-		retrieveDistinctExceptionGroupsRes.setRetrieveDistinctExceptionGroupsResponse(retrieveDistinctExceptionGroupsResponse.getReturn());
+		RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroupsRes = RetrieveDistinctExceptionGroupsRes.builder().retrieveDistinctExceptionGroupsResponse(retrieveDistinctExceptionGroupsResponse.getReturn()).build();
 		log.info("END PCPSearchServiceImpl.retrieveDistinctExceptionGroups");
 		return retrieveDistinctExceptionGroupsRes;
 	}

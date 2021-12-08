@@ -33,14 +33,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPSearchRequestTransformer {
 
-	public GetProviders transformPcpAssignmentRequest(PcpAssignmentRequest pcpAssignmentRequest) {
+	public GetProviders transformGetProviders(PcpAssignmentRequest pcpAssignmentRequest) {
+		log.info("START PCPSearchRequestTransformer.transformGetProviders");
 		GetProviders getProviders = new GetProviders();
 		com.deltadental.platform.pcp.stub.PcpAssignmentRequest assignmentRequest = getPcpAssignmentRequest(pcpAssignmentRequest);
 		getProviders.setArg0(assignmentRequest);
+		log.info("END PCPSearchRequestTransformer.transformGetProviders");
 		return getProviders;
 	}
 	
-	public FacilitySearch transformFacilitySearchRequest(FacilitySearchRequest facilitySearchRequest) {
+	public FacilitySearch transformFacilitySearch(FacilitySearchRequest facilitySearchRequest) {
+		log.info("START PCPSearchRequestTransformer.transformFacilitySearch");
 		com.deltadental.platform.pcp.stub.FacilitySearchRequest searchRequest = new com.deltadental.platform.pcp.stub.FacilitySearchRequest();
 		searchRequest.setBenefitpackageID(facilitySearchRequest.getBenefitpackageID());
 		searchRequest.setDivisionNumber(facilitySearchRequest.getDivisionNumber());
@@ -53,32 +56,41 @@ public class PCPSearchRequestTransformer {
 		searchRequest.setFacilityType(transformFacilityregion(facilitySearchRequest.getFacilityType()));
 		FacilitySearch facilitySearch = new FacilitySearch();
 		facilitySearch.setArg0(searchRequest);
+		log.info("END PCPSearchRequestTransformer.transformFacilitySearch");
 		return facilitySearch;
 	}
 	
-	public GetBussinessLevels transformBlServiceRequest(BlServiceRequest blServiceRequest) {
+	public GetBussinessLevels transformGetBussinessLevels(BlServiceRequest blServiceRequest) {
+		log.info("START PCPSearchRequestTransformer.transformGetBussinessLevels");
 		GetBussinessLevels getBussinessLevels = new GetBussinessLevels();
 		com.deltadental.platform.pcp.stub.BlServiceRequest stubBlServiceRequest = getBlServiceRequest(blServiceRequest);
 		getBussinessLevels.setArg0(stubBlServiceRequest);
+		log.info("END PCPSearchRequestTransformer.transformGetBussinessLevels");
 		return getBussinessLevels;
 	}
 	
-	public GetStatePCPAssignment transformStatePCPAssignmentRequest(StatePcpAssignmentRequest statePcpAssignmentRequest) {
+	public GetStatePCPAssignment transformGetStatePCPAssignment(StatePcpAssignmentRequest statePcpAssignmentRequest) {
+		log.info("START PCPSearchRequestTransformer.transformGetStatePCPAssignment");
 		GetStatePCPAssignment getStatePCPAssignment = new GetStatePCPAssignment();
 		transformStatePcpAssignmentRequest(statePcpAssignmentRequest, getStatePCPAssignment);
+		log.info("END PCPSearchRequestTransformer.transformGetStatePCPAssignment");
 		return getStatePCPAssignment;
 	}
 
-	public GroupBenefitPackBussinessLevel transferGroupBenefitPackBussinessLevel(BlServiceRequest blServiceRequest) {
+	public GroupBenefitPackBussinessLevel transformGroupBenefitPackBussinessLevel(BlServiceRequest blServiceRequest) {
+		log.info("START PCPSearchRequestTransformer.transformGroupBenefitPackBussinessLevel");
 		GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel = new GroupBenefitPackBussinessLevel();
 		com.deltadental.platform.pcp.stub.BlServiceRequest stubBlServiceRequest = getBlServiceRequest(blServiceRequest);
 		groupBenefitPackBussinessLevel.setArg0(stubBlServiceRequest);
+		log.info("END PCPSearchRequestTransformer.transformGroupBenefitPackBussinessLevel");
 		return groupBenefitPackBussinessLevel;
 	}
 	
 	public ProviderValidate transformProviderValidate(PcpAssignmentRequest pcpAssignmentRequest) {
+		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		ProviderValidate providerValidate = new ProviderValidate();
 		providerValidate.setArg0(getPcpAssignmentRequest(pcpAssignmentRequest));
+		log.info("END PCPSearchRequestTransformer.transformProviderValidate");
 		return providerValidate;
 	}
 	
