@@ -77,8 +77,14 @@ public class PCPSearchServiceController {
     @PostMapping(value = PCPSearchServiceConstants.GET_FACILITY_SEARCH_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<FacilityResponse> facilitySearch(@RequestBody FacilitySearchRequest facilitySearchRequest) {
 		log.info("START PCPSearchServiceController.facilitySearch");
+		ResponseEntity<FacilityResponse> responseEntity = null;
 		FacilityResponse facilityResponse = pcpSearchService.facilitySearch(facilitySearchRequest);
-		ResponseEntity<FacilityResponse> responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK);
+		if(facilityResponse.getFacility().isEmpty()) {
+			responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+		}
+		
 		log.info("END PCPSearchServiceController.facilitySearch");
 		return responseEntity;
 	}

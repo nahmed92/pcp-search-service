@@ -3,13 +3,17 @@ package com.deltadental.pcp.search.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Builder
 public class StatePcpAssignmentResponse {
 	
 	private String groupNumber;
@@ -18,7 +22,7 @@ public class StatePcpAssignmentResponse {
 	private boolean isStateEligibleforPcp;
 	private boolean isGroupDivEligibleforAutoPcp;
 	private boolean unlimitedSplitFamilyFlag;
-	private boolean unlimitedSplitFamily_INDV_Flag;
+	private boolean unlimitedSplitFamilyINDVFlag;
 	private String returnCode;
 	private String returnDescription;
 	

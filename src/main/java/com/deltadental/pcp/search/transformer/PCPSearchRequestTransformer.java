@@ -45,14 +45,14 @@ public class PCPSearchRequestTransformer {
 	public FacilitySearch transformFacilitySearch(FacilitySearchRequest facilitySearchRequest) {
 		log.info("START PCPSearchRequestTransformer.transformFacilitySearch");
 		com.deltadental.platform.pcp.stub.FacilitySearchRequest searchRequest = new com.deltadental.platform.pcp.stub.FacilitySearchRequest();
-		searchRequest.setBenefitpackageID(facilitySearchRequest.getBenefitpackageID());
+		searchRequest.setBenefitpackageID(facilitySearchRequest.getBenefitPackageID());
 		searchRequest.setDivisionNumber(facilitySearchRequest.getDivisionNumber());
 		searchRequest.setEnrolleeZipCode(facilitySearchRequest.getEnrolleeZipCode());
 		searchRequest.setGroupNumber(facilitySearchRequest.getGroupNumber());
 		searchRequest.setMtvPersonID(facilitySearchRequest.getMtvPersonID());
 		searchRequest.setProduct(facilitySearchRequest.getProduct());
-		searchRequest.setFacilityregion(transformFacilityregion(facilitySearchRequest.getFacilityregion()));
-		searchRequest.setFacilitystatus(transformFacilityregion(facilitySearchRequest.getFacilitystatus()));
+		searchRequest.setFacilityregion(transformFacilityregion(facilitySearchRequest.getFacilityRegion()));
+		searchRequest.setFacilitystatus(transformFacilityregion(facilitySearchRequest.getFacilityStatus()));
 		searchRequest.setFacilityType(transformFacilityregion(facilitySearchRequest.getFacilityType()));
 		FacilitySearch facilitySearch = new FacilitySearch();
 		facilitySearch.setArg0(searchRequest);
@@ -106,8 +106,8 @@ public class PCPSearchRequestTransformer {
 	
 	private FacilityType transformFacilityregion(com.deltadental.pcp.search.domain.FacilityType facilityType) {
 		FacilityType stubFacilityType = new FacilityType();
-		stubFacilityType.setProviderspcialityDesc(facilityType.getProviderspcialityDesc());
-		stubFacilityType.setProviderspecialityCode(facilityType.getProviderspecialityCode());
+		stubFacilityType.setProviderspcialityDesc(facilityType.getProviderSpcialityDesc());
+		stubFacilityType.setProviderspecialityCode(facilityType.getProviderSpecialityCode());
 		stubFacilityType.setProviderType(facilityType.getProviderType());
 		return stubFacilityType;
 	}
@@ -115,7 +115,7 @@ public class PCPSearchRequestTransformer {
 	private Facilitystatus transformFacilityregion(com.deltadental.pcp.search.domain.Facilitystatus facilitystatus) {
 		Facilitystatus stubFacilitystatus = new Facilitystatus();
 		stubFacilitystatus.setEnrollStatus(facilitystatus.getEnrollStatus());
-		stubFacilitystatus.setFacilitystatusType(facilitystatus.getFacilitystatusType());
+		stubFacilitystatus.setFacilitystatusType(facilitystatus.getFacilityStatusType());
 		stubFacilitystatus.setFacilityType(facilitystatus.getFacilityType());
 		stubFacilitystatus.setStatus(facilitystatus.getStatus());
 		return stubFacilitystatus;
@@ -136,7 +136,7 @@ public class PCPSearchRequestTransformer {
 		pcpRequests.forEach(pcpRequest -> {
 			PcpRequest stubPcpRequest = new PcpRequest();
 			stubPcpRequest.setAutoAssignmentFlag(pcpRequest.isAutoAssignmentFlag());
-			stubPcpRequest.setContractID(pcpRequest.getContractID());
+			stubPcpRequest.setContractID(pcpRequest.getContractId());
 			stubPcpRequest.setPcpRefineSearch(getPcpRefineSearch(pcpRequest.getPcpRefineSearch()));
 			stubPcpRequest.setPrimaryEnrolleePCPInfo(getPrimaryEnrolleePCPInfo(pcpRequest.getPrimaryEnrolleePCPInfo()));
 			stubPcpRequests.add(stubPcpRequest);
@@ -203,7 +203,7 @@ public class PCPSearchRequestTransformer {
 		stubPcpblEnrollee.setMemberLanguage(pcpblEnrollee.getMemberLanguage());
 		stubPcpblEnrollee.setMemberType(pcpblEnrollee.getMemberType());
 		stubPcpblEnrollee.setMemberAddress(getAddress(pcpblEnrollee.getMemberAddress()));		
-		stubPcpblEnrollee.setMtvPersonID(pcpblEnrollee.getMtvPersonID());
+		stubPcpblEnrollee.setMtvPersonID(pcpblEnrollee.getMtvPersonId());
 		stubPcpblEnrollee.setPcpEffectiveDate(pcpblEnrollee.getPcpEffectiveDate());
 		stubPcpblEnrollee.setPcpEndDate(pcpblEnrollee.getPcpEndDate());
 		stubPcpblEnrollee.setPcpIdentifier(pcpblEnrollee.getPcpIdentifier());

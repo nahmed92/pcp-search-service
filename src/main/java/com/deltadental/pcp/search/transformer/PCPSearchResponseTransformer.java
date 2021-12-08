@@ -69,7 +69,7 @@ public class PCPSearchResponseTransformer {
 				.enrollStatus(wsFacility.getEffectiveDate())
 				.facilityID(wsFacility.getFacilityID())
 				.facilityName(wsFacility.getFacilityName())
-				.facilitystatus(wsFacility.getFacilitystatus())
+				.facilityStatus(wsFacility.getFacilitystatus())
 				.phoneNumber(wsFacility.getPhoneNumber())
 				.specility(wsFacility.getSpecility())
 				.state(wsFacility.getState())
@@ -90,7 +90,7 @@ public class PCPSearchResponseTransformer {
 				.returnDescription(wsStatePcpAssignmentResponse.getReturnDescription())
 				.state(wsStatePcpAssignmentResponse.getState())
 				.isStateEligibleforPcp(wsStatePcpAssignmentResponse.isStateEligibleforPcp())
-				.unlimitedSplitFamily_INDV_Flag(wsStatePcpAssignmentResponse.isUnlimitedSplitFamilyINDVFlag())
+				.unlimitedSplitFamilyINDVFlag(wsStatePcpAssignmentResponse.isUnlimitedSplitFamilyINDVFlag())
 				.unlimitedSplitFamilyFlag(wsStatePcpAssignmentResponse.isUnlimitedSplitFamilyFlag()).build();
 		log.info("END PCPSearchResponseTransformer.transformGetStatePCPAssignmentResponse");
 		return statePcpAssignmentResponse;
@@ -109,8 +109,8 @@ public class PCPSearchResponseTransformer {
 	private EnrolleeBLRespose transformEnrolleeBLRespose(com.deltadental.platform.pcp.stub.EnrolleeBLRespose enrolleeBLRespose) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeBLRespose");
 		EnrolleeBLRespose domainEnrollee = EnrolleeBLRespose.builder()
-				.BusinessLevelCount(enrolleeBLRespose.getBusinessLevelCount())
-				.benPkgList(transformWSBenefitPackages(enrolleeBLRespose.getBenPkgList()))
+				.businessLevelCount(enrolleeBLRespose.getBusinessLevelCount())
+				.benefitPackages(transformWSBenefitPackages(enrolleeBLRespose.getBenPkgList()))
 				.businessLevels(enrolleeBLRespose.getBusinessLevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
 				.divisionNumber(enrolleeBLRespose.getDivisionNumber())
 				.errorMessage(enrolleeBLRespose.getErrorMessage())
@@ -155,7 +155,7 @@ public class PCPSearchResponseTransformer {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeBLRespose");
 		EnrolleeBLRespose enrolleeBLRespose = EnrolleeBLRespose.builder()
 //			.BenPkgList(getWSBenefitPackages(wsEnrolleeBPBLResponse.getBusinessLevels()));
-				.BusinessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
+				.businessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
 				.businessLevels(wsEnrolleeBPBLResponse.getBusinessLevels().stream().map(this::transformWSBPBusinessLevelsForBusinessLevels).collect(Collectors.toList()))
 				.divisionNumber(wsEnrolleeBPBLResponse.getDivisionNumber())
 				.errorMessage(wsEnrolleeBPBLResponse.getErrorMessage())
@@ -170,7 +170,7 @@ public class PCPSearchResponseTransformer {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeBPBLResponse");
 		EnrolleeBPBLResponse enrolleeBLRespose = EnrolleeBPBLResponse.builder()
 //			.BenPkgList(getWSBenefitPackages(wsEnrolleeBPBLResponse.getBusinessLevels()));
-				.BusinessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
+				.businessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
 				.businessLevels(wsEnrolleeBPBLResponse.getBusinessLevels().stream().map(this::transformBPBusinessLevelsForBPBusinessLevels).collect(Collectors.toList()))
 				.divisionNumber(wsEnrolleeBPBLResponse.getDivisionNumber())
 				.errorMessage(wsEnrolleeBPBLResponse.getErrorMessage())
@@ -197,7 +197,7 @@ public class PCPSearchResponseTransformer {
 
 	private PCPResponse transformPCPResponse(PcpResponse clientPcpRespnse) {
 		log.info("START PCPSearchResponseTransformer.transformPCPResponse");
-		PCPResponse pcpResponse = PCPResponse.builder().contractID(clientPcpRespnse.getContractID())
+		PCPResponse pcpResponse = PCPResponse.builder().contractId(clientPcpRespnse.getContractID())
 				.enrollees(clientPcpRespnse.getEnrollees().stream().map(this::transformEnrolleeDetail).collect(Collectors.toList()))
 				.build();
 		log.info("END PCPSearchResponseTransformer.transformPCPResponse");
@@ -207,14 +207,14 @@ public class PCPSearchResponseTransformer {
 	private EnrolleeDetail transformEnrolleeDetail(com.deltadental.platform.pcp.stub.EnrolleeDetail clientEnrolleeDetail) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeDetail");
 		EnrolleeDetail enrolleeDetail = EnrolleeDetail.builder()
-				.benefitpackages(transformWSBenefitPackages(clientEnrolleeDetail.getBenefitpackages()))
-				.businesslevels(clientEnrolleeDetail.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
+				.benefitPackages(transformWSBenefitPackages(clientEnrolleeDetail.getBenefitpackages()))
+				.businessLevels(clientEnrolleeDetail.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
 				.divisionNumber(clientEnrolleeDetail.getDivisionNumber())
 				.enrolleeStatusCode(clientEnrolleeDetail.getEnrolleeStatusCode())
 				.errorMessages(clientEnrolleeDetail.getErrorMessages())
 				.groupNumber(clientEnrolleeDetail.getGroupNumber()).memberType(clientEnrolleeDetail.getMemberType())
 				.numberOfFacilities(clientEnrolleeDetail.getNumberOfFacilities())
-				.pcpproviders(clientEnrolleeDetail.getPcpproviders().stream().map(this::transformPcpProvider).collect(Collectors.toList()))
+				.pcpProviders(clientEnrolleeDetail.getPcpproviders().stream().map(this::transformPcpProvider).collect(Collectors.toList()))
 				.pcpValidationFlag(clientEnrolleeDetail.isPcpValidationFlag())
 				.recordIdentifier(clientEnrolleeDetail.getRecordIdentifier())
 				.build();
@@ -225,7 +225,7 @@ public class PCPSearchResponseTransformer {
 	private PcpProvider transformPcpProvider(com.deltadental.platform.pcp.stub.PcpProvider clientPcpProvider) {
 		log.info("START PCPSearchResponseTransformer.transformPcpProvider");
 		PcpProvider pcpprovider = PcpProvider.builder()
-				.businesslevels(clientPcpProvider.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
+				.businessLevels(clientPcpProvider.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
 				.distance(clientPcpProvider.getDistance()).facilityLatitude(clientPcpProvider.getFacilityLatitude())
 				.facilityLongitude(clientPcpProvider.getFacilityLongitude())
 				.groupPracticeNumber(clientPcpProvider.getGroupPracticeNumber())
@@ -303,7 +303,7 @@ public class PCPSearchResponseTransformer {
 	private BPBusinessLevels transformBPBusinessLevelsForBPBusinessLevels(BpBusinessLevels wsBpBl) {
 		log.info("START PCPSearchResponseTransformer.transformBPBusinessLevelsForBPBusinessLevels");
 		BPBusinessLevels domainBpBl = BPBusinessLevels.builder()
-				.benPkg(transformBenefitPackage(wsBpBl.getBenPkg()))
+				.benefitPackage(transformBenefitPackage(wsBpBl.getBenPkg()))
 				.businessLevel4(wsBpBl.getBusinessLevel4())
 				.businessLevel5(wsBpBl.getBusinessLevel5())
 				.businessLevel6(wsBpBl.getBusinessLevel6())
