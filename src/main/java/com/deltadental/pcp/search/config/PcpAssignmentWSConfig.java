@@ -24,7 +24,7 @@ public class PcpAssignmentWSConfig {
 	private static final String WS_STUB_PACKAGE = "com.deltadental.platform.pcp.stub";
 
 	@Autowired
-	ApplicationConfig authenticationConfig;
+	ApplicationConfig applicationConfig;
 
 	public PcpAssignmentWSConfig() {
 
@@ -40,7 +40,7 @@ public class PcpAssignmentWSConfig {
 	@Bean(name = "pcpAssignmentSoapClient")
     public PCPAssignmentSoapClient pcpAssignmentSoapClient(Jaxb2Marshaller marshaller) {
 		PCPAssignmentSoapClientImpl pcpAssignmentSoapClient = new PCPAssignmentSoapClientImpl();
-		pcpAssignmentSoapClient.setDefaultUri(authenticationConfig.getPcpWSSoapUri());
+		pcpAssignmentSoapClient.setDefaultUri(applicationConfig.getPcpWSSoapUri());
 		pcpAssignmentSoapClient.setMarshaller(marshaller);
 		pcpAssignmentSoapClient.setUnmarshaller(marshaller);
         return pcpAssignmentSoapClient;
