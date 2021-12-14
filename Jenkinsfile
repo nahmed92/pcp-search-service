@@ -1,13 +1,13 @@
 pipeline {
 	agent { label 'cx-agent' }
-	options { 
+	options {
     	disableConcurrentBuilds()
 		timeout(time: 24, unit: 'HOURS')
 		buildDiscarder(logRotator(numToKeepStr: '10'))
   		}
     stages {
 		stage('Load Poperties') {
-			steps{ script{ globalTemplate.loadVariables() } 
+			steps{ script{ globalTemplate.loadVariables() }
 			     }
 			}
 		stage('Build') {
@@ -19,8 +19,8 @@ pipeline {
 		    parallel {
 				stage('Code Coverage')
 				{
-         			steps 
-           			{			
+         			steps
+           			{
              			sh '''#RUN CODE COVERAGE ANALYSIS
  						${SCANNER_HOME}/bin/sonar-scanner'''
 					}
@@ -55,7 +55,7 @@ pipeline {
 				}
 				stage(' Jacoco Report') {
 					steps {
-						jacoco( 
+						jacoco(
       						execPattern: 'target/*.exec',classPattern: 'target/classes',sourcePattern: 'src/main/java',exclusionPattern: 'src/test*')
 						}
 					}
@@ -79,29 +79,27 @@ pipeline {
 			}
 		}
 		stage('Deploy - DEV') {
-      environment {
-        RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
-        DEPLOYMENT_ENVIRONMENT = 'DEV'
-        DOCKER_SERVER = "${PLATFORM_DEV_SERVERS}"
-        JOB_ID="${RUNDECK_CX_DEPLOYEMNTS}"
-        OPTIONS="""buildversion=${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}
+			environment{
+				RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
+				DEPLOYMENT_ENVIRONMENT = 'DEV'
+				DOCKER_SERVER = 'aw-lx1045'
+				JOB_ID="${RUNDECK_CX_DEPLOYEMNTS}"
+				OPTIONS="""buildversion=${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}
             			Application=${SERVICE}
             			DEPLOYMENT_ENV=${DEPLOYMENT_ENVIRONMENT}
 						DOCKER_SERVER=${DOCKER_SERVER}
             			DOCKER_VARIABLES_ORG=${DOCKER_VARIABLES_DEV_ORG}
             			DOCKER_VARIABLES_REPO=${DOCKER_VARIABLES_DEV_REPO}"""
-      }
-      steps {
-        script {
-          //Tag Properties
-          gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","Development/dd_cx_docker-dev")
-          gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}", "Development-private/dd_cx_docker-dev")
-        }
-        script { 
-          rundeckLibrary.deployJob() 
-        }
-      }
-    }
+			}
+			steps {
+				script {
+
+					 gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","Development/dd_cx_docker-dev")
+					 gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","development-private/dd_cx_docker-dev")
+				     rundeckLibrary.deployJob()
+                    }
+			}
+		}
 		stage('Test Automation- Dev')
 		{
 			environment{
@@ -116,30 +114,28 @@ pipeline {
 			}
 		}
 		stage('Deploy - DIT') {
-      environment{
-        RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
-        DEPLOYMENT_ENVIRONMENT = 'DIT'
-        DOCKER_SERVER = "aw-lx0377"
-        JOB_ID="${RUNDECK_CX_DEPLOYEMNTS}"
-        OPTIONS="""buildversion=${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}
+			environment{
+				RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
+				DEPLOYMENT_ENVIRONMENT = 'DIT'
+				DOCKER_SERVER = "${CX_MS_DIT_SERVERS}"
+				JOB_ID="${RUNDECK_CX_DEPLOYEMNTS}"
+				OPTIONS="""buildversion=${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}
 						Application=${SERVICE}
 						DEPLOYMENT_ENV=${DEPLOYMENT_ENVIRONMENT}
-					    DOCKER_SERVER=${DOCKER_SERVER}
+					DOCKER_SERVER=${DOCKER_SERVER}
 						DOCKER_VARIABLES_ORG=${DOCKER_VARIABLES_DIT_ORG}
 						DOCKER_VARIABLES_REPO=${DOCKER_VARIABLES_DIT_REPO}"""
-      }
-      steps {
-        timeout(time: 30, unit: 'MINUTES') {
-          input 'Code is being deployed to DIT, click PROCEED or ABORT?' 
-        }		
-        script {
-          //Tag Properties
-          gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","DIT/dd_cx_docker")
-          gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}", "DIT-private/dd_cx_docker")
-          rundeckLibrary.deployJob()
-        }
-      }
-    }
+			}
+			steps {
+         		timeout(time: 30, unit: 'MINUTES') {
+            	input 'Code is being deployed to DIT, click PROCEED or ABORT ?' }
+				script {
+				gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","DIT/dd_cx_docker")
+				gitTagging("${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}","DIT-private/dd_cx_docker")
+				rundeckLibrary.deployJob()
+				}
+			}
+		}
 		stage('Test Automation- DIT')
 		{
 			environment{
@@ -169,12 +165,13 @@ pipeline {
                                 string(defaultValue: '',
                                 description: 'Release Notes :Features / Bug Fixes / Comments',
                                 name: 'DESCRIPTION')
-                            ],) 
+                            ],)
 							}
 						}
 						script {
 							def parameterMap=new HashMap();
 							def tag=DOCKER_REGISTRY+"/"+JOB_NAME+":"+SERVICE+"_"+BRANCH_NAME+"_"+BUILD_NUMBER
+
 							parameterMap.put("PROJECT","CM");
 							parameterMap.put("TAG",tag);
 							parameterMap.put("APP",APP);
@@ -206,7 +203,7 @@ pipeline {
 			}
 	    }
 		stage('Build promotion') {
-			
+
 			when {
 				anyOf {
 				branch 'develop'
@@ -219,25 +216,21 @@ pipeline {
 			steps {
 				build(job: 'Promote_Build', parameters: [string(name: 'RELEASE', value: "$release"), string(name: 'docker_app', value: "$SERVICE"), string(name: 'docker_tag', value: "${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}"), string(name: 'SERVICE_TYPE', value: "${SERVICE_TYPE}")])
 			}
-			
+
 		}
 
 
-		
-	    
+
+
     		stage('Deploy -PIT')
 		{
 			environment {
-			DEPLOYMENT_ENVIRONMENT = 'PIT'
-			RELEASE = "${release}"
-			SERVICE = "${SERVICE}"
-			RUNDECK_INSTANCE="prod-rundeck"
-			DOCKER_TAG = "${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}"
-			JOB_ID="e5c9ec6d-b2dd-43fd-99c2-95a2141f833d"
-			OPTIONS="""buildversion=${RELEASE}
-						Application=${SERVICE}
-						"""
-		}
+				DEPLOYMENT_ENVIRONMENT = 'PIT'
+				RELEASE = "${release}"
+				SERVICE = "${SERVICE}"
+				DOCKER_TAG = "${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}"
+				RUNDECK_INSTANCE="prod-rundeck"
+			}
 			steps {
 		   		checkpoint 'Deploy - PIT';
 				script {
@@ -256,7 +249,7 @@ pipeline {
 					parameterMap.put("INWARD_ISSUE_ID",cmrecord_pit);
 					cmdb.jiraIssue("link Issues",parameterMap);
 				}
-				timeout(time: 240, unit: 'MINUTES') {
+				timeout(time: 1020, unit: 'MINUTES') {
 					retry(510)
 						{
 						script{
@@ -267,8 +260,8 @@ pipeline {
 						}
 				}
 				script {
-				rundeckLibrary.deployJob();
-          }
+					rundeckLibrary.deployBlueGreen("$PIT_SECONDARY_BATCH_JOB","$PIT_PRIMARY_BATCH_JOB","$PIT_PRIMARY_SECONDARY_UP_BATCH_JOB")
+				}
 			}
 			post{
 				always {
@@ -286,7 +279,7 @@ pipeline {
 				}
 			}
 		}
-		
+
 		stage('Test Automation- PIT')
 		{
 			environment{
@@ -308,7 +301,7 @@ pipeline {
 							cmdb.jiraIssue("comment",parameterMap)
 							parameterMap.put("ISSUE_ID",cmrecord_pit);
 							cmdb.jiraIssue("Transition Issues",parameterMap)
-							
+
 					}
 				}
 			}
@@ -316,16 +309,12 @@ pipeline {
 		stage('Deploy - MOT')
 		{
 			environment {
-		DEPLOYMENT_ENVIRONMENT = 'MOT'
-		RELEASE = "${release}"
-        SERVICE = "${SERVICE}"
-		RUNDECK_INSTANCE="prod-rundeck"
-		DOCKER_TAG = "${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}"
-		JOB_ID="1175913f-a775-4fab-b02d-65d3be97bc32"
-		OPTIONS="""buildversion=${RELEASE}
-						Application=${SERVICE}
-						"""
-      }
+				DEPLOYMENT_ENVIRONMENT = 'MOT'
+				RELEASE = "${release}"
+				SERVICE = "${SERVICE}"
+				DOCKER_TAG = "${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}"
+				RUNDECK_INSTANCE="prod-rundeck"
+			}
 			steps {
 		   		checkpoint 'Deploy - MOT';
 				script {
@@ -355,8 +344,8 @@ pipeline {
 					}
 				}
 				script {
-		  rundeckLibrary.deployJob();
-          }
+				    rundeckLibrary.deployBlueGreen("$MOT_SECONDARY_BATCH_JOB","$MOT_PRIMARY_BATCH_JOB","$MOT_PRIMARY_SECONDARY_UP_BATCH_JOB")
+				}
 			}
 			post{
 				always {
@@ -374,7 +363,7 @@ pipeline {
 				}
 			}
 		}
-		
+
 		stage('Test Automation- MOT')
 		{
 			environment{
@@ -390,29 +379,29 @@ pipeline {
             post{
 				always {
 					script {
-							
+
 							def parameterMap=new HashMap();
 							parameterMap.put("comment","Deployment ${currentBuild.result} in "+DEPLOYMENT_ENVIRONMENT+"\n"+"${BUILD_URL}/console");
 							parameterMap.put("CM Request",cmrecord_mot);
 							cmdb.jiraIssue("comment",parameterMap)
 							parameterMap.put("ISSUE_ID",cmrecord_mot);
 							cmdb.jiraIssue("Transition Issues",parameterMap)
-							
+
 					}
 				}
 			}
 		}
-        
+
 		stage('Create CM Record-PROD') {
 			environment{
 				RELEASE="${release}"
 				DEPLOYMENT_ENVIRONMENT="PROD"
-				
+
 			}
 			steps {
 				checkpoint 'Create CM Record-PROD';
 				script {
-					CMIMPLEMENTOR=input(message: "Do you want to promote build to Higher Enviornment , click PROCEED or ABORT ?", submitterParameter: 'approver') 
+					CMIMPLEMENTOR=input(message: "Do you want to promote build to Higher Enviornment , click PROCEED or ABORT ?", submitterParameter: 'approver')
             		def parameterMap=new HashMap();
 					parameterMap.put("PROJECT","CM");
            	 		parameterMap.put("APP","${APP}");
@@ -437,7 +426,7 @@ pipeline {
 			environment{
 				RELEASE="${release}"
 				DEPLOYMENT_ENVIRONMENT="PROD"
-			} 
+			}
 			steps {
 			    checkpoint "PROD Readiness"
 			    timeout(time: 30, unit: 'MINUTES') {
@@ -457,12 +446,12 @@ pipeline {
 			environment{
 				RELEASE="${release}"
 				DEPLOYMENT_ENVIRONMENT="PROD"
-			} 
+			}
 			steps {
 				checkpoint 'PROD Primary';
 				timeout(time: 120, unit: 'MINUTES') {
-					script { 
-					notificationUtility.emailNotification("Waiting","${SEND_MAIL}"); 
+					script {
+					notificationUtility.emailNotification("Waiting","${SEND_MAIL}");
 					notificationUtility.teamsNotification("Waiting")
 					}
 					input(message: "Do you want to Deploy ${RELEASE} to PROD Primary, click PROCEED or ABORT ?", submitter: 'DDC_BuildAndRelease_Jenkins_release_Users')
@@ -478,12 +467,12 @@ pipeline {
 			environment{
 			RELEASE="${release}"
 			DEPLOYMENT_ENVIRONMENT="PROD"
-			} 
+			}
 			steps {
 				checkpoint 'PROD Primary';
 				timeout(time: 240, unit: 'MINUTES') {
-					script { 
-					notificationUtility.emailNotification("Waiting","${SEND_MAIL}"); 
+					script {
+					notificationUtility.emailNotification("Waiting","${SEND_MAIL}");
 					notificationUtility.teamsNotification("Waiting")
 					}
 				input(message: "Do you want to Deploy ${RELEASE} to PROD Secondary, click PROCEED or ABORT ?", submitter: 'DDC_BuildAndRelease_Jenkins_release_Users')
@@ -501,11 +490,11 @@ pipeline {
 			environment{
 				RELEASE="${release}"
 				DEPLOYMENT_ENVIRONMENT="PROD"
-			} 
+			}
 			steps {
 				checkpoint 'PROD F5 Enable';
 				timeout(time: 120, unit: 'MINUTES') {
-					script { notificationUtility.emailNotification("Waiting","${SEND_MAIL}"); 
+					script { notificationUtility.emailNotification("Waiting","${SEND_MAIL}");
 					notificationUtility.teamsNotification("Waiting")
 					}
 					input(message: "Do you want to Deploy ${RELEASE} to PROD F5 Enable, click PROCEED or ABORT ?", submitter: 'DDC_BuildAndRelease_Jenkins_release_Users')
@@ -519,14 +508,14 @@ pipeline {
 			post{
 				always {
 					script {
-							
+
 							def parameterMap=new HashMap();
 							parameterMap.put("comment","Deployment ${currentBuild.result} in "+DEPLOYMENT_ENVIRONMENT+"\n"+"${BUILD_URL}/console");
 							parameterMap.put("CM Request",cmrecord);
 							cmdb.jiraIssue("comment",parameterMap)
 							parameterMap.put("ISSUE_ID",cmrecord);
 							cmdb.jiraIssue("Transition Issues",parameterMap)
-							
+
 					}
 				}
 			}
@@ -547,15 +536,15 @@ pipeline {
     environment {
 	SCANNER_HOME= tool 'SonarQubeScanner'
     //Application Area  and App as defined in Jira Change Management Project
-    
-	ApplicationArea="eBillpay"
-    APP="Microservices"
+
+	ApplicationArea=""
+    APP=""
     //team Dl and Release Management Team
-    SEND_MAIL = "ITSSReleaseTeam@delta.org,CX-Core-Tech@delta.org,DL-GroupConnect-DS@Delta.org"
-	
-    //Application type 
+    SEND_MAIL = "ITSSReleaseTeam@delta.org,CX-Core-Tech@delta.org"
+
+    //Application type
 		SERVICE_TYPE="JAVA"
-    //PO who will approve Prod CM Record in new Jira Workflow France Huttela 
+    //PO who will approve Prod CM Record in new Jira Workflow France Huttela
 	    PO="ca32098"
     //Github Repository which contains automation test suites
    //TEST_REPO="https://rc-github.deltads.ent/DEVPROJECTS/jasmine-apitest-automation"
@@ -567,5 +556,5 @@ pipeline {
         cmrecord_mot="--"
         cmrecord_pit="--"
 	release="--"
-    }	
+    }
 }
