@@ -1,1771 +1,2303 @@
 {
-	"pcpResponses": [
-		{
-			"enrollees": [
-				{
-					"divisionNumber": "00006",
-					"groupNumber": "75079",
-					"memberType": "01",
-					"pcpValidationFlag": false,
-					"pcpproviders": [
-						{
-							"distance": "1.67",
-							"facilityLatitude": "29.4440193",
-							"facilityLongitude": "-98.6629868",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:30 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "386",
-							"practiceLocationNumber": "375374680020",
-							"practiceLocationPhone": "2103055895",
-							"providerAddress": {
-								"addressLine1": "8803 State Highway 151 Ste 106",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782514613"
-							},
-							"providerFacilityId": "DC052910",
-							"providerFacilityName": "Brident Dental and Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "1.69",
-							"facilityLatitude": "29.4701519",
-							"facilityLongitude": "-98.6490784",
-							"groupPracticeNumber": "GRP103954675",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 9:00 AM - 6:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "304",
-							"practiceLocationNumber": "103954675001",
-							"practiceLocationPhone": "2108009691",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "8373 Culebra Rd Ste 102A",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782511663"
-							},
-							"providerFacilityId": "DC047152",
-							"providerFacilityName": "San Antonio Dental Center PA",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "1.79",
-							"facilityLatitude": "29.4906816",
-							"facilityLongitude": "-98.681075",
-							"groupPracticeNumber": "GRP240607599",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 4:30 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 4:30 PM",
-									"Thurs: 10:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 4:30 PM",
-									"Sat: 9:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "315",
-							"practiceLocationNumber": "240607599065",
-							"practiceLocationPhone": "2103196725",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "9793 Culebra Rd Ste 109",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782513750"
-							},
-							"providerFacilityId": "DC062172",
-							"providerFacilityName": "Jefferson Dental Care",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "1.97",
-							"facilityLatitude": "29.4370442",
-							"facilityLongitude": "-98.6820088",
-							"groupPracticeNumber": "GRP240607599",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 4:30 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 4:30 PM",
-									"Thurs: 10:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 5:30 PM",
-									"Sat: 9:00 AM - 4:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "567",
-							"practiceLocationNumber": "240607599062",
-							"practiceLocationPhone": "2102984000",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "9820 Potranco Rd Ste 106",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782519627"
-							},
-							"providerFacilityId": "DC060108",
-							"providerFacilityName": "Jefferson Dental Care",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.04",
-							"facilityLatitude": "29.4624519",
-							"facilityLongitude": "-98.6428375",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 7:30 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 7:30 AM - 3:00 PM",
-									"Sat: 9:00 AM - 12:00 AM"
-								]
-							},
-							"patientCount": "544",
-							"practiceLocationNumber": "240293581003",
-							"practiceLocationPhone": "2106473151",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "7860 Culebra Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782511440"
-							},
-							"providerFacilityId": "DC036454",
-							"providerFacilityName": "Monarch Dental-Culebra",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.38",
-							"facilityLatitude": "29.4921112",
-							"facilityLongitude": "-98.7010651",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "256",
-							"practiceLocationNumber": "375374680011",
-							"practiceLocationPhone": "2102480649",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "10630 Culebra Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782511320"
-							},
-							"providerFacilityId": "DC057829",
-							"providerFacilityName": "Brident Dental & Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.49",
-							"facilityLatitude": "29.4356122",
-							"facilityLongitude": "-98.7003607",
-							"groupPracticeNumber": "GRP619624252",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 10:00 AM - 7:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 7:00 AM - 3:00 PM",
-									"Sat: 8:00 AM - 1:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "460",
-							"practiceLocationNumber": "619624252001",
-							"practiceLocationPhone": "2104694235",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "10538 Potranco Rd Ste 206",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782513359"
-							},
-							"providerFacilityId": "DC064525",
-							"providerFacilityName": "Potranco Dentistry",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.71",
-							"facilityLatitude": "29.4935284",
-							"facilityLongitude": "-98.7075119",
-							"groupPracticeNumber": "GRP240623303",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 10:00 AM - 7:00 PM",
-									"Tue: 10:00 AM - 6:00 PM",
-									"Wed: 10:00 AM - 6:00 PM",
-									"Thurs: 10:00 AM - 6:00 PM",
-									"Fri: 10:00 AM - 4:00 PM",
-									"Sat: 10:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "441",
-							"practiceLocationNumber": "240623303045",
-							"practiceLocationPhone": "5122914500",
-							"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "5619 W Loop 1604 N Ste 112",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782535795"
-							},
-							"providerFacilityId": "DC056256",
-							"providerFacilityName": "Stillwater Dental Care",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.85",
-							"facilityLatitude": "29.4989357",
-							"facilityLongitude": "-98.7036133",
-							"groupPracticeNumber": "GRP225852709",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"patientCount": "442",
-							"practiceLocationNumber": "225852709015",
-							"practiceLocationPhone": "2105410155",
-							"providerAddress": {
-								"addressLine1": "6603 W Loop 1604 N Ste 101",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782545490"
-							},
-							"providerFacilityId": "DC049637",
-							"providerFacilityName": "Aspen Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.89",
-							"facilityLatitude": "29.4357052",
-							"facilityLongitude": "-98.7106018",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 9:00 AM - 6:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 6:00 PM",
-									"Sat: 9:00 AM - 12:00 AM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "948",
-							"practiceLocationNumber": "240293581018",
-							"practiceLocationPhone": "2106477447",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "430 W Loop 1604 N Ste 109",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782513343"
-							},
-							"providerFacilityId": "DC036984",
-							"providerFacilityName": "Monarch Dental-Potranco Vllge",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "2.98",
-							"facilityLatitude": "29.4958789",
-							"facilityLongitude": "-98.7111407",
-							"groupPracticeNumber": "GRP566195233",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 7:30 AM - 6:00 PM",
-									"Tue: 7:30 AM - 6:00 PM",
-									"Wed: 7:00 AM - 6:00 PM",
-									"Thurs: 7:30 AM - 6:00 PM",
-									"Fri: 7:00 AM - 3:00 PM",
-									"Sat: 8:00 AM - 1:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "1932",
-							"practiceLocationNumber": "566195233001",
-							"practiceLocationPhone": "2106889386",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "11010 W FM 471 Ste 104",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782534991"
-							},
-							"providerFacilityId": "DC042680",
-							"providerFacilityName": "Culebra Smiles & Ortho",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "3.76",
-							"facilityLatitude": "29.4158878",
-							"facilityLongitude": "-98.6499634",
-							"groupPracticeNumber": "GRP759493011",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 4:30 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 4:30 PM",
-									"Thurs: 10:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 4:30 PM",
-									"Sat: 9:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "183",
-							"practiceLocationNumber": "759493011001",
-							"practiceLocationPhone": "2106758000",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "1539 SW Loop 410",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782271659"
-							},
-							"providerFacilityId": "DC062890",
-							"providerFacilityName": "The Smile Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "3.98",
-							"facilityLatitude": "29.4966443",
-							"facilityLongitude": "-98.6213502",
-							"groupPracticeNumber": "GRP688705587",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 7:00 PM",
-									"Tue: 8:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 7:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "354",
-							"practiceLocationNumber": "688705587001",
-							"practiceLocationPhone": "2106860737",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "6810 Bandera Rd Ste 2",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782381468"
-							},
-							"providerFacilityId": "DC046942",
-							"providerFacilityName": "Celebrate Dental And Braces",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "4.14",
-							"facilityLatitude": "29.4770718",
-							"facilityLongitude": "-98.6091461",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM"
-								]
-							},
-							"patientCount": "535",
-							"practiceLocationNumber": "240293581019",
-							"practiceLocationPhone": "2105214600",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "5841 NW Loop 410 Ste 110",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782382526"
-							},
-							"providerFacilityId": "DC036383",
-							"providerFacilityName": "Monarch Dental-Ingram Hgts",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "4.43",
-							"facilityLatitude": "29.4841957",
-							"facilityLongitude": "-98.6063766",
-							"groupPracticeNumber": "GRP240294480",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "255",
-							"practiceLocationNumber": "240294480001",
-							"practiceLocationPhone": "2106801618",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "6100 Bandera Rd Ste 300",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782381667"
-							},
-							"providerFacilityId": "DC034669",
-							"providerFacilityName": "Lawrence Dimicili DDS",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "4.49",
-							"facilityLatitude": "29.5211048",
-							"facilityLongitude": "-98.6386566",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:30 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "397",
-							"practiceLocationNumber": "375374680009",
-							"practiceLocationPhone": "2102808240",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "8425 Bandera Rd #172",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78250"
-							},
-							"providerFacilityId": "DC050653",
-							"providerFacilityName": "Brident Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "4.61",
-							"facilityLatitude": "29.4295739",
-							"facilityLongitude": "-98.741297",
-							"groupPracticeNumber": "GRP963790958",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 5:30 PM",
-									"Tue: 9:00 AM - 5:30 PM",
-									"Wed: 9:00 AM - 5:30 PM",
-									"Thurs: 11:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 5:30 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "228",
-							"practiceLocationNumber": "963790958001",
-							"practiceLocationPhone": "2105045050",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "14249 Fm 1957 Ste 104",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782539234"
-							},
-							"providerFacilityId": "DC065177",
-							"providerFacilityName": "Riverwalk Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "5.2",
-							"facilityLatitude": "29.448246",
-							"facilityLongitude": "-98.5924377",
-							"groupPracticeNumber": "GRP240577849",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 2:00 PM",
-									"Tue: 9:00 AM - 4:00 PM",
-									"Wed: 9:00 AM - 4:00 PM",
-									"Thurs: 9:00 AM - 4:00 PM",
-									"Fri: Closed",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "225",
-							"practiceLocationNumber": "240577849001",
-							"practiceLocationPhone": "2104360402",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "4438 Culebra Rd Ste 3",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782285671"
-							},
-							"providerFacilityId": "DC007910",
-							"providerFacilityName": "Alfred Pena DDS",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "5.97",
-							"facilityLatitude": "29.5505276",
-							"facilityLongitude": "-98.6619644",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 9:00 AM - 6:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 6:00 PM",
-									"Sat: 9:00 AM - 12:00 AM"
-								]
-							},
-							"patientCount": "907",
-							"practiceLocationNumber": "240293581016",
-							"practiceLocationPhone": "2105438900",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "11398 Bandera Rd Ste 106",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782506841"
-							},
-							"providerFacilityId": "DC036384",
-							"providerFacilityName": "Monarch Dental-Bandera",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "6.19",
-							"facilityLatitude": "29.50467",
-							"facilityLongitude": "-98.5842906",
-							"groupPracticeNumber": "GRP225852709",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 11:00 AM - 8:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 6:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "360",
-							"practiceLocationNumber": "225852709026",
-							"practiceLocationPhone": "2108391899",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "2323 Babcock Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78229"
-							},
-							"providerFacilityId": "DC061514",
-							"providerFacilityName": "Aspen Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "6.24",
-							"facilityLatitude": "29.5546741",
-							"facilityLongitude": "-98.6641235",
-							"groupPracticeNumber": "GRP960443003",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 7:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 6:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM",
-									"Sat: 8:00 AM - 5:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "1215",
-							"practiceLocationNumber": "960443003001",
-							"practiceLocationPhone": "2106811121",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "9234 N Loop 1604 W Ste 121",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782492984"
-							},
-							"providerFacilityId": "DC042082",
-							"providerFacilityName": "Bandera Modern Dentistry",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "6.82",
-							"facilityLatitude": "29.5044727",
-							"facilityLongitude": "-98.5727768",
-							"groupPracticeNumber": "GRP240605537",
-							"languages": [
-								"English",
-								"Korean",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 5:00 PM",
-									"Tue: 9:00 AM - 5:00 PM",
-									"Wed: 9:00 AM - 5:00 PM",
-									"Thurs: 9:00 AM - 5:00 PM",
-									"Fri: 9:00 AM - 1:00 PM"
-								]
-							},
-							"patientCount": "365",
-							"practiceLocationNumber": "240605537001",
-							"practiceLocationPhone": "2106157224",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "7434 Louis Pasteur Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782294538"
-							},
-							"providerFacilityId": "DC645201",
-							"providerFacilityName": "Jacob Park DDS",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "6.97",
-							"facilityLatitude": "29.5098667",
-							"facilityLongitude": "-98.5729065",
-							"groupPracticeNumber": "GRP240294579",
-							"languages": [
-								"English",
-								"French",
-								"German",
-								"Romanian",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:30 AM - 3:00 PM",
-									"Tue: 8:30 AM - 3:00 PM",
-									"Wed: 8:30 AM - 3:00 PM",
-									"Thurs: 8:30 AM - 3:00 PM",
-									"Fri: 8:30 AM - 12:00 AM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "286",
-							"practiceLocationNumber": "240294579001",
-							"practiceLocationPhone": "2106920153",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "4455 Medical Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782293747"
-							},
-							"providerFacilityId": "DC696501",
-							"providerFacilityName": "Inst Of Esthetic Dentistry",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "7.22",
-							"facilityLatitude": "29.5164185",
-							"facilityLongitude": "-98.5720596",
-							"groupPracticeNumber": "GRP240594865",
-							"languages": [
-								"English",
-								"Russian",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 9:00 AM - 6:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 3:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "429",
-							"practiceLocationNumber": "240594865001",
-							"practiceLocationPhone": "2106963231",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "8237 Fredericksburg Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782293356"
-							},
-							"providerFacilityId": "DC043341",
-							"providerFacilityName": "Dental Wellness Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "7.31",
-							"facilityLatitude": "29.5128903",
-							"facilityLongitude": "-98.5682762",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"Arabic",
-								"English",
-								"Hindi",
-								"Spanish",
-								"Urdu"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:00 PM"
-								]
-							},
-							"patientCount": "1119",
-							"practiceLocationNumber": "375374680003",
-							"practiceLocationPhone": "2102480385",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "7970 Fredericksburg Rd Ste 105",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782293891"
-							},
-							"providerFacilityId": "DC043139",
-							"providerFacilityName": "Brident Dental And Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "7.44",
-							"facilityLatitude": "29.4561825",
-							"facilityLongitude": "-98.5534821",
-							"groupPracticeNumber": "GRP241175587",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM",
-									"Sat: 8:00 AM - 12:00 AM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "167",
-							"practiceLocationNumber": "241175587001",
-							"practiceLocationPhone": "2104353333",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "823 Bandera Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782285227"
-							},
-							"providerFacilityId": "DC059683",
-							"providerFacilityName": "CUTE SMILES 4 KIDS OF SAN ANTONIO LLC",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "7.89",
-							"facilityLatitude": "29.4887753",
-							"facilityLongitude": "-98.5483322",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 12:00 AM",
-									"Sat: 8:00 AM - 12:00 AM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "450",
-							"practiceLocationNumber": "240293581014",
-							"practiceLocationPhone": "2107349551",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "4400 Fredericksburg Rd Ste 103",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782011969"
-							},
-							"providerFacilityId": "DC037919",
-							"providerFacilityName": "Monarch Dental- Fredericks",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "8.18",
-							"facilityLatitude": "29.4179001",
-							"facilityLongitude": "-98.5520554",
-							"groupPracticeNumber": "GRP240294571",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 10:00 AM - 6:00 PM",
-									"Tue: 10:00 AM - 6:00 PM",
-									"Wed: 10:00 AM - 6:00 PM",
-									"Thurs: 10:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "144",
-							"practiceLocationNumber": "240294571001",
-							"practiceLocationPhone": "2104357653",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "803 Castroville Rd Ste 412",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782373148"
-							},
-							"providerFacilityId": "DC062932",
-							"providerFacilityName": "The Smile Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "8.32",
-							"facilityLatitude": "29.4469604",
-							"facilityLongitude": "-98.5399399",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 5:00 PM",
-									"Tue: 9:00 AM - 5:00 PM",
-									"Wed: 9:00 AM - 5:00 PM",
-									"Thurs: 9:00 AM - 5:00 PM",
-									"Fri: 9:00 AM - 5:00 PM",
-									"Sat: 9:00 AM - 1:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "311",
-							"practiceLocationNumber": "240293581015",
-							"practiceLocationPhone": "2107364639",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "2027 Culebra Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782015814"
-							},
-							"providerFacilityId": "DC036963",
-							"providerFacilityName": "Monarch Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "8.43",
-							"facilityLatitude": "29.5607071",
-							"facilityLongitude": "-98.5896988",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM"
-								]
-							},
-							"patientCount": "494",
-							"practiceLocationNumber": "240293581023",
-							"practiceLocationPhone": "2108369920",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "12710 West IH-10 #120",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78230"
-							},
-							"providerFacilityId": "DC040383",
-							"providerFacilityName": "Monarch Dental De Zavala",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "8.7",
-							"facilityLatitude": "29.5646292",
-							"facilityLongitude": "-98.5880277",
-							"groupPracticeNumber": "GRP439305133",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 7:00 AM - 5:00 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 7:00 AM - 5:00 PM",
-									"Thurs: 7:00 AM - 5:00 PM",
-									"Fri: 7:00 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "323",
-							"practiceLocationNumber": "439305133001",
-							"practiceLocationPhone": "2107400645",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "5215 De Zavala Rd Ste 103",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782492985"
-							},
-							"providerFacilityId": "DC064853",
-							"providerFacilityName": "De Zavala Modern Dentistry",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "9.16",
-							"facilityLatitude": "29.444685",
-							"facilityLongitude": "-98.52626",
-							"groupPracticeNumber": "GRP511634501",
-							"languages": [
-								"English",
-								"Persian",
-								"Spanish",
-								"Turkish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 9:00 AM - 5:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "170",
-							"practiceLocationNumber": "511634501001",
-							"practiceLocationPhone": "2018009691",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "1134 Culebra Rd Ste 109",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782016005"
-							},
-							"providerFacilityId": "DC059655",
-							"providerFacilityName": "San Antonio Dental Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "10.48",
-							"facilityLatitude": "29.5338509",
-							"facilityLongitude": "-98.5213663",
-							"groupPracticeNumber": "GRP240293860",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 11:00 AM - 5:00 PM",
-									"Tue: 9:00 AM - 5:00 PM",
-									"Wed: 9:00 AM - 5:00 PM",
-									"Thurs: 9:00 AM - 5:00 PM",
-									"Fri: 9:00 AM - 4:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "316",
-							"practiceLocationNumber": "240293860002",
-							"practiceLocationPhone": "2102310430",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "8008 West Ave Ste 1",
-								"city": "Castle Hills",
-								"state": "TX",
-								"zipCode": "782131872"
-							},
-							"providerFacilityId": "DC040733",
-							"providerFacilityName": "Dr Phils Family Dental Care",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "10.87",
-							"facilityLatitude": "29.5184002",
-							"facilityLongitude": "-98.5066681",
-							"groupPracticeNumber": "GRP484144401",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 4:30 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 4:30 PM",
-									"Thurs: 10:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 4:30 PM",
-									"Sat: 9:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "163",
-							"practiceLocationNumber": "484144401001",
-							"practiceLocationPhone": "2103400303",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "834 NW Loop 410 #112",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78216"
-							},
-							"providerFacilityId": "DC062934",
-							"providerFacilityName": "The Smile Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "10.93",
-							"facilityLatitude": "29.4278183",
-							"facilityLongitude": "-98.5001907",
-							"groupPracticeNumber": "GRP240294382",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 12:00 AM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "753",
-							"practiceLocationNumber": "240294382001",
-							"practiceLocationPhone": "2102271991",
-							"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "315 N San Saba Ste 925",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782073100"
-							},
-							"providerFacilityId": "DC007912",
-							"providerFacilityName": "Andrew De La Garza DDS",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "10.96",
-							"facilityLatitude": "29.3568206",
-							"facilityLongitude": "-98.5436855",
-							"groupPracticeNumber": "GRP225852709",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 6:00 PM",
-									"Tue: 11:00 AM - 8:00 PM",
-									"Wed: 9:00 AM - 6:00 PM",
-									"Thurs: 9:00 AM - 6:00 PM",
-									"Fri: 9:00 AM - 6:00 PM"
-								]
-							},
-							"patientCount": "266",
-							"practiceLocationNumber": "225852709024",
-							"practiceLocationPhone": "2105044031",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "2814 SW Military Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782241032"
-							},
-							"providerFacilityId": "DC059744",
-							"providerFacilityName": "Aspen Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "11.2",
-							"facilityLatitude": "29.6128922",
-							"facilityLongitude": "-98.6004486",
-							"groupPracticeNumber": "GRP240623303",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 10:00 AM - 7:00 PM",
-									"Tue: 10:00 AM - 6:00 PM",
-									"Wed: 10:00 AM - 6:00 PM",
-									"Thurs: 10:00 AM - 6:00 PM",
-									"Fri: 10:00 AM - 4:00 PM",
-									"Sat: 10:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "888",
-							"practiceLocationNumber": "240623303051",
-							"practiceLocationPhone": "2106913400",
-							"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "6028 Worth Pkwy Ste 101",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782575071"
-							},
-							"providerFacilityId": "DC056252",
-							"providerFacilityName": "The Rim Dental Care and Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "11.28",
-							"facilityLatitude": "29.5165291",
-							"facilityLongitude": "-98.4987488",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:30 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "161",
-							"practiceLocationNumber": "375374680026",
-							"practiceLocationPhone": "2104607869",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "7334 San Pedro Ave",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78216"
-							},
-							"providerFacilityId": "DC057793",
-							"providerFacilityName": "Brident Dental & Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "11.44",
-							"facilityLatitude": "29.5218697",
-							"facilityLongitude": "-98.4980011",
-							"groupPracticeNumber": "GRP225852709",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"patientCount": "545",
-							"practiceLocationNumber": "225852709012",
-							"practiceLocationPhone": "2106104650",
-							"providerAddress": {
-								"addressLine1": "327 NW Loop 410 Ste 101",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782165304"
-							},
-							"providerFacilityId": "DC048875",
-							"providerFacilityName": "Aspen Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "11.53",
-							"facilityLatitude": "29.3382675",
-							"facilityLongitude": "-98.5523498",
-							"groupPracticeNumber": "GRP386850441",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:30 PM",
-									"Tue: 8:00 AM - 5:30 PM",
-									"Wed: 8:00 AM - 5:30 PM",
-									"Thurs: 11:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 5:30 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "101",
-							"practiceLocationNumber": "386850441001",
-							"practiceLocationPhone": "2104461234",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "1431 Palo Alto Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78211"
-							},
-							"providerFacilityId": "DC065563",
-							"providerFacilityName": "Riverwalk Dental and Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.09",
-							"facilityLatitude": "29.5714474",
-							"facilityLongitude": "-98.517067",
-							"groupPracticeNumber": "GRP240596380",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 7:30 AM - 5:00 PM",
-									"Tue: 7:30 AM - 5:00 PM",
-									"Wed: 7:30 AM - 5:00 PM",
-									"Thurs: 7:30 AM - 5:00 PM",
-									"Fri: 7:30 AM - 12:00 AM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "378",
-							"practiceLocationNumber": "240596380001",
-							"practiceLocationPhone": "2104920631",
-							"providerAccessibleFacility": "Free Parking",
-							"providerAddress": {
-								"addressLine1": "13487 Blanco Rd",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782162132"
-							},
-							"providerFacilityId": "DC642801",
-							"providerFacilityName": "Eric Johnson DDS",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.21",
-							"facilityLatitude": "29.4230537",
-							"facilityLongitude": "-98.4796524",
-							"groupPracticeNumber": "GRP240586655",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 5:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "279",
-							"practiceLocationNumber": "240586655001",
-							"practiceLocationPhone": "2102128707",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "210 Chestnut",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782022720"
-							},
-							"providerFacilityId": "DC038175",
-							"providerFacilityName": "Cheryl E Davis DMD Pllc",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.47",
-							"facilityLatitude": "29.3566875",
-							"facilityLongitude": "-98.5111237",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English",
-								"Farsi",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 6:00 PM",
-									"Tue: 8:00 AM - 6:00 PM",
-									"Wed: 8:00 AM - 6:00 PM",
-									"Thurs: 8:00 AM - 6:00 PM",
-									"Fri: 8:00 AM - 5:00 PM",
-									"Sat: 8:30 AM - 1:00 PM"
-								]
-							},
-							"patientCount": "533",
-							"practiceLocationNumber": "240293581002",
-							"practiceLocationPhone": "2109287751",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "1202 SW Military Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782211535"
-							},
-							"providerFacilityId": "DC036991",
-							"providerFacilityName": "Monarch Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.47",
-							"facilityLatitude": "29.3563232",
-							"facilityLongitude": "-98.5115967",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 5:00 PM",
-									"Tue: 8:00 AM - 5:00 PM",
-									"Wed: 8:00 AM - 5:00 PM",
-									"Thurs: 8:00 AM - 5:00 PM",
-									"Fri: 8:00 AM - 12:00 AM",
-									"Sat: 8:00 AM - 12:00 AM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "833",
-							"practiceLocationNumber": "240293581001",
-							"practiceLocationPhone": "2109271000",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "1218 SW Military Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782211535"
-							},
-							"providerFacilityId": "DC036363",
-							"providerFacilityName": "Monarch Dental Associates Lp",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.78",
-							"facilityLatitude": "29.3681717",
-							"facilityLongitude": "-98.4958954",
-							"groupPracticeNumber": "GRP600072104",
-							"languages": [
-								"English",
-								"Hindi",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 5:00 PM",
-									"Tue: 9:00 AM - 5:00 PM",
-									"Wed: 9:00 AM - 5:00 PM",
-									"Thurs: 9:00 AM - 5:00 PM",
-									"Fri: 9:30 AM - 5:00 PM",
-									"Sat: Closed",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "137",
-							"practiceLocationNumber": "600072104001",
-							"practiceLocationPhone": "2109227792",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "5713 S Flores St",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782142101"
-							},
-							"providerFacilityId": "DC047661",
-							"providerFacilityName": "Dr Sheena Dsouza DMD",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "12.92",
-							"facilityLatitude": "29.3566971",
-							"facilityLongitude": "-98.5020218",
-							"groupPracticeNumber": "GRP240293735",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:00 AM - 4:30 PM",
-									"Tue: 10:00 AM - 7:00 PM",
-									"Wed: 8:00 AM - 4:30 PM",
-									"Thurs: 10:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 4:30 PM",
-									"Sat: 9:00 AM - 3:00 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "135",
-							"practiceLocationNumber": "240293735001",
-							"practiceLocationPhone": "2105477191",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "529 SW Military Dr",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782211636"
-							},
-							"providerFacilityId": "DC062929",
-							"providerFacilityName": "The Smile Center",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "13.51",
-							"facilityLatitude": "29.3562565",
-							"facilityLongitude": "-98.4903183",
-							"groupPracticeNumber": "GRP375374680",
-							"languages": [
-								"English",
-								"Korean"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 9:00 AM - 7:00 PM",
-									"Tue: 9:00 AM - 7:00 PM",
-									"Wed: 9:00 AM - 7:00 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 9:00 AM - 7:00 PM",
-									"Sat: 8:00 AM - 4:30 PM",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "249",
-							"practiceLocationNumber": "375374680019",
-							"practiceLocationPhone": "2104607795",
-							"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "6700 S Flores St Ste 101",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782211700"
-							},
-							"providerFacilityId": "DC053939",
-							"providerFacilityName": "Brident Dental and Orthodontics",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "13.81",
-							"facilityLatitude": "29.4249573",
-							"facilityLongitude": "-98.4519348",
-							"groupPracticeNumber": "GRP240580168",
-							"languages": [
-								"English",
-								"Spanish"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 10:00 AM - 3:00 PM",
-									"Tue: 10:00 AM - 3:00 PM",
-									"Wed: Closed",
-									"Thurs: 10:00 AM - 3:00 PM",
-									"Fri: 10:00 AM - 3:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "131",
-							"practiceLocationNumber": "240580168001",
-							"practiceLocationPhone": "2102270962",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
-							"providerAddress": {
-								"addressLine1": "2606 E Houston St",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782023227"
-							},
-							"providerFacilityId": "DC021086",
-							"providerFacilityName": "Eastside Christian Dental",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "13.84",
-							"facilityLatitude": "29.4873047",
-							"facilityLongitude": "-98.4480972",
-							"groupPracticeNumber": "GRP240293581",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 8:30 AM - 5:00 PM",
-									"Tue: 8:30 AM - 5:00 PM",
-									"Wed: 8:30 AM - 5:00 PM",
-									"Thurs: 8:30 AM - 5:00 PM",
-									"Fri: 8:30 AM - 5:00 PM"
-								]
-							},
-							"patientCount": "248",
-							"practiceLocationNumber": "240293581025",
-							"practiceLocationPhone": "2102023430",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "118 MT Calvary Dr #106",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "78209"
-							},
-							"providerFacilityId": "DC042977",
-							"providerFacilityName": "Monarch Dental Terrell Hills",
-							"providerType": "DENTAL"
-						},
-						{
-							"distance": "14.09",
-							"facilityLatitude": "29.4892982",
-							"facilityLongitude": "-98.4442352",
-							"groupPracticeNumber": "GRP225852709",
-							"languages": [
-								"English"
-							],
-							"maxMemberCount": "99999",
-							"mtvNetworkId": "2DELTACARE",
-							"officeHours": {
-								"officeHours": [
-									"Mon: 7:30 AM - 5:30 PM",
-									"Tue: 7:30 AM - 5:30 PM",
-									"Wed: 7:30 AM - 5:30 PM",
-									"Thurs: 9:00 AM - 7:00 PM",
-									"Fri: 8:00 AM - 1:00 PM",
-									"Sat: Call For Details",
-									"Sun: Closed"
-								]
-							},
-							"patientCount": "52",
-							"practiceLocationNumber": "225852709028",
-							"practiceLocationPhone": "7264443379",
-							"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
-							"providerAddress": {
-								"addressLine1": "1251 Austin Hwy Ste 104",
-								"city": "San Antonio",
-								"state": "TX",
-								"zipCode": "782094807"
-							},
-							"providerFacilityId": "DC065206",
-							"providerFacilityName": "Aspen Dental",
-							"providerType": "DENTAL"
-						}
-					]
-				}
-			]
-		}
-	],
-	"processStatusCode": "Success",
-	"sourceSystem": "EMA"
+	"pcpAssignmentResponse": {
+		"sourceSystem": "EMA",
+		"processStatusCode": "Success",
+		"pcpResponses": [
+			{
+				"contractId": "9743320316",
+				"enrollees": [
+					{
+						"memberType": "01",
+						"groupNumber": "72003       ",
+						"divisionNumber": "00001       ",
+						"businessLevels": [],
+						"benefitPackages": [],
+						"pcpProviders": [
+							{
+								"providerFacilityId": "DC059169",
+								"providerFacilityName": "Dental Arts Practice Dr Albina Batchaeva",
+								"practiceLocationNumber": "054004598001",
+								"groupPracticeNumber": "GRP054004598",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4157570604",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "445",
+								"facilityLatitude": "37.7896252",
+								"facilityLongitude": "-122.407821",
+								"providerAddress": {
+									"addressLine1": "450 SUTTER ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94108"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Call For Details",
+										"Tue: Call For Details",
+										"Wed: Call For Details",
+										"Thurs: Call For Details",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Russian",
+									"Spanish",
+									"Ukranian"
+								],
+								"distance": "0.89",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC213501",
+								"providerFacilityName": "South Van Ness Dental Group",
+								"practiceLocationNumber": "240004728003",
+								"groupPracticeNumber": "GRP240004728",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4154319797",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "525",
+								"facilityLatitude": "37.7647438",
+								"facilityLongitude": "-122.4165649",
+								"providerAddress": {
+									"addressLine1": "240 SHOTWELL ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94110"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 4:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"Chinese",
+									"English",
+									"Hindi",
+									"Spanish"
+								],
+								"distance": "2.17",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC082801",
+								"providerFacilityName": "Bernardo Gonzalez DDS",
+								"practiceLocationNumber": "240582868001",
+								"groupPracticeNumber": "GRP240582868",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4152824566",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "757",
+								"facilityLatitude": "37.7530556",
+								"facilityLongitude": "-122.4069214",
+								"providerAddress": {
+									"addressLine1": "2720 24TH ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94110"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 5:00 PM",
+										"Tue: 10:00 AM - 5:00 PM",
+										"Wed: 10:00 AM - 5:00 PM",
+										"Thurs: 10:00 AM - 5:00 PM",
+										"Fri: 10:00 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "2.63",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC058401",
+								"providerFacilityName": "Gentle Dental",
+								"practiceLocationNumber": "240003648002",
+								"groupPracticeNumber": "GRP240003648",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4158211200",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "845",
+								"facilityLatitude": "37.7571602",
+								"facilityLongitude": "-122.4191437",
+								"providerAddress": {
+									"addressLine1": "2494 MISSION ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94110"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:30 PM",
+										"Tue: 8:30 AM - 5:30 PM",
+										"Wed: 8:00 AM - 5:30 PM",
+										"Thurs: 8:30 AM - 5:30 PM",
+										"Fri: 8:30 AM - 5:30 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Spanish"
+								],
+								"distance": "2.67",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC033063",
+								"providerFacilityName": "Michael Cole DDS",
+								"practiceLocationNumber": "240621518001",
+								"groupPracticeNumber": "GRP240621518",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4156479191",
+								"providerAccessibleFacility": "Accessible By Public Transit",
+								"maxMemberCount": "99999",
+								"patientCount": "558",
+								"facilityLatitude": "37.7555466",
+								"facilityLongitude": "-122.4187698",
+								"providerAddress": {
+									"addressLine1": "2595 MISSION ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94110"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:30 AM - 5:00 PM",
+										"Tue: 9:30 AM - 5:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:30 AM - 5:00 PM",
+										"Fri: 9:30 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "2.75",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC136501",
+								"providerFacilityName": "Richmond Dental Care",
+								"practiceLocationNumber": "240004972001",
+								"groupPracticeNumber": "GRP240004972",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4157525605",
+								"providerAccessibleFacility": "Accessible By Public Transit",
+								"maxMemberCount": "99999",
+								"patientCount": "496",
+								"facilityLatitude": "37.781147",
+								"facilityLongitude": "-122.4657745",
+								"providerAddress": {
+									"addressLine1": "4312 GEARY BLVD",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94118"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 4:00 PM",
+										"Tue: 10:00 AM - 7:00 PM",
+										"Wed: 8:00 AM - 4:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 8:00 AM - 4:00 PM",
+										"Sat: 9:00 AM - 5:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Russian"
+								],
+								"distance": "4.1",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC134701",
+								"providerFacilityName": "Mikhail Berdichevsky DDS",
+								"practiceLocationNumber": "240621840001",
+								"groupPracticeNumber": "GRP240621840",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4153865590",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "399",
+								"facilityLatitude": "37.7810783",
+								"facilityLongitude": "-122.4672852",
+								"providerAddress": {
+									"addressLine1": "4444 GEARY BLVD",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94118"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Closed",
+										"Tue: Closed",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: Closed",
+										"Sat: 9:00 AM - 2:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Russian"
+								],
+								"distance": "4.18",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC150101",
+								"providerFacilityName": "San Bruno Ave Dental Clinic",
+								"practiceLocationNumber": "240002138001",
+								"groupPracticeNumber": "GRP240002138",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4156562868",
+								"providerAccessibleFacility": "Accessible By Public Transit",
+								"maxMemberCount": "99999",
+								"patientCount": "534",
+								"facilityLatitude": "37.7261887",
+								"facilityLongitude": "-122.4029007",
+								"providerAddress": {
+									"addressLine1": "2817 SAN BRUNO AVE",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94134"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Call For Details",
+										"Tue: 9:00 AM - 4:30 PM",
+										"Wed: 9:00 AM - 4:30 PM",
+										"Thurs: 9:00 AM - 4:30 PM",
+										"Fri: 9:00 AM - 4:30 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"Chinese",
+									"English",
+									"Mandarin"
+								],
+								"distance": "4.39",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC065391",
+								"providerFacilityName": "EZ Smile Family Dental Group",
+								"practiceLocationNumber": "280184146001",
+								"groupPracticeNumber": "GRP280184146",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4155842537",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "1122",
+								"facilityLatitude": "37.7309487",
+								"facilityLongitude": "-122.4745649",
+								"providerAddress": {
+									"addressLine1": "3100 19TH AVE",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94132"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Estonian",
+									"Farsi",
+									"Romanian",
+									"Spanish",
+									"Tagalog"
+								],
+								"distance": "6.06",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC184601",
+								"providerFacilityName": "Noriega Dental",
+								"practiceLocationNumber": "240005020001",
+								"groupPracticeNumber": "GRP240005020",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4156618851",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "418",
+								"facilityLatitude": "37.7528877",
+								"facilityLongitude": "-122.5041046",
+								"providerAddress": {
+									"addressLine1": "3749 NORIEGA ST",
+									"city": "SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94122"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:00 PM",
+										"Tue: 8:30 AM - 5:00 PM",
+										"Wed: 8:30 AM - 5:00 PM",
+										"Thurs: 8:30 AM - 5:00 PM",
+										"Fri: 8:30 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"English"
+								],
+								"distance": "6.64",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC036287",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239034",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5102511000",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "767",
+								"facilityLatitude": "37.8057289",
+								"facilityLongitude": "-122.2700958",
+								"providerAddress": {
+									"addressLine1": "1530 BROADWAY",
+									"city": "OAKLAND",
+									"state": "CA",
+									"zipCode": "94612"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 10:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:30 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog",
+									"Vietnamese"
+								],
+								"distance": "6.74",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC177701",
+								"providerFacilityName": "Timothy Han DDS",
+								"practiceLocationNumber": "240640622001",
+								"groupPracticeNumber": "GRP240640622",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5108392045",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "806",
+								"facilityLatitude": "37.8025436",
+								"facilityLongitude": "-122.2685089",
+								"providerAddress": {
+									"addressLine1": "320 13TH ST",
+									"city": "OAKLAND",
+									"state": "CA",
+									"zipCode": "94612"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "6.79",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC057917",
+								"providerFacilityName": "Franklin Dental Care",
+								"practiceLocationNumber": "240623791004",
+								"groupPracticeNumber": "GRP240623791",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5108934041",
+								"providerAccessibleFacility": "Accessible By Public Transit",
+								"maxMemberCount": "99999",
+								"patientCount": "1254",
+								"facilityLatitude": "37.8057543",
+								"facilityLongitude": "-122.2682023",
+								"providerAddress": {
+									"addressLine1": "1624 FRANKLIN ST",
+									"city": "OAKLAND",
+									"state": "CA",
+									"zipCode": "94612"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 7:00 AM - 4:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"Chinese",
+									"English",
+									"Mandarin"
+								],
+								"distance": "6.84",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC035983",
+								"providerFacilityName": "Berkeley Dental",
+								"practiceLocationNumber": "174391014001",
+								"groupPracticeNumber": "GRP174391014",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5106656058",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "538",
+								"facilityLatitude": "37.8684158",
+								"facilityLongitude": "-122.2963486",
+								"providerAddress": {
+									"addressLine1": "909 UNIVERSITY AVE",
+									"city": "BERKELEY",
+									"state": "CA",
+									"zipCode": "94710"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 9:00 AM - 6:00 PM",
+										"Sat: Call For Details",
+										"Sun: Call For Details"
+									]
+								},
+								"languages": [
+									"Cambodian",
+									"Chinese",
+									"English",
+									"Gujarati",
+									"Hindi",
+									"Kannada",
+									"Marathi",
+									"Tamil",
+									"Telugu"
+								],
+								"distance": "7.56",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC142601",
+								"providerFacilityName": "Rodolfo Villasin DMD",
+								"practiceLocationNumber": "240004692001",
+								"groupPracticeNumber": "GRP240004692",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6507566211",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "497",
+								"facilityLatitude": "37.6991844",
+								"facilityLongitude": "-122.4823227",
+								"providerAddress": {
+									"addressLine1": "341 WESTLAKE CTR",
+									"city": "DALY CITY",
+									"state": "CA",
+									"zipCode": "94015"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: 9:00 AM - 1:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Tagalog"
+								],
+								"distance": "7.95",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC026261",
+								"providerFacilityName": "Bella Lim DDS",
+								"practiceLocationNumber": "240001103001",
+								"groupPracticeNumber": "GRP240001103",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6509944561",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "579",
+								"facilityLatitude": "37.688839",
+								"facilityLongitude": "-122.4655914",
+								"providerAddress": {
+									"addressLine1": "7455 EL CAMINO REAL STE C",
+									"city": "DALY CITY",
+									"state": "CA",
+									"zipCode": "94014"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: Closed",
+										"Fri: 9:00 AM - 6:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog/Filipino"
+								],
+								"distance": "8.03",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC136201",
+								"providerFacilityName": "Mouhannad Al-Majdalani DDS",
+								"practiceLocationNumber": "240616960001",
+								"groupPracticeNumber": "GRP240616960",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6509941111",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "542",
+								"facilityLatitude": "37.688157",
+								"facilityLongitude": "-122.4725646",
+								"providerAddress": {
+									"addressLine1": "320 WASHINGTON ST",
+									"city": "DALY CITY",
+									"state": "CA",
+									"zipCode": "94015"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 9:00 AM - 6:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Arabic",
+									"English",
+									"Hebrew",
+									"Hindi",
+									"Korean",
+									"Spanish",
+									"Tagalog",
+									"Tamil"
+								],
+								"distance": "8.27",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC037063",
+								"providerFacilityName": "Refresh Dental",
+								"practiceLocationNumber": "110853816002",
+								"groupPracticeNumber": "GRP110853816",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5108452240",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "973",
+								"facilityLatitude": "37.8549953",
+								"facilityLongitude": "-122.2594135",
+								"providerAddress": {
+									"addressLine1": "3031 TELEGRAPH AVE",
+									"city": "BERKELEY",
+									"state": "CA",
+									"zipCode": "94705"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"English",
+									"Mandarin",
+									"Spanish"
+								],
+								"distance": "8.54",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC036288",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239066",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5105408400",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "774",
+								"facilityLatitude": "37.8710098",
+								"facilityLongitude": "-122.2678528",
+								"providerAddress": {
+									"addressLine1": "115 BERKELEY SQ",
+									"city": "BERKELEY",
+									"state": "CA",
+									"zipCode": "94704"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 6:00 PM",
+										"Tue: 8:00 AM - 6:00 PM",
+										"Wed: 8:00 AM - 6:00 PM",
+										"Thurs: 8:00 AM - 6:00 PM",
+										"Fri: 8:00 AM - 6:00 PM",
+										"Sat: 8:00 AM - 4:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "8.82",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC164401",
+								"providerFacilityName": "Shadan Jabali DDS",
+								"practiceLocationNumber": "240003107001",
+								"groupPracticeNumber": "GRP240003107",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5105256100",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "492",
+								"facilityLatitude": "37.8954544",
+								"facilityLongitude": "-122.2997589",
+								"providerAddress": {
+									"addressLine1": "1113 GARFIELD AVE",
+									"city": "ALBANY",
+									"state": "CA",
+									"zipCode": "94706"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 5:00 PM",
+										"Tue: 10:00 AM - 6:00 PM",
+										"Wed: Closed",
+										"Thurs: Closed",
+										"Fri: 10:00 AM - 5:00 PM",
+										"Sat: 9:00 AM - 3:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Spanish"
+								],
+								"distance": "8.91",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC062695",
+								"providerFacilityName": "Serramonte Ridge Dental",
+								"practiceLocationNumber": "939275173001",
+								"groupPracticeNumber": "GRP939275173",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6507561900",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "883",
+								"facilityLatitude": "37.6651868",
+								"facilityLongitude": "-122.4756483",
+								"providerAddress": {
+									"addressLine1": "901 CAMPUS DR",
+									"city": "DALY CITY",
+									"state": "CA",
+									"zipCode": "94015"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:00 PM",
+										"Tue: 8:30 AM - 5:00 PM",
+										"Wed: 8:30 AM - 5:00 PM",
+										"Thurs: 8:30 AM - 5:00 PM",
+										"Fri: 8:30 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Arabic",
+									"Chinese",
+									"English",
+									"Spanish"
+								],
+								"distance": "9.72",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC024022",
+								"providerFacilityName": "Jeanette Estipona DDS",
+								"practiceLocationNumber": "240000706001",
+								"groupPracticeNumber": "GRP240000706",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6502966952",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "477",
+								"facilityLatitude": "37.6431847",
+								"facilityLongitude": "-122.4547119",
+								"providerAddress": {
+									"addressLine1": "2400 WESTBOROUGH BLVD",
+									"city": "SOUTH SAN FRANCISCO",
+									"state": "CA",
+									"zipCode": "94080"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 7:00 PM",
+										"Tue: 10:00 AM - 7:00 PM",
+										"Wed: Closed",
+										"Thurs: 10:00 AM - 7:00 PM",
+										"Fri: 10:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 5:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Tagalog"
+								],
+								"distance": "10.66",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC038288",
+								"providerFacilityName": "Oakland Smile Dental",
+								"practiceLocationNumber": "812134576001",
+								"groupPracticeNumber": "GRP812134576",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5109247310",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "1203",
+								"facilityLatitude": "37.7395058",
+								"facilityLongitude": "-122.2014847",
+								"providerAddress": {
+									"addressLine1": "8105 EDGEWATER DR",
+									"city": "OAKLAND",
+									"state": "CA",
+									"zipCode": "94621"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 10:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 9:00 AM - 5:00 PM",
+										"Sat: 8:00 AM - 3:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Hindi",
+									"Persian",
+									"Spanish"
+								],
+								"distance": "10.94",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC015680",
+								"providerFacilityName": "Reach Dental Care",
+								"practiceLocationNumber": "240004728004",
+								"groupPracticeNumber": "GRP240004728",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5102238228",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "671",
+								"facilityLatitude": "37.9819565",
+								"facilityLongitude": "-122.3209915",
+								"providerAddress": {
+									"addressLine1": "4200A KLOSE WAY",
+									"city": "SAN PABLO",
+									"state": "CA",
+									"zipCode": "94806"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: 9:00 AM - 5:00 PM",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: 9:00 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Chinese",
+									"English",
+									"Hindi",
+									"Tagalog/Filipino"
+								],
+								"distance": "13.89",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC000898",
+								"providerFacilityName": "San Rafael Dentistry",
+								"practiceLocationNumber": "240626504001",
+								"groupPracticeNumber": "GRP240626504",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4154531241",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "907",
+								"facilityLatitude": "37.9719887",
+								"facilityLongitude": "-122.5241089",
+								"providerAddress": {
+									"addressLine1": "905 LINCOLN AVE",
+									"city": "SAN RAFAEL",
+									"state": "CA",
+									"zipCode": "94901"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:30 AM - 5:00 PM",
+										"Tue: 9:30 AM - 5:00 PM",
+										"Wed: 9:30 AM - 5:00 PM",
+										"Thurs: 9:30 AM - 5:00 PM",
+										"Fri: 9:30 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "14.58",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC3C1301",
+								"providerFacilityName": "Pacific Dental Group",
+								"practiceLocationNumber": "240005087001",
+								"groupPracticeNumber": "GRP240005087",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4154536277",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "1241",
+								"facilityLatitude": "37.9744644",
+								"facilityLongitude": "-122.5342331",
+								"providerAddress": {
+									"addressLine1": "1523 5TH AVE",
+									"city": "SAN RAFAEL",
+									"state": "CA",
+									"zipCode": "94901"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Chinese",
+									"English",
+									"Spanish"
+								],
+								"distance": "15.01",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC037686",
+								"providerFacilityName": "A + Dental Center",
+								"practiceLocationNumber": "557662814001",
+								"groupPracticeNumber": "GRP557662814",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6503430895",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "726",
+								"facilityLatitude": "37.5723457",
+								"facilityLongitude": "-122.3323898",
+								"providerAddress": {
+									"addressLine1": "400 N SAN MATEO DR",
+									"city": "SAN MATEO",
+									"state": "CA",
+									"zipCode": "94401"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:30 PM",
+										"Tue: 8:30 AM - 5:30 PM",
+										"Wed: 8:30 AM - 5:30 PM",
+										"Thurs: 9:00 AM - 5:30 PM",
+										"Fri: 9:00 AM - 5:30 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "15.33",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC019633",
+								"providerFacilityName": "Andy Q V Le DDS",
+								"practiceLocationNumber": "240580448001",
+								"groupPracticeNumber": "GRP240580448",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5102765533",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "1367",
+								"facilityLatitude": "37.708",
+								"facilityLongitude": "-122.1265",
+								"providerAddress": {
+									"addressLine1": "1600 150TH AVE",
+									"city": "SAN LEANDRO",
+									"state": "CA",
+									"zipCode": "94578"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: 9:00 AM - 5:00 PM",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: 9:00 AM - 3:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Vietnamese"
+								],
+								"distance": "15.54",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC013159",
+								"providerFacilityName": "Jing-Jing Qian DDS",
+								"practiceLocationNumber": "240002121001",
+								"groupPracticeNumber": "GRP240002121",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6505728518",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "492",
+								"facilityLatitude": "37.5689781",
+								"facilityLongitude": "-122.2662588",
+								"providerAddress": {
+									"addressLine1": "1289 E HILLSDALE BLVD",
+									"city": "FOSTER CITY",
+									"state": "CA",
+									"zipCode": "94404"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 3:00 PM",
+										"Tue: 10:00 AM - 4:00 PM",
+										"Wed: 10:00 AM - 3:00 PM",
+										"Thurs: 10:00 AM - 4:00 PM",
+										"Fri: 10:00 AM - 4:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Chinese",
+									"English",
+									"Mandarin",
+									"Spanish"
+								],
+								"distance": "16.69",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC040736",
+								"providerFacilityName": "Gentle Dental Hayward",
+								"practiceLocationNumber": "240003648001",
+								"groupPracticeNumber": "GRP240003648",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5107862587",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "1018",
+								"facilityLatitude": "37.6512451",
+								"facilityLongitude": "-122.1092682",
+								"providerAddress": {
+									"addressLine1": "24239 HESPERIAN BLVD",
+									"city": "HAYWARD",
+									"state": "CA",
+									"zipCode": "94545"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 7:30 AM - 5:00 PM",
+										"Tue: 7:30 AM - 5:00 PM",
+										"Wed: 7:30 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Call For Details"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "18.15",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC042548",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239165",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6502351460",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "550",
+								"facilityLatitude": "37.5306511",
+								"facilityLongitude": "-122.2901077",
+								"providerAddress": {
+									"addressLine1": "4100 S EL CAMINO REAL",
+									"city": "SAN MATEO",
+									"state": "CA",
+									"zipCode": "94403"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 9:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "18.71",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC039643",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239065",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5108875700",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "795",
+								"facilityLatitude": "37.6539879",
+								"facilityLongitude": "-122.089241",
+								"providerAddress": {
+									"addressLine1": "123 W JACKSON ST",
+									"city": "HAYWARD",
+									"state": "CA",
+									"zipCode": "94544"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 9:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:30 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "18.99",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC064649",
+								"providerFacilityName": "Union Dental",
+								"practiceLocationNumber": "240602970006",
+								"groupPracticeNumber": "GRP240602970",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "4152346261",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "342",
+								"facilityLatitude": "38.0512279",
+								"facilityLongitude": "-122.5303677",
+								"providerAddress": {
+									"addressLine1": "5404 NAVE DR",
+									"city": "NOVATO",
+									"state": "CA",
+									"zipCode": "94949"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 5:00 PM",
+										"Tue: 10:00 AM - 5:00 PM",
+										"Wed: 10:00 AM - 5:00 PM",
+										"Thurs: Closed",
+										"Fri: 9:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "19.66",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC027824",
+								"providerFacilityName": "Dental Care Of Walnut Creek",
+								"practiceLocationNumber": "782411661001",
+								"groupPracticeNumber": "GRP782411661",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9259379017",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "1535",
+								"facilityLatitude": "37.9060478",
+								"facilityLongitude": "-122.0585327",
+								"providerAddress": {
+									"addressLine1": "1111 CIVIC DR",
+									"city": "WALNUT CREEK",
+									"state": "CA",
+									"zipCode": "94596"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 7:00 AM - 5:00 PM",
+										"Tue: 7:00 AM - 5:00 PM",
+										"Wed: 7:00 AM - 5:00 PM",
+										"Thurs: 7:00 AM - 5:00 PM",
+										"Fri: 7:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "19.91",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC002987",
+								"providerFacilityName": "Tim Patel DDS",
+								"practiceLocationNumber": "240640537001",
+								"groupPracticeNumber": "GRP240640537",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9259457366",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "449",
+								"facilityLatitude": "37.8962631",
+								"facilityLongitude": "-122.0525513",
+								"providerAddress": {
+									"addressLine1": "1818 SAN MIGUEL DR",
+									"city": "WALNUT CREEK",
+									"state": "CA",
+									"zipCode": "94596"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 4:00 PM",
+										"Tue: 8:00 AM - 4:00 PM",
+										"Wed: 8:00 AM - 7:00 PM",
+										"Thurs: 8:00 AM - 4:00 PM",
+										"Fri: 8:00 AM - 4:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Hindi"
+								],
+								"distance": "19.95",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC042527",
+								"providerFacilityName": "Alhambra Dental Group",
+								"practiceLocationNumber": "911640788004",
+								"groupPracticeNumber": "GRP911640788",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9253139700",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "418",
+								"facilityLatitude": "37.9932799",
+								"facilityLongitude": "-122.1314973",
+								"providerAddress": {
+									"addressLine1": "4040 ALHAMBRA AVE",
+									"city": "MARTINEZ",
+									"state": "CA",
+									"zipCode": "94553"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 7:00 AM - 2:00 PM",
+										"Wed: 11:00 AM - 8:00 PM",
+										"Thurs: 9:00 AM - 4:00 PM",
+										"Fri: 7:00 AM - 4:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Arabic",
+									"Chinese",
+									"English",
+									"Farsi",
+									"Iranian",
+									"Spanish",
+									"Tagalog"
+								],
+								"distance": "20.03",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC1C9701",
+								"providerFacilityName": "Mikhail Berdichevsky DDS",
+								"practiceLocationNumber": "240621840002",
+								"groupPracticeNumber": "GRP240621840",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9259339820",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "299",
+								"facilityLatitude": "37.9115042",
+								"facilityLongitude": "-122.0422818",
+								"providerAddress": {
+									"addressLine1": "120 LA CASA VIA",
+									"city": "WALNUT CREEK",
+									"state": "CA",
+									"zipCode": "94598"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 7:00 PM",
+										"Tue: 10:00 AM - 1:00 PM",
+										"Wed: Closed",
+										"Thurs: 11:00 AM - 7:00 PM",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: 10:00 AM - 6:00 PM"
+									]
+								},
+								"languages": [
+									"English",
+									"Russian"
+								],
+								"distance": "20.87",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC009022",
+								"providerFacilityName": "South Hayward Dental",
+								"practiceLocationNumber": "984941834002",
+								"groupPracticeNumber": "GRP984941834",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5102649074",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "572",
+								"facilityLatitude": "37.6175537",
+								"facilityLongitude": "-122.0694962",
+								"providerAddress": {
+									"addressLine1": "1689 INDUSTRIAL PKWY W",
+									"city": "HAYWARD",
+									"state": "CA",
+									"zipCode": "94544"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: Closed",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 8:00 AM - 2:00 PM",
+										"Fri: Closed",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"English",
+									"Portuguese",
+									"Spanish"
+								],
+								"distance": "21.24",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC065271",
+								"providerFacilityName": "Perfect Smiles Dental of Pleasant Hill",
+								"practiceLocationNumber": "422295406001",
+								"groupPracticeNumber": "GRP422295406",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9258259663",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "155",
+								"facilityLatitude": "37.9484723",
+								"facilityLongitude": "-122.0585427",
+								"providerAddress": {
+									"addressLine1": "1952 CONTRA COSTA BLVD",
+									"city": "PLEASANT HILL",
+									"state": "CA",
+									"zipCode": "94523"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:30 PM",
+										"Tue: 8:30 AM - 5:30 PM",
+										"Wed: 8:30 AM - 5:30 PM",
+										"Thurs: 8:30 AM - 5:30 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Hindi"
+								],
+								"distance": "21.26",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC037931",
+								"providerFacilityName": "Pleasant Hill Smiles Dental Group",
+								"practiceLocationNumber": "670014721001",
+								"groupPracticeNumber": "GRP670014721",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9253634455",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "871",
+								"facilityLatitude": "37.9453545",
+								"facilityLongitude": "-122.0560684",
+								"providerAddress": {
+									"addressLine1": "2380 MONUMENT BLVD",
+									"city": "PLEASANT HILL",
+									"state": "CA",
+									"zipCode": "94523"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 7:00 AM - 7:00 PM",
+										"Tue: 7:00 AM - 7:00 PM",
+										"Wed: 7:00 AM - 6:00 PM",
+										"Thurs: 7:00 AM - 7:00 PM",
+										"Fri: 7:00 AM - 4:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "21.27",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC065001",
+								"providerFacilityName": "Chris M Vitakes DDS",
+								"practiceLocationNumber": "240586904003",
+								"groupPracticeNumber": "GRP240586904",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9255537761",
+								"providerAccessibleFacility": "Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "128",
+								"facilityLatitude": "37.8080542",
+								"facilityLongitude": "-121.9927634",
+								"providerAddress": {
+									"addressLine1": "909 SAN RAMON VALLEY BLVD",
+									"city": "DANVILLE",
+									"state": "CA",
+									"zipCode": "94526"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Closed",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: 9:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Greek",
+									"Spanish"
+								],
+								"distance": "21.83",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC030033",
+								"providerFacilityName": "Willow Pass Dental Care",
+								"practiceLocationNumber": "765254151001",
+								"groupPracticeNumber": "GRP765254151",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9256804444",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "841",
+								"facilityLatitude": "37.967308",
+								"facilityLongitude": "-122.0544205",
+								"providerAddress": {
+									"addressLine1": "1255 WILLOW PASS RD",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94520"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 7:00 AM - 7:00 PM",
+										"Tue: 7:00 AM - 7:00 PM",
+										"Wed: 7:00 AM - 7:00 PM",
+										"Thurs: 7:00 AM - 7:00 PM",
+										"Fri: 7:00 AM - 7:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Gujarati",
+									"Spanish",
+									"Vietnamese"
+								],
+								"distance": "22.15",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC031062",
+								"providerFacilityName": "United Dental",
+								"practiceLocationNumber": "462252775001",
+								"groupPracticeNumber": "GRP462252775",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6503674300",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "473",
+								"facilityLatitude": "37.4921291",
+								"facilityLongitude": "-122.2309867",
+								"providerAddress": {
+									"addressLine1": "647 VETERANS BLVD",
+									"city": "REDWOOD CITY",
+									"state": "CA",
+									"zipCode": "94063"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: 9:00 AM - 5:00 PM",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Spanish"
+								],
+								"distance": "22.34",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC012387",
+								"providerFacilityName": "Eugene Espiritu",
+								"practiceLocationNumber": "602135705002",
+								"groupPracticeNumber": "GRP602135705",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6502988818",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "425",
+								"facilityLatitude": "37.4912224",
+								"facilityLongitude": "-122.2301331",
+								"providerAddress": {
+									"addressLine1": "705 VETERANS BLVD",
+									"city": "REDWOOD CITY",
+									"state": "CA",
+									"zipCode": "94063"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Closed",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog"
+								],
+								"distance": "22.41",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC031550",
+								"providerFacilityName": "Birch Dental Group",
+								"practiceLocationNumber": "240005087004",
+								"groupPracticeNumber": "GRP240005087",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6503660552",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "394",
+								"facilityLatitude": "37.4867935",
+								"facilityLongitude": "-122.2382126",
+								"providerAddress": {
+									"addressLine1": "155 BIRCH ST",
+									"city": "REDWOOD CITY",
+									"state": "CA",
+									"zipCode": "94062"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 9:00 AM - 6:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"Cantonese",
+									"Chinese",
+									"English",
+									"Spanish"
+								],
+								"distance": "22.53",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC036284",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239067",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "6503658900",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "473",
+								"facilityLatitude": "37.4904747",
+								"facilityLongitude": "-122.2271042",
+								"providerAddress": {
+									"addressLine1": "975 VETERANS BLVD",
+									"city": "REDWOOD CITY",
+									"state": "CA",
+									"zipCode": "94063"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 9:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog"
+								],
+								"distance": "22.53",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC003967",
+								"providerFacilityName": "Fairway Park Dental Office",
+								"practiceLocationNumber": "240005083001",
+								"groupPracticeNumber": "GRP240005083",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5104776887",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "503",
+								"facilityLatitude": "37.6199455",
+								"facilityLongitude": "-122.0358505",
+								"providerAddress": {
+									"addressLine1": "31111 MISSION BLVD",
+									"city": "HAYWARD",
+									"state": "CA",
+									"zipCode": "94544"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 6:00 PM",
+										"Tue: 10:00 AM - 6:00 PM",
+										"Wed: 10:00 AM - 6:00 PM",
+										"Thurs: 10:00 AM - 6:00 PM",
+										"Fri: 10:00 AM - 6:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog/Filipino"
+								],
+								"distance": "22.71",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC065810",
+								"providerFacilityName": "Gresel Dental Hayward",
+								"practiceLocationNumber": "745671452002",
+								"groupPracticeNumber": "GRP745671452",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5109250080",
+								"providerAccessibleFacility": "Accessible By Public Transit,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "543",
+								"facilityLatitude": "37.6175903",
+								"facilityLongitude": "-122.0352884",
+								"providerAddress": {
+									"addressLine1": "389 GRESEL ST",
+									"city": "HAYWARD",
+									"state": "CA",
+									"zipCode": "94544"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 6:00 PM",
+										"Tue: 9:00 AM - 6:00 PM",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 9:00 AM - 6:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "22.82",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC022858",
+								"providerFacilityName": "San Ramon Family Dental",
+								"practiceLocationNumber": "824060179001",
+								"groupPracticeNumber": "GRP824060179",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9258668422",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "544",
+								"facilityLatitude": "37.78022",
+								"facilityLongitude": "-121.9704819",
+								"providerAddress": {
+									"addressLine1": "3160 CROW CANYON RD",
+									"city": "SAN RAMON",
+									"state": "CA",
+									"zipCode": "94583"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Hindi"
+								],
+								"distance": "23.02",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC062463",
+								"providerFacilityName": "Golden State Smiles",
+								"practiceLocationNumber": "240644902024",
+								"groupPracticeNumber": "GRP240644902",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9258272798",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "458",
+								"facilityLatitude": "37.9740446",
+								"facilityLongitude": "-122.0387741",
+								"providerAddress": {
+									"addressLine1": "1851 SUTTER ST",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94520"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: 8:00 AM - 5:00 PM",
+										"Fri: 8:00 AM - 5:00 PM",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "23.12",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC036323",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239079",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9258258900",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "435",
+								"facilityLatitude": "37.9781265",
+								"facilityLongitude": "-122.0377426",
+								"providerAddress": {
+									"addressLine1": "1821 CONCORD AVE",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94520"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 9:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:30 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "23.33",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC050448",
+								"providerFacilityName": "Downtown Concord Dental",
+								"practiceLocationNumber": "732193460001",
+								"groupPracticeNumber": "GRP732193460",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9255668738",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "507",
+								"facilityLatitude": "37.9779549",
+								"facilityLongitude": "-122.0343628",
+								"providerAddress": {
+									"addressLine1": "2151 SALVIO ST",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94520"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 7:00 AM - 7:00 PM",
+										"Tue: 7:00 AM - 7:00 PM",
+										"Wed: 7:00 AM - 7:00 PM",
+										"Thurs: 7:00 AM - 7:00 PM",
+										"Fri: Closed",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "23.47",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC010383",
+								"providerFacilityName": "Lester Yamashita DDS",
+								"practiceLocationNumber": "240615812001",
+								"groupPracticeNumber": "GRP240615812",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9256855296",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "441",
+								"facilityLatitude": "37.9824486",
+								"facilityLongitude": "-122.0249329",
+								"providerAddress": {
+									"addressLine1": "2969 SALVIO ST",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94519"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:00 AM - 5:00 PM",
+										"Tue: 8:00 AM - 5:00 PM",
+										"Wed: 8:00 AM - 5:00 PM",
+										"Thurs: Closed",
+										"Fri: Closed",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Japanese",
+									"Spanish"
+								],
+								"distance": "24.07",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC000798",
+								"providerFacilityName": "NORTHBAY DENTAL GROUP",
+								"practiceLocationNumber": "240623098001",
+								"groupPracticeNumber": "GRP240623098",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "7076431714",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "490",
+								"facilityLatitude": "38.1218185",
+								"facilityLongitude": "-122.2571106",
+								"providerAddress": {
+									"addressLine1": "475 REDWOOD ST",
+									"city": "VALLEJO",
+									"state": "CA",
+									"zipCode": "94590"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: 9:00 AM - 5:00 PM",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: 9:00 AM - 5:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Farsi",
+									"Hebrew",
+									"Tagalog/Filipino"
+								],
+								"distance": "24.16",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC036357",
+								"providerFacilityName": "Western Dental Services",
+								"practiceLocationNumber": "240001239134",
+								"groupPracticeNumber": "GRP240001239",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "7075578000",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking",
+								"maxMemberCount": "99999",
+								"patientCount": "512",
+								"facilityLatitude": "38.1228142",
+								"facilityLongitude": "-122.2558517",
+								"providerAddress": {
+									"addressLine1": "3587 SONOMA BLVD",
+									"city": "VALLEJO",
+									"state": "CA",
+									"zipCode": "94590"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 7:00 PM",
+										"Tue: 9:00 AM - 7:00 PM",
+										"Wed: 9:00 AM - 7:00 PM",
+										"Thurs: 9:00 AM - 7:00 PM",
+										"Fri: 9:00 AM - 7:00 PM",
+										"Sat: 8:00 AM - 4:00 PM",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish"
+								],
+								"distance": "24.24",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC044947",
+								"providerFacilityName": "Bayside Dental Practice",
+								"practiceLocationNumber": "793940618002",
+								"groupPracticeNumber": "GRP793940618",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "7076447600",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "435",
+								"facilityLatitude": "38.1218976",
+								"facilityLongitude": "-122.2366971",
+								"providerAddress": {
+									"addressLine1": "2121 REDWOOD ST",
+									"city": "VALLEJO",
+									"state": "CA",
+									"zipCode": "94590"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: Closed",
+										"Wed: 9:00 AM - 5:00 PM",
+										"Thurs: Closed",
+										"Fri: Call For Details",
+										"Sat: Call For Details",
+										"Sun: Call For Details"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "24.52",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC137201",
+								"providerFacilityName": "Julius Mosley II DDS",
+								"practiceLocationNumber": "240611915002",
+								"groupPracticeNumber": "GRP240611915",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "7075581660",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "587",
+								"facilityLatitude": "38.1219292",
+								"facilityLongitude": "-122.236763",
+								"providerAddress": {
+									"addressLine1": "2121 REDWOOD ST",
+									"city": "VALLEJO",
+									"state": "CA",
+									"zipCode": "94590"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 10:00 AM - 5:00 PM",
+										"Tue: Call For Details",
+										"Wed: 10:00 AM - 5:00 PM",
+										"Thurs: 10:00 AM - 5:00 PM",
+										"Fri: Call For Details",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English"
+								],
+								"distance": "24.52",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC039548",
+								"providerFacilityName": "BV Family Cosmetic Dentistry",
+								"practiceLocationNumber": "267920177001",
+								"groupPracticeNumber": "GRP267920177",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "5104895000",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "538",
+								"facilityLatitude": "37.5907836",
+								"facilityLongitude": "-122.0199165",
+								"providerAddress": {
+									"addressLine1": "2 UNION SQ",
+									"city": "UNION CITY",
+									"state": "CA",
+									"zipCode": "94587"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 9:00 AM - 5:00 PM",
+										"Tue: 9:00 AM - 5:00 PM",
+										"Wed: Closed",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 8:00 AM - 4:00 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Hindi",
+									"Punjabi",
+									"Spanish"
+								],
+								"distance": "24.53",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC000594",
+								"providerFacilityName": "Country Fair Dental",
+								"practiceLocationNumber": "240638240003",
+								"groupPracticeNumber": "GRP240638240",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9258293111",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "567",
+								"facilityLatitude": "37.7539711",
+								"facilityLongitude": "-121.9394913",
+								"providerAddress": {
+									"addressLine1": "12111 ALCOSTA BLVD",
+									"city": "SAN RAMON",
+									"state": "CA",
+									"zipCode": "94583"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: 8:30 AM - 5:30 PM",
+										"Tue: Closed",
+										"Wed: 9:00 AM - 6:00 PM",
+										"Thurs: 9:00 AM - 6:00 PM",
+										"Fri: 8:30 AM - 5:30 PM",
+										"Sat: Call For Details",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Hindi",
+									"Punjabi",
+									"Spanish",
+									"Telugu"
+								],
+								"distance": "24.83",
+								"businessLevels": []
+							},
+							{
+								"providerFacilityId": "DC058899",
+								"providerFacilityName": "Galvan Dental Corporation",
+								"practiceLocationNumber": "240599039001",
+								"groupPracticeNumber": "GRP240599039",
+								"providerType": "DENTAL",
+								"mtvNetworkId": "2DELTACARE",
+								"practiceLocationPhone": "9256766363",
+								"providerAccessibleFacility": "Accessible By Public Transit,Free Parking,Wheelchair Accessible",
+								"maxMemberCount": "99999",
+								"patientCount": "560",
+								"facilityLatitude": "37.9639511",
+								"facilityLongitude": "-121.9900513",
+								"providerAddress": {
+									"addressLine1": "4375 CLAYTON RD",
+									"city": "CONCORD",
+									"state": "CA",
+									"zipCode": "94521"
+								},
+								"officeHours": {
+									"officeHours": [
+										"Mon: Closed",
+										"Tue: 10:00 AM - 6:00 PM",
+										"Wed: Call For Details",
+										"Thurs: 9:00 AM - 5:00 PM",
+										"Fri: Call For Details",
+										"Sat: Closed",
+										"Sun: Closed"
+									]
+								},
+								"languages": [
+									"English",
+									"Spanish",
+									"Tagalog/Filipino"
+								],
+								"distance": "25.04",
+								"businessLevels": []
+							}
+						],
+						"pcpValidationFlag": false,
+						"errorMessages": []
+					}
+				]
+			}
+		]
+	}
 }
