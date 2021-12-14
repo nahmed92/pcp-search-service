@@ -16,25 +16,29 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PCPEnrollee {
 	
-	private String memberType;
-	private String groupNumber;
-	private String divisionNumber;	
-	private Address memberAddress;
-	private String memberLanguage ;		
-	private String mtvPersonID ;
+	private String autoAssignmentState;
+	private boolean batchAutoAssignFlag;
+	private String benefitPackageID;
+	private String businessLevel7;
+	private boolean ccaOverrideFlag;
 	private String dateOfBirth;
+	private String divisionNumber;
+	private BusinessLevels enrolleeBusinessLevels;
+	private String groupInclusion;
+	private String groupNumber;
+	private String massTransfer;
+	private Address memberAddress;
+	private String memberLanguage ;	
+	private String memberType;
+	private String mtvPersonID;
+	private String networkId;
+	private String newMember;	
+	private String overRideFlag;
 	private String pcpEffectiveDate;
 	private String pcpEndDate;
 	private String pcpIdentifier;
 	private String practiceLocation;
-	private BusinessLevels enrolleeBusinessLevels;
-	private String benefitPackageID;
-	private String recordIdentifier;
-	private boolean batchAutoAssignFlag;
-	private boolean ccaOverrideFlag;
-	private String overRideFlag;
+	private String randomSelection;
 	private String sourceSystem;
-	private String networkId;
-	private String businessLevel7;
-	
+	private String recordIdentifier;	
 }

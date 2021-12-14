@@ -15,7 +15,7 @@ import com.deltadental.platform.common.exception.ServiceException;
 public interface PCPSearchService {
 	
 	FacilityResponse facilitySearch(FacilitySearchRequest facilitySearchRequest) throws ServiceException;
-	BlResolutionResponse getBPsAndBussinessLevels(BlServiceRequest blServiceRequest) throws ServiceException;
+	BPBLResolutionResponse getBPsAndBussinessLevels(BlServiceRequest blServiceRequest) throws ServiceException;
 	BlResolutionResponse getBusinessLevels(BlServiceRequest blServiceRequest) throws ServiceException;
 	PCPAssignmentResponse getProviders(PcpAssignmentRequest pcpAssignmentRequest) throws ServiceException;
 	StatePcpAssignmentResponse getStatePCPAssignment(StatePcpAssignmentRequest statePcpAssignmentRequest) throws ServiceException;

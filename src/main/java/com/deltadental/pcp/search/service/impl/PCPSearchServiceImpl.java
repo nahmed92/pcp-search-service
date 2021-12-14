@@ -1,6 +1,7 @@
 package com.deltadental.pcp.search.service.impl;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,11 @@ import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
-@Service
+@Data
+@Service("pcpSearchService")
 @Slf4j
 public class PCPSearchServiceImpl implements PCPSearchService {
 
@@ -54,7 +57,7 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 	
 	@Override
 	@MethodExecutionTime
-	public FacilityResponse facilitySearch(@Valid FacilitySearchRequest facilitySearchRequest) throws ServiceException {
+	public FacilityResponse facilitySearch(@Valid @NotNull FacilitySearchRequest facilitySearchRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.facilitySearch");
 		com.deltadental.platform.pcp.stub.FacilitySearch facilitySearch = pcpSearchRequestTransformer.transformFacilitySearch(facilitySearchRequest);
 		FacilitySearchResponse facilitySearchResponse =  pcpAssignmentSoapClient.facilitySearch(facilitySearch);
@@ -65,15 +68,15 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 
 	@Override
 	@MethodExecutionTime
-	public BlResolutionResponse getBPsAndBussinessLevels(@Valid BlServiceRequest blServiceRequest) throws ServiceException {
+	public BPBLResolutionResponse getBPsAndBussinessLevels(@Valid BlServiceRequest blServiceRequest) throws ServiceException {
 		log.info("START PCPSearchServiceImpl.getBPsAndBussinessLevels");
 		GetBussinessLevels getBussinessLevels = pcpSearchRequestTransformer.transformGetBussinessLevels(blServiceRequest);
 		GetBPsAndBussinessLevels getBPsAndBussinessLevels = new GetBPsAndBussinessLevels();
 		getBPsAndBussinessLevels.setArg0(getBussinessLevels.getArg0());
 		GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevelsResponse = pcpAssignmentSoapClient.getBPsAndBussinessLevels(getBPsAndBussinessLevels);
-		BlResolutionResponse blResolutionResponse = pcpSearchResponseTransformer.transformGetBPsAndBussinessLevelsResponse(getBPsAndBussinessLevelsResponse);
+		BPBLResolutionResponse bpblResolutionResponse = pcpSearchResponseTransformer.transformGetBPsAndBussinessLevelsResponse(getBPsAndBussinessLevelsResponse);
 		log.info("END PCPSearchServiceImpl.getBPsAndBussinessLevels");
-		return blResolutionResponse;
+		return bpblResolutionResponse;
 	}
 
 	@Override

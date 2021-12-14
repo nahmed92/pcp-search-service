@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class BenefitPackage {
 	
 	private String benefitPackageId;
-	private String bpideffectiveDate;
-	private String bpidendDate;
+	private String bpIdEffectiveDate;
+	private String bpIdEndDate;
 	
 }

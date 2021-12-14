@@ -30,5 +30,4 @@ public class PCPRefineSearch {
 	private String sortND;
 	private String gender;
 	private String workMode;
-
 }

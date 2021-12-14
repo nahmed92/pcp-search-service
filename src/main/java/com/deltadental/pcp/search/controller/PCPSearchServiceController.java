@@ -1,6 +1,7 @@
 package com.deltadental.pcp.search.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,15 +33,18 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/pcp-search", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Api(value = "/pcp-search")
 @Slf4j
+@Data
 public class PCPSearchServiceController {
 
-	@Autowired
+	@Autowired(required=true)
+	@Qualifier("pcpSearchService")
 	private PCPSearchService pcpSearchService;
 	
 	@ApiOperation(
@@ -80,9 +84,9 @@ public class PCPSearchServiceController {
 		ResponseEntity<FacilityResponse> responseEntity = null;
 		FacilityResponse facilityResponse = pcpSearchService.facilitySearch(facilitySearchRequest);
 		if(facilityResponse.getFacility().isEmpty()) {
-			responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK);
-		} else {
 			responseEntity = new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+		} else {
+			responseEntity = new ResponseEntity<>(facilityResponse, HttpStatus.OK);
 		}
 		
 		log.info("END PCPSearchServiceController.facilitySearch");
@@ -121,10 +125,10 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_BP_AND_BUSINESS_LEVELS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<BlResolutionResponse> getBPsAndBussinessLevels(@RequestBody BlServiceRequest blServiceRequest) {
+	public ResponseEntity<BPBLResolutionResponse> getBPsAndBussinessLevels(@RequestBody BlServiceRequest blServiceRequest) {
 		log.info("START PCPSearchServiceController.getBPsAndBussinessLevels");
-		BlResolutionResponse blResolutionResponse = pcpSearchService.getBPsAndBussinessLevels(blServiceRequest);
-		ResponseEntity<BlResolutionResponse> responseEntity = new ResponseEntity<>(blResolutionResponse, HttpStatus.OK); 
+		BPBLResolutionResponse bpblResolutionResponse = pcpSearchService.getBPsAndBussinessLevels(blServiceRequest);
+		ResponseEntity<BPBLResolutionResponse> responseEntity = new ResponseEntity<>(bpblResolutionResponse, HttpStatus.OK); 
 		log.info("END PCPSearchServiceController.getBPsAndBussinessLevels");
 		return responseEntity;
 	}

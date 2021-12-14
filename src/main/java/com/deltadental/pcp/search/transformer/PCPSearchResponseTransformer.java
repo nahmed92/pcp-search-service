@@ -141,29 +141,14 @@ public class PCPSearchResponseTransformer {
 		return pcpAssignmentResponse;
 	}
 
-	public BlResolutionResponse transformGetBPsAndBussinessLevelsResponse(GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevelsResponse) {
+	public BPBLResolutionResponse transformGetBPsAndBussinessLevelsResponse(GetBPsAndBussinessLevelsResponse getBPsAndBussinessLevelsResponse) {
 		log.info("START PCPSearchResponseTransformer.transformGetBPsAndBussinessLevelsResponse");
 		BpblResolutionResponse wsBpblResolutionResponse = getBPsAndBussinessLevelsResponse.getReturn();
 		List<com.deltadental.platform.pcp.stub.EnrolleeBPBLResponse> wsEnrolleeBPBLResponseList = wsBpblResolutionResponse.getEnrollee();
-		List<EnrolleeBLRespose> domainEnrolleeBLResponses = wsEnrolleeBPBLResponseList.stream().map(this::transformEnrolleeBLRespose).collect(Collectors.toList());
-		BlResolutionResponse blResolutionResponse = BlResolutionResponse.builder().enrollee(domainEnrolleeBLResponses).build();
+		List<EnrolleeBPBLResponse> domainEnrolleeBLResponses = wsEnrolleeBPBLResponseList.stream().map(this::transformEnrolleeBPBLResponse).collect(Collectors.toList());
+		BPBLResolutionResponse bpblResolutionResponse = BPBLResolutionResponse.builder().enrollee(domainEnrolleeBLResponses).build();
 		log.info("END PCPSearchResponseTransformer.transformGetBPsAndBussinessLevelsResponse");
-		return blResolutionResponse;
-	}
-
-	private EnrolleeBLRespose transformEnrolleeBLRespose(com.deltadental.platform.pcp.stub.EnrolleeBPBLResponse wsEnrolleeBPBLResponse) {
-		log.info("START PCPSearchResponseTransformer.transformEnrolleeBLRespose");
-		EnrolleeBLRespose enrolleeBLRespose = EnrolleeBLRespose.builder()
-//			.BenPkgList(getWSBenefitPackages(wsEnrolleeBPBLResponse.getBusinessLevels()));
-				.businessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
-				.businessLevels(wsEnrolleeBPBLResponse.getBusinessLevels().stream().map(this::transformWSBPBusinessLevelsForBusinessLevels).collect(Collectors.toList()))
-				.divisionNumber(wsEnrolleeBPBLResponse.getDivisionNumber())
-				.errorMessage(wsEnrolleeBPBLResponse.getErrorMessage())
-				.groupNumber(wsEnrolleeBPBLResponse.getGroupNumber()).memberType(wsEnrolleeBPBLResponse.getMemberType())
-				.providerId(wsEnrolleeBPBLResponse.getProviderId()).statusCode(wsEnrolleeBPBLResponse.getStatusCode())
-				.build();
-		log.info("END PCPSearchResponseTransformer.transformEnrolleeBLRespose");
-		return enrolleeBLRespose;
+		return bpblResolutionResponse;
 	}
 
 	private EnrolleeBPBLResponse transformEnrolleeBPBLResponse(com.deltadental.platform.pcp.stub.EnrolleeBPBLResponse wsEnrolleeBPBLResponse) {
@@ -320,8 +305,8 @@ public class PCPSearchResponseTransformer {
 		log.info("START PCPSearchResponseTransformer.transformBenefitPackage");
 		BenefitPackage bp = BenefitPackage.builder()
 				.benefitPackageId(stubBp.getBenefitPackageId())
-				.bpideffectiveDate(stubBp.getBpideffectiveDate())
-				.bpidendDate(stubBp.getBpidendDate())
+				.bpIdEffectiveDate(stubBp.getBpideffectiveDate())
+				.bpIdEndDate(stubBp.getBpidendDate())
 				.build();
 		log.info("END PCPSearchResponseTransformer.transformBenefitPackage");
 		return bp;
