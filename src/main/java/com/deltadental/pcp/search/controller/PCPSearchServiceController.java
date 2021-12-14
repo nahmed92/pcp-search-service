@@ -21,6 +21,8 @@ import com.deltadental.pcp.search.domain.FacilityResponse;
 import com.deltadental.pcp.search.domain.FacilitySearchRequest;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
+import com.deltadental.pcp.search.domain.ProvidersRequest;
+import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
@@ -193,6 +195,27 @@ public class PCPSearchServiceController {
 		return responseEntity;
 	}
 
+	@ApiOperation(
+			value = PCPSearchServiceConstants.SUMMARY_PROVIDERS, 
+			notes = PCPSearchServiceConstants.SUMMARY_PROVIDERS_NOTES, 
+			response = PCPAssignmentResponse.class)
+    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully processed providers", response = PCPAssignmentResponse.class),
+                    @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
+//                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
+                    @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
+                    @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
+	@ResponseBody
+	@MethodExecutionTime
+    @PostMapping(value = PCPSearchServiceConstants.GET_NEWPROVIDERS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<ProvidersResponse> providers(@RequestBody ProvidersRequest providersRequest) {
+		log.info("START PCPSearchServiceController.providerValidate");
+		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
+		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.providerValidate");
+		return responseEntity;
+	}
+
+	
 	@ApiOperation(
 			value = PCPSearchServiceConstants.SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS, 
 			notes = PCPSearchServiceConstants.SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_NOTES, 

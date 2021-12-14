@@ -29,5 +29,4 @@ public class EnrolleeDetail {
 	private List<String> errorMessages ;
 	private String recordIdentifier;
 	private String numberOfFacilities;
-
 }

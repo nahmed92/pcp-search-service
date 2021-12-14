@@ -1,0 +1,25 @@
+{
+	"pcpEnrollee": [
+		{
+			"memberType": "01",
+			"groupNumber": "76996",
+			"divisionNumber": "01008",
+			"memberAddress": {
+				"addressLine1": "17206 HALLIGAN PARK RD",
+				"addressLine2": "",
+				"city": "CARSON",
+				"state": "VA",
+				"zipCode": "23830"
+			},
+			"memberLanguage": "99",
+			"mtvPersonId": "",
+			"pcpEffectiveDate": "01-01-2019",
+			"pcpEndDate": "12-31-9999",
+			"pcpIdentifier": "",
+			"practiceLocation": "",
+			"recordIdentifier": "123"
+		}
+	],
+	"sourceSystem": "EMA",
+	"routing": ""
+}

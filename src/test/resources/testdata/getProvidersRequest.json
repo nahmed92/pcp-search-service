@@ -1,0 +1,30 @@
+{
+	"pcpRequests": [
+		{
+			"autoAssignmentFlag": "false",
+			"enrollees": [
+				{
+					"batchAutoAssignFlag": "false",
+					"benefitPackageID": "DTXA7000",
+					"ccaOverrideFlag": "false",
+					"dateofBirth": "1988-01-10",
+					"divisionNumber": "00006",
+					"enrolleeBusinessLevels": {
+						"businessLevel4": "GROUP",
+						"businessLevel5": "DDIC DHMO",
+						"businessLevel6": "TX",
+						"businessLevel7": "DLTACARE USA",
+						"networkId": "DELTACARE"
+					},
+					"groupNumber": "75079",
+					"memberAddress": {
+						"zipCode": "78251"
+					},
+					"memberType": "01"
+				}
+			]
+		}
+	],
+	"product": "",
+	"sourceSystem": "EMA"
+}

@@ -7,6 +7,8 @@ import com.deltadental.pcp.search.domain.FacilityResponse;
 import com.deltadental.pcp.search.domain.FacilitySearchRequest;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
+import com.deltadental.pcp.search.domain.ProvidersRequest;
+import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
@@ -22,5 +24,6 @@ public interface PCPSearchService {
 	BPBLResolutionResponse groupBenefitPackBussinessLevel(BlServiceRequest blServiceRequest) throws ServiceException;
 	PCPAssignmentResponse providerValidate(PcpAssignmentRequest pcpAssignmentRequest) throws ServiceException;
 	RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroups(String retrieveDistinct) throws ServiceException;
+	ProvidersResponse providers(ProvidersRequest providersRequest) throws ServiceException;
 	
 }

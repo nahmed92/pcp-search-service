@@ -1,0 +1,27 @@
+{
+	"enrollee": [
+		{
+			"benefitPackages": [
+				{
+					"benefitPackageId": "DCAA5400",
+					"bpIdEffectiveDate": "09/01/2010",
+					"bpIdEndDate": "12/31/9999"
+				}
+			],
+			"businessLevelCount": "1",
+			"businessLevels": [
+				{
+					"businessLevel4": "INDIVIDUAL",
+					"businessLevel5": "DDIC DHMO",
+					"businessLevel6": "CA",
+					"businessLevel7": "DLTACARE USA",
+					"effectiveDate": "09/01/2010",
+					"networkId": "DELTACARE"
+				}
+			],
+			"divisionNumber": "00007",
+			"groupNumber": "70116",
+			"memberType": "01"
+		}
+	]
+}

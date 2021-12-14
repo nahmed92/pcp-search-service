@@ -21,6 +21,8 @@ import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
 import com.deltadental.platform.pcp.stub.ObjectFactory;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
+import com.deltadental.platform.pcp.stub.Providers;
+import com.deltadental.platform.pcp.stub.ProvidersResponse;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
@@ -91,9 +93,18 @@ public class PCPAssignmentSoapClientImpl extends WebServiceGatewaySupport implem
 	public ProviderValidateResponse providerValidate(ProviderValidate providerValidate) {
 		log.info("START PCPAssignmentSoapClientImpl.providerValidate");
 		JAXBElement<ProviderValidate> jaxbElementProviderValidate = objectFactory.createProviderValidate(providerValidate);
-		JAXBElement<ProviderValidateResponse> facilitySearchResponse = (JAXBElement<ProviderValidateResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementProviderValidate);
+		JAXBElement<ProviderValidateResponse> providerValidateResponse = (JAXBElement<ProviderValidateResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementProviderValidate);
 		log.info("END PCPAssignmentSoapClientImpl.providerValidate");
-		return facilitySearchResponse.getValue();
+		return providerValidateResponse.getValue();
+	}
+
+	@Override
+	public ProvidersResponse providers(Providers providers) {
+		log.info("START PCPAssignmentSoapClientImpl.providerValidate");
+		JAXBElement<Providers> jaxbElementProviders = objectFactory.createProviders(providers);
+		JAXBElement<ProvidersResponse> providersResponse = (JAXBElement<ProvidersResponse>) getWebServiceTemplate().marshalSendAndReceive(jaxbElementProviders);
+		log.info("END PCPAssignmentSoapClientImpl.providerValidate");
+		return providersResponse.getValue();
 	}
 
 	@Override

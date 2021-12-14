@@ -13,6 +13,7 @@ import com.deltadental.pcp.search.domain.FacilityResponse;
 import com.deltadental.pcp.search.domain.FacilitySearchRequest;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
+import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
@@ -35,6 +36,8 @@ import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
+import com.deltadental.platform.pcp.stub.Providers;
+import com.deltadental.platform.pcp.stub.ProvidersResponse;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
@@ -144,6 +147,16 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 		RetrieveDistinctExceptionGroupsRes retrieveDistinctExceptionGroupsRes = RetrieveDistinctExceptionGroupsRes.builder().retrieveDistinctExceptionGroupsResponse(retrieveDistinctExceptionGroupsResponse.getReturn()).build();
 		log.info("END PCPSearchServiceImpl.retrieveDistinctExceptionGroups");
 		return retrieveDistinctExceptionGroupsRes;
+	}
+
+	@Override
+	public com.deltadental.pcp.search.domain.ProvidersResponse providers(ProvidersRequest providersRequest) throws ServiceException {
+		log.info("START PCPSearchServiceImpl.providers");
+		Providers providers = pcpSearchRequestTransformer.transformProvidersRequest(providersRequest);
+		ProvidersResponse providersResponse = pcpAssignmentSoapClient.providers(providers);
+		com.deltadental.pcp.search.domain.ProvidersResponse response = pcpSearchResponseTransformer.transformProvidersResponse(providersResponse);
+		log.info("END PCPSearchServiceImpl.providers");
+		return response;
 	}
 
 }

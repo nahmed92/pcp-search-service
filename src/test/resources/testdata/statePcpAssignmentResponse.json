@@ -1,0 +1,11 @@
+{
+	"groupNumber": "71002",
+	"divisionNumber": "00001",
+	"state": "GA",
+	"isStateEligibleforPcp": true,
+	"isGroupDivEligibleforAutoPcp": true,
+	"unlimitedSplitFamilyFlag": true,
+	"unlimitedSplitFamilyINDVFlag": true,
+	"returnCode": "RTCD",
+	"returnDescription": "RTDESC"
+}

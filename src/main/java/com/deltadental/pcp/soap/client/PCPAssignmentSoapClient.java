@@ -14,6 +14,8 @@ import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
+import com.deltadental.platform.pcp.stub.Providers;
+import com.deltadental.platform.pcp.stub.ProvidersResponse;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
@@ -26,5 +28,6 @@ public interface PCPAssignmentSoapClient {
 	GetStatePCPAssignmentResponse getStatePCPAssignment(GetStatePCPAssignment getStatePCPAssignment);
 	GroupBenefitPackBussinessLevelResponse groupBenefitPackBussinessLevel(GroupBenefitPackBussinessLevel groupBenefitPackBussinessLevel);
 	ProviderValidateResponse providerValidate(ProviderValidate providerValidate);
+	ProvidersResponse providers(Providers providers);
 	RetrieveDistinctExceptionGroupsResponse retrieveDistinctExceptionGroups(RetrieveDistinctExceptionGroups retrieveDistinctExceptionGroups);
 }

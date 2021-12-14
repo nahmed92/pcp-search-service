@@ -1,0 +1,36 @@
+{
+	"facility": [
+		{
+			"addressLine1": "100 1st St",
+			"addressLine2": "Suite 150",
+			"addressLine3": "",
+			"city": "San Francisco",
+			"state": "CA",
+			"zip": "94111",
+			"contracted": "Yes",
+			"effectiveDate": "2014-05-01",
+			"enrollStatus": "Active",
+			"facilityID": "1790900777",
+			"facilityName": "Leong Dental",
+			"facilityStatus": "Active",
+			"phoneNumber": "(415) 278-5777",
+			"specility": "Treats children"
+		},
+		{
+			"addressLine1": "498 Jackson St",
+			"addressLine2": "Suite 150",
+			"addressLine3": "",
+			"city": "San Francisco",
+			"state": "CA",
+			"zip": "94111",
+			"contracted": "Yes",
+			"effectiveDate": "2014-05-01",
+			"enrollStatus": "Active",
+			"facilityID": "1790900777",
+			"facilityName": "Uno Dental",
+			"facilityStatus": "Active",
+			"phoneNumber": "(415) 278-5777",
+			"specility": "General Dentistry, Cosmetic Dentists"
+		}
+	]
+}

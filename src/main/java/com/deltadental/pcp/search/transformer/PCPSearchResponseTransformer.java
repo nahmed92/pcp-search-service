@@ -20,6 +20,7 @@ import com.deltadental.pcp.search.domain.OfficeHour;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PCPResponse;
 import com.deltadental.pcp.search.domain.PcpProvider;
+import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
 import com.deltadental.platform.pcp.stub.BpBusinessLevels;
 import com.deltadental.platform.pcp.stub.BpblResolutionResponse;
@@ -151,6 +152,16 @@ public class PCPSearchResponseTransformer {
 		return bpblResolutionResponse;
 	}
 
+	public ProvidersResponse transformProvidersResponse(com.deltadental.platform.pcp.stub.ProvidersResponse providersResponse) {
+		log.info("START PCPSearchResponseTransformer.transformProvidersResponse");
+		ProvidersResponse response = new ProvidersResponse();
+		PcpAssignmentResponse _return = providersResponse.getReturn();
+		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(_return);
+		response.setPcpAssignmentResponse(pcpAssignmentResponse);
+		log.info("END PCPSearchResponseTransformer.transformProvidersResponse");
+		return response;
+	}
+	
 	private EnrolleeBPBLResponse transformEnrolleeBPBLResponse(com.deltadental.platform.pcp.stub.EnrolleeBPBLResponse wsEnrolleeBPBLResponse) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeBPBLResponse");
 		EnrolleeBPBLResponse enrolleeBLRespose = EnrolleeBPBLResponse.builder()

@@ -14,6 +14,7 @@ import com.deltadental.pcp.search.domain.PCPRefineSearch;
 import com.deltadental.pcp.search.domain.PCPRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.PrimaryEnrolleePCPInfo;
+import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.platform.pcp.stub.FacilitySearch;
 import com.deltadental.platform.pcp.stub.FacilityType;
@@ -26,8 +27,10 @@ import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.PcpEnrollee;
 import com.deltadental.platform.pcp.stub.PcpRefineSearch;
 import com.deltadental.platform.pcp.stub.PcpRequest;
+import com.deltadental.platform.pcp.stub.PcpSearchRequest;
 import com.deltadental.platform.pcp.stub.PcpblEnrollee;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
+import com.deltadental.platform.pcp.stub.Providers;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -101,6 +104,17 @@ public class PCPSearchRequestTransformer {
 		providerValidate.setArg0(getPcpAssignmentRequest(pcpAssignmentRequest));
 		log.info("END PCPSearchRequestTransformer.transformProviderValidate");
 		return providerValidate;
+	}
+	
+	public Providers transformProvidersRequest(ProvidersRequest providersRequest) {
+		Providers providers = new Providers();
+		PcpSearchRequest pcpSearchRequest = new PcpSearchRequest();
+		pcpSearchRequest.setContractID(providersRequest.getContractID());
+		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
+		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
+		pcpSearchRequest.setZipcode(providersRequest.getZipcode());
+		providers.setArg0(pcpSearchRequest);
+		return providers;
 	}
 	
 	private FacilityType transformFacilityregion(com.deltadental.pcp.search.domain.FacilityType facilityType) {

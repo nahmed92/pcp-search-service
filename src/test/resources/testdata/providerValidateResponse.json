@@ -1,0 +1,99 @@
+{
+	"sourceSystem": "EEP",
+	"processStatusDescription": "",
+	"processStatusCode": "Success",
+	"pcpResponses": [
+		{
+			"contractId": "",
+			"enrollees": [
+				{
+					"memberType": "01",
+					"groupNumber": "70116",
+					"divisionNumber": "00007",
+					"businessLevels": [
+						{
+							"businessLevel4": "INDIVIDUAL",
+							"businessLevel5": "DDIC DHMO",
+							"businessLevel6": "CA",
+							"businessLevel7": "DLTACARE USA",
+							"effectiveDate": "09/01/2010",
+							"endDate": "12/31/9999",
+							"networkId": "DELTACARE",
+							"classCode": ""
+						}
+					],
+					"benefitPackages": [
+						{
+							"benefitPackageId": "",
+							"bpIdEffectiveDate": "",
+							"bpIdEndDate": ""
+						}
+					],
+					"pcpProviders": [
+						{
+							"providerFacilityId": "DC228101",
+							"providerFacilityName": "Hillview Dental Group",
+							"practiceLocationNumber": "240602143001",
+							"groupPracticeNumber": "GRP240602143",
+							"providerType": "DENTAL",
+							"mtvNetworkId": "2DELTACARE",
+							"practiceLocationPhone": "5106511440",
+							"providerAccessibleFacility": "",
+							"providerWorkMode": "",
+							"maxMemberCount": "99999",
+							"patientCount": "169",
+							"facilityLatitude": "29.4440193",
+							"facilityLongitude": "-98.6629868",
+							"providerAddress": {
+								"addressLine1": "40739 GRIMMER BLVD",
+								"addressLine2": "",
+								"city": "FREMONT",
+								"state": "CA",
+								"zipCode": "94538"
+							},
+							"officeHours": {
+								"officeHours": [
+									"Mon: 8:00 AM - 5:00 PM",
+									"Tue: 8:00 AM - 5:00 PM",
+									"Wed: 8:00 AM - 5:00 PM",
+									"Thurs: 8:00 AM - 5:00 PM",
+									"Fri: 8:00 AM - 5:00 PM",
+									"Sat: Closed",
+									"Sun: Closed"
+								]
+							},
+							"languages": [
+								"English",
+								"Spanish"
+							],
+							"distance": "2.85",
+							"minAge": "",
+							"maxAge": "",
+							"specialtyCode": "",
+							"specialtyDescription": "",
+							"businessLevels": [
+								{
+									"businessLevel4": "",
+									"businessLevel5": "",
+									"businessLevel6": "",
+									"businessLevel7": "",
+									"effectiveDate": "",
+									"endDate": "",
+									"networkId": "",
+									"classCode": ""
+								}
+							]
+						}
+					],
+					"enrolleeStatusCode": "PCP010",
+					"pcpValidationFlag": false,
+					"errorMessages": [
+						"Input PCP is Valid for the Enrollee"
+					],
+					"recordIdentifier": "",
+					"numberOfFacilities": ""
+				}
+			]
+		}
+	]
+}

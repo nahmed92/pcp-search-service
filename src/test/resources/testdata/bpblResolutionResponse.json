@@ -1,0 +1,44 @@
+{
+	"enrollee": [
+		{
+			"memberType": "01",
+			"businessLevels": [
+				{
+					"businessLevel4": "GROUP",
+					"businessLevel5": "DDIC DHMO",
+					"businessLevel6": "VA",
+					"businessLevel7": "DLTACARE USA",
+					"networkId": "DELTACARE",
+					"effectiveDate": "02/01/2019",
+					"endDate": "03/31/2019",
+					"benefitPackage": {
+						"benefitPackageId": "DVADAH00",
+						"bpIdEffectiveDate": "02/01/2019",
+						"bpIdEndDate": "03/31/2019"
+					}
+				},
+				{
+					"businessLevel4": "GROUP",
+					"businessLevel5": "DDIC DHMO",
+					"businessLevel6": "VA",
+					"businessLevel7": "DLTACARE USA",
+					"networkId": "DELTACARE",
+					"effectiveDate": "04/01/2019",
+					"endDate": "12/31/9999",
+					"benefitPackage": {
+						"benefitPackageId": "DVA10A00",
+						"bpIdEffectiveDate": "04/01/2019",
+						"bpIdEndDate": "12/31/9999"
+					}
+				}
+			],
+			"providerId": "",
+			"groupNumber": "76996",
+			"divisionNumber": "01008",
+			"businessLevelCount": 2,
+			"statusCode": "",
+			"errorMessage": "",
+			"recordIdentifier": "123"
+		}
+	]
+}

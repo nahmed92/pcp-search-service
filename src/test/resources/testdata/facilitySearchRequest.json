@@ -1,0 +1,34 @@
+{
+	"benefitPackageID": "DTXA7000",
+	"businessLevels": {
+		"businessLevel4": "GROUP",
+		"businessLevel5": "DDIC DHMO",
+		"businessLevel6": "TX",
+		"businessLevel7": "DLTACARE USA",
+		"networkId": "DELTACARE",
+		"classCode": "A2",
+		"effectiveDate": "2014-05-01",
+		"endDate": "9999-12-31"
+	},
+	"divisionNumber": "00006",
+	"enrolleeZipCode": "78251",
+	"facilityType": {
+		"providerType": "Dental",
+		"providerSpcialityDesc": "Cressman Dental Group PC",
+		"providerSpecialityCode": "10"
+	},
+	"facilityRegion": {
+		"facilityCity": "San Francisco",
+		"facilityState": "CA",
+		"facilityZip": "94105"
+	},
+	"facilityStatus": {
+		"enrollStatus": "Active",
+		"facilityType": "Dental",
+		"facilityStatusType": "Active",
+		"status": "Active"
+	},
+	"groupNumber": "75079",
+	"mtvPersonID": "240596552011",
+	"product": "DC"
+}
