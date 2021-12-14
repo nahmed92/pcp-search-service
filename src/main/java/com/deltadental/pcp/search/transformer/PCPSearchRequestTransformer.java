@@ -107,6 +107,7 @@ public class PCPSearchRequestTransformer {
 	}
 	
 	public Providers transformProvidersRequest(ProvidersRequest providersRequest) {
+		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		Providers providers = new Providers();
 		PcpSearchRequest pcpSearchRequest = new PcpSearchRequest();
 		pcpSearchRequest.setContractID(providersRequest.getContractID());
@@ -114,41 +115,49 @@ public class PCPSearchRequestTransformer {
 		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
 		pcpSearchRequest.setZipcode(providersRequest.getZipcode());
 		providers.setArg0(pcpSearchRequest);
+		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		return providers;
 	}
 	
 	private FacilityType transformFacilityregion(com.deltadental.pcp.search.domain.FacilityType facilityType) {
+		log.info("START PCPSearchRequestTransformer.transformFacilityregion");
 		FacilityType stubFacilityType = new FacilityType();
-		stubFacilityType.setProviderspcialityDesc(facilityType.getProviderSpcialityDesc());
-		stubFacilityType.setProviderspecialityCode(facilityType.getProviderSpecialityCode());
-		stubFacilityType.setProviderType(facilityType.getProviderType());
+		if(facilityType != null) {
+			stubFacilityType.setProviderspcialityDesc(facilityType.getProviderSpcialityDesc());
+			stubFacilityType.setProviderspecialityCode(facilityType.getProviderSpecialityCode());
+			stubFacilityType.setProviderType(facilityType.getProviderType());
+		}
+		log.info("END PCPSearchRequestTransformer.transformFacilityregion");
 		return stubFacilityType;
 	}
 
 	private Facilitystatus transformFacilityregion(com.deltadental.pcp.search.domain.Facilitystatus facilitystatus) {
-		if(facilitystatus != null) {
-			Facilitystatus stubFacilitystatus = new Facilitystatus();
+		log.info("START PCPSearchRequestTransformer.transformFacilityregion");
+		Facilitystatus stubFacilitystatus = new Facilitystatus();
+		if(facilitystatus != null) {			
 			stubFacilitystatus.setEnrollStatus(facilitystatus.getEnrollStatus());
 			stubFacilitystatus.setFacilitystatusType(facilitystatus.getFacilityStatusType());
 			stubFacilitystatus.setFacilityType(facilitystatus.getFacilityType());
-			stubFacilitystatus.setStatus(facilitystatus.getStatus());
-			return stubFacilitystatus;
+			stubFacilitystatus.setStatus(facilitystatus.getStatus());			
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.transformFacilityregion");
+		return stubFacilitystatus;
 	}
 
 	private Facilityregion transformFacilityregion(com.deltadental.pcp.search.domain.Facilityregion facilityregion) {
+		log.info("START PCPSearchRequestTransformer.transformFacilityregion");
+		Facilityregion stubFacilityregion = new Facilityregion();
 		if(facilityregion != null) {
-			Facilityregion stubFacilityregion = new Facilityregion();
 			stubFacilityregion.setFacilityCity(facilityregion.getFacilityCity());
 			stubFacilityregion.setFacilityState(facilityregion.getFacilityState());
 			stubFacilityregion.setFacilityZip(facilityregion.getFacilityZip());
-			return stubFacilityregion;
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.transformFacilityregion");
+		return stubFacilityregion;
 	}
 
 	private com.deltadental.platform.pcp.stub.PcpAssignmentRequest getPcpAssignmentRequest(PcpAssignmentRequest pcpAssignmentRequest) {
+		log.info("START PCPSearchRequestTransformer.getPcpAssignmentRequest");
 		com.deltadental.platform.pcp.stub.PcpAssignmentRequest assignmentRequest = new com.deltadental.platform.pcp.stub.PcpAssignmentRequest();
 		List<PCPRequest> pcpRequests = pcpAssignmentRequest.getPcpRequests();
 		List<PcpRequest> stubPcpRequests = assignmentRequest.getPcpRequests();
@@ -164,10 +173,12 @@ public class PCPSearchRequestTransformer {
 		});
 		assignmentRequest.setProduct(pcpAssignmentRequest.getProduct());
 		assignmentRequest.setSourceSystem(pcpAssignmentRequest.getSourceSystem());
+		log.info("END PCPSearchRequestTransformer.getPcpAssignmentRequest");
 		return assignmentRequest;
 	}
 	
 	private void mapEnrolles(List<PcpEnrollee> stubEnrollees, List<PCPEnrollee> enrollees) {
+		log.info("START PCPSearchRequestTransformer.mapEnrolles");
 		enrollees.forEach(enrollee -> {
 			PcpEnrollee pcpEnrollee = new PcpEnrollee();
 			pcpEnrollee.setAutoAssignmentState(enrollee.getAutoAssignmentState());
@@ -197,11 +208,13 @@ public class PCPSearchRequestTransformer {
 			pcpEnrollee.setSourceSystem(enrollee.getSourceSystem());
 			stubEnrollees.add(pcpEnrollee);
 		});
+		log.info("END PCPSearchRequestTransformer.mapEnrolles");
 	}		
 
 	private PcpRefineSearch getPcpRefineSearch(PCPRefineSearch pcpRefineSearch) {
+		log.info("START PCPSearchRequestTransformer.getPcpRefineSearch");
+		PcpRefineSearch refineSearch = new PcpRefineSearch();
 		if(pcpRefineSearch != null) {
-			PcpRefineSearch refineSearch = new PcpRefineSearch();
 			refineSearch.setCity(pcpRefineSearch.getCity());
 			refineSearch.setDistance(pcpRefineSearch.getDistance());
 			refineSearch.setGender(pcpRefineSearch.getGender());
@@ -216,25 +229,27 @@ public class PCPSearchRequestTransformer {
 			refineSearch.setState(pcpRefineSearch.getState());
 			refineSearch.setWorkMode(pcpRefineSearch.getWorkMode());
 			refineSearch.setZipCode(pcpRefineSearch.getZipCode());
-			return refineSearch;
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.getPcpRefineSearch");
+		return refineSearch;
 	}
 	
 	private  com.deltadental.platform.pcp.stub.PrimaryEnrolleePCPInfo getPrimaryEnrolleePCPInfo(PrimaryEnrolleePCPInfo primaryEnrolleePCPInfo) {
+		log.info("START PCPSearchRequestTransformer.getPrimaryEnrolleePCPInfo");
+		com.deltadental.platform.pcp.stub.PrimaryEnrolleePCPInfo enrolleePCPInfo = new com.deltadental.platform.pcp.stub.PrimaryEnrolleePCPInfo();
 		if(primaryEnrolleePCPInfo != null) {
-			com.deltadental.platform.pcp.stub.PrimaryEnrolleePCPInfo enrolleePCPInfo = new com.deltadental.platform.pcp.stub.PrimaryEnrolleePCPInfo();
 			enrolleePCPInfo.setPeAddress(getAddress(primaryEnrolleePCPInfo.getPeAddress()));
 			enrolleePCPInfo.setPeBusinessLevels(getBusinessLevels(primaryEnrolleePCPInfo.getPeBusinessLevels()));
 			enrolleePCPInfo.setPePCPIdentifier(primaryEnrolleePCPInfo.getPePCPIdentifier());
-			return enrolleePCPInfo;
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.getPrimaryEnrolleePCPInfo");
+		return enrolleePCPInfo;
 	}
 	
 	private com.deltadental.platform.pcp.stub.BusinessLevels getBusinessLevels(BusinessLevels businessLevels) {
+		log.info("START PCPSearchRequestTransformer.getBusinessLevels");
+		com.deltadental.platform.pcp.stub.BusinessLevels peBusinessLevels = new com.deltadental.platform.pcp.stub.BusinessLevels();
 		if(businessLevels != null) {
-			com.deltadental.platform.pcp.stub.BusinessLevels peBusinessLevels = new com.deltadental.platform.pcp.stub.BusinessLevels();
 			peBusinessLevels.setBusinessLevel4(businessLevels.getBusinessLevel4());
 			peBusinessLevels.setBusinessLevel5(businessLevels.getBusinessLevel5());
 			peBusinessLevels.setBusinessLevel6(businessLevels.getBusinessLevel6());
@@ -243,27 +258,46 @@ public class PCPSearchRequestTransformer {
 			peBusinessLevels.setEffectiveDate(businessLevels.getEffectiveDate());
 			peBusinessLevels.setEndDate(businessLevels.getEndDate());
 			peBusinessLevels.setNetworkId(businessLevels.getNetworkId());
-			return peBusinessLevels;
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.getBusinessLevels");
+		return peBusinessLevels;
 	}
 	
 	private com.deltadental.platform.pcp.stub.Address getAddress(Address address) {
+		log.info("START PCPSearchRequestTransformer.getAddress");
+		com.deltadental.platform.pcp.stub.Address peAddress = new com.deltadental.platform.pcp.stub.Address();
 		if(address != null) {
-			com.deltadental.platform.pcp.stub.Address peAddress = new com.deltadental.platform.pcp.stub.Address();
 			peAddress.setAddressLine1(address.getAddressLine1());
 			peAddress.setAddressLine2(address.getAddressLine2());
 			peAddress.setCity(address.getCity());
 			peAddress.setState(address.getState());
 			peAddress.setZipCode(address.getZipCode());
-			return peAddress;
 		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.getAddress");
+		return peAddress;
 	}
 
+	private com.deltadental.platform.pcp.stub.BlServiceRequest getBlServiceRequest(BlServiceRequest blServiceRequest) {
+		log.info("START PCPSearchRequestTransformer.getBlServiceRequest");
+		com.deltadental.platform.pcp.stub.BlServiceRequest stubBlServiceRequest = new com.deltadental.platform.pcp.stub.BlServiceRequest();
+		if(blServiceRequest != null) {
+			stubBlServiceRequest.setRouting(blServiceRequest.getRouting());
+			stubBlServiceRequest.setSourceSystem(blServiceRequest.getSourceSystem());
+			List<PCPBLEnrollee> pcpEnrolleeList = blServiceRequest.getPcpEnrollee();
+			List<PcpblEnrollee> stubPcpEnrolleeList = stubBlServiceRequest.getPcpEnrollee();
+			pcpEnrolleeList.forEach(pcpEnrollee -> {
+				PcpblEnrollee stubPcpblEnrollee = transformPcpblEnrollee(pcpEnrollee);
+				stubPcpEnrolleeList.add(stubPcpblEnrollee);
+			});
+		}
+		log.info("END PCPSearchRequestTransformer.getBlServiceRequest");
+		return stubBlServiceRequest;
+	}
+	
 	private PcpblEnrollee transformPcpblEnrollee(PCPBLEnrollee pcpblEnrollee) {
+		log.info("START PCPSearchRequestTransformer.transformPcpblEnrollee");
+		PcpblEnrollee stubPcpblEnrollee = new PcpblEnrollee();
 		if(pcpblEnrollee != null) {
-			PcpblEnrollee stubPcpblEnrollee = new PcpblEnrollee();
 			stubPcpblEnrollee.setDivisionNumber(pcpblEnrollee.getDivisionNumber());
 			stubPcpblEnrollee.setGroupNumber(pcpblEnrollee.getGroupNumber());
 			stubPcpblEnrollee.setMemberLanguage(pcpblEnrollee.getMemberLanguage());
@@ -275,25 +309,9 @@ public class PCPSearchRequestTransformer {
 			stubPcpblEnrollee.setPcpIdentifier(pcpblEnrollee.getPcpIdentifier());
 			stubPcpblEnrollee.setPracticeLocation(pcpblEnrollee.getPracticeLocation());
 			stubPcpblEnrollee.setRecordIdentifier(pcpblEnrollee.getRecordIdentifier());
-			return stubPcpblEnrollee;
 		}
-		return null;
-	}
-
-	private com.deltadental.platform.pcp.stub.BlServiceRequest getBlServiceRequest(BlServiceRequest blServiceRequest) {
-		if(blServiceRequest != null) {
-			com.deltadental.platform.pcp.stub.BlServiceRequest stubBlServiceRequest = new com.deltadental.platform.pcp.stub.BlServiceRequest();
-			stubBlServiceRequest.setRouting(blServiceRequest.getRouting());
-			stubBlServiceRequest.setSourceSystem(blServiceRequest.getSourceSystem());
-			List<PCPBLEnrollee> pcpEnrolleeList = blServiceRequest.getPcpEnrollee();
-			List<PcpblEnrollee> stubPcpEnrolleeList = stubBlServiceRequest.getPcpEnrollee();
-			pcpEnrolleeList.forEach(pcpEnrollee -> {
-				PcpblEnrollee stubPcpblEnrollee = transformPcpblEnrollee(pcpEnrollee);
-				stubPcpEnrolleeList.add(stubPcpblEnrollee);
-			});
-			return stubBlServiceRequest;
-		}
-		return null;
+		log.info("END PCPSearchRequestTransformer.transformPcpblEnrollee");
+		return stubPcpblEnrollee;
 	}
 
 }

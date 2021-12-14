@@ -58,28 +58,6 @@ public class PCPSearchResponseTransformer {
 		return facilityResponse;
 	}
 
-	private Facility transformFacility(com.deltadental.platform.pcp.stub.Facility wsFacility) {
-		log.info("START PCPSearchResponseTransformer.transformFacility");
-		Facility domainFacility = Facility.builder()
-				.addressLine1(wsFacility.getAddressLine1())
-				.addressLine2(wsFacility.getAddressLine2())
-				.addressLine3(wsFacility.getAddressLine3())
-				.city(wsFacility.getCity())
-				.contracted(wsFacility.getContracted())
-				.effectiveDate(wsFacility.getEffectiveDate())
-				.enrollStatus(wsFacility.getEffectiveDate())
-				.facilityID(wsFacility.getFacilityID())
-				.facilityName(wsFacility.getFacilityName())
-				.facilityStatus(wsFacility.getFacilitystatus())
-				.phoneNumber(wsFacility.getPhoneNumber())
-				.specility(wsFacility.getSpecility())
-				.state(wsFacility.getState())
-				.zip(wsFacility.getZip())
-				.build();
-		log.info("END PCPSearchResponseTransformer.transformFacility");
-		return domainFacility;
-	}
-
 	public StatePcpAssignmentResponse transformGetStatePCPAssignmentResponse(GetStatePCPAssignmentResponse getStatePCPAssignmentResponse) {
 		log.info("START PCPSearchResponseTransformer.transformGetStatePCPAssignmentResponse");
 		com.deltadental.platform.pcp.stub.StatePcpAssignmentResponse wsStatePcpAssignmentResponse = getStatePCPAssignmentResponse.getReturn();
@@ -162,165 +140,218 @@ public class PCPSearchResponseTransformer {
 		return response;
 	}
 	
+	private Facility transformFacility(com.deltadental.platform.pcp.stub.Facility wsFacility) {
+		log.info("START PCPSearchResponseTransformer.transformFacility");
+		if(wsFacility != null) {
+			Facility domainFacility = Facility.builder()
+					.addressLine1(wsFacility.getAddressLine1())
+					.addressLine2(wsFacility.getAddressLine2())
+					.addressLine3(wsFacility.getAddressLine3())
+					.city(wsFacility.getCity())
+					.contracted(wsFacility.getContracted())
+					.effectiveDate(wsFacility.getEffectiveDate())
+					.enrollStatus(wsFacility.getEffectiveDate())
+					.facilityID(wsFacility.getFacilityID())
+					.facilityName(wsFacility.getFacilityName())
+					.facilityStatus(wsFacility.getFacilitystatus())
+					.phoneNumber(wsFacility.getPhoneNumber())
+					.specility(wsFacility.getSpecility())
+					.state(wsFacility.getState())
+					.zip(wsFacility.getZip())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformFacility");
+			return domainFacility;
+		} 
+		log.info("END PCPSearchResponseTransformer.transformFacility");
+		return null;
+	}
+	
 	private EnrolleeBPBLResponse transformEnrolleeBPBLResponse(com.deltadental.platform.pcp.stub.EnrolleeBPBLResponse wsEnrolleeBPBLResponse) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeBPBLResponse");
-		EnrolleeBPBLResponse enrolleeBLRespose = EnrolleeBPBLResponse.builder()
-//			.BenPkgList(getWSBenefitPackages(wsEnrolleeBPBLResponse.getBusinessLevels()));
-				.businessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
-				.businessLevels(wsEnrolleeBPBLResponse.getBusinessLevels().stream().map(this::transformBPBusinessLevelsForBPBusinessLevels).collect(Collectors.toList()))
-				.divisionNumber(wsEnrolleeBPBLResponse.getDivisionNumber())
-				.errorMessage(wsEnrolleeBPBLResponse.getErrorMessage())
-				.groupNumber(wsEnrolleeBPBLResponse.getGroupNumber())
-				.memberType(wsEnrolleeBPBLResponse.getMemberType())
-				.providerId(wsEnrolleeBPBLResponse.getProviderId())
-				.statusCode(wsEnrolleeBPBLResponse.getStatusCode())
-				.build();
+		if(wsEnrolleeBPBLResponse != null) {
+			EnrolleeBPBLResponse enrolleeBLRespose = EnrolleeBPBLResponse.builder()
+	//			.BenPkgList(getWSBenefitPackages(wsEnrolleeBPBLResponse.getBusinessLevels()));
+					.businessLevelCount(wsEnrolleeBPBLResponse.getBusinessLevelCount())
+					.businessLevels(wsEnrolleeBPBLResponse.getBusinessLevels().stream().map(this::transformBPBusinessLevelsForBPBusinessLevels).collect(Collectors.toList()))
+					.divisionNumber(wsEnrolleeBPBLResponse.getDivisionNumber())
+					.errorMessage(wsEnrolleeBPBLResponse.getErrorMessage())
+					.groupNumber(wsEnrolleeBPBLResponse.getGroupNumber())
+					.memberType(wsEnrolleeBPBLResponse.getMemberType())
+					.providerId(wsEnrolleeBPBLResponse.getProviderId())
+					.statusCode(wsEnrolleeBPBLResponse.getStatusCode())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformEnrolleeBPBLResponse");
+			return enrolleeBLRespose;
+		}
 		log.info("END PCPSearchResponseTransformer.transformEnrolleeBPBLResponse");
-		return enrolleeBLRespose;
+		return null;
 	}
 
 	private PCPAssignmentResponse getPCPAssignmentResponse(PcpAssignmentResponse clientPcpAssignmentResponse) {
-		List<PcpResponse> clientPcpResponses = clientPcpAssignmentResponse.getPcpResponses();
-		List<PCPResponse> pcpResponses = clientPcpResponses.stream().map(this::transformPCPResponse).collect(Collectors.toList());
-		PCPAssignmentResponse pcpAssignmentResponse = PCPAssignmentResponse.builder()
-				.processStatusCode(clientPcpAssignmentResponse.getProcessStatusCode())
-				.processStatusDescription(clientPcpAssignmentResponse.getProcessStatusDescription())
-				.sourceSystem(clientPcpAssignmentResponse.getSourceSystem())
-				.pcpResponses(pcpResponses)
-				.build();
-		return pcpAssignmentResponse;
+		log.info("START PCPSearchResponseTransformer.getPCPAssignmentResponse");
+		if(clientPcpAssignmentResponse != null) {
+			List<PcpResponse> clientPcpResponses = clientPcpAssignmentResponse.getPcpResponses();
+			List<PCPResponse> pcpResponses = clientPcpResponses.stream().map(this::transformPCPResponse).collect(Collectors.toList());
+			PCPAssignmentResponse pcpAssignmentResponse = PCPAssignmentResponse.builder()
+					.processStatusCode(clientPcpAssignmentResponse.getProcessStatusCode())
+					.processStatusDescription(clientPcpAssignmentResponse.getProcessStatusDescription())
+					.sourceSystem(clientPcpAssignmentResponse.getSourceSystem())
+					.pcpResponses(pcpResponses)
+					.build();
+			log.info("END PCPSearchResponseTransformer.getPCPAssignmentResponse");
+			return pcpAssignmentResponse;
+		}
+		log.info("END PCPSearchResponseTransformer.getPCPAssignmentResponse");
+		return null;
 	}
 
 	private PCPResponse transformPCPResponse(PcpResponse clientPcpRespnse) {
 		log.info("START PCPSearchResponseTransformer.transformPCPResponse");
-		PCPResponse pcpResponse = PCPResponse.builder().contractId(clientPcpRespnse.getContractID())
-				.enrollees(clientPcpRespnse.getEnrollees().stream().map(this::transformEnrolleeDetail).collect(Collectors.toList()))
-				.build();
+		if(clientPcpRespnse != null) {
+			PCPResponse pcpResponse = PCPResponse.builder().contractId(clientPcpRespnse.getContractID())
+					.enrollees(clientPcpRespnse.getEnrollees().stream().map(this::transformEnrolleeDetail).collect(Collectors.toList()))
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformPCPResponse");
+			return pcpResponse;
+		}
 		log.info("END PCPSearchResponseTransformer.transformPCPResponse");
-		return pcpResponse;
+		return null;
 	}
 
 	private EnrolleeDetail transformEnrolleeDetail(com.deltadental.platform.pcp.stub.EnrolleeDetail clientEnrolleeDetail) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeDetail");
-		EnrolleeDetail enrolleeDetail = EnrolleeDetail.builder()
-				.benefitPackages(transformWSBenefitPackages(clientEnrolleeDetail.getBenefitpackages()))
-				.businessLevels(clientEnrolleeDetail.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
-				.divisionNumber(clientEnrolleeDetail.getDivisionNumber())
-				.enrolleeStatusCode(clientEnrolleeDetail.getEnrolleeStatusCode())
-				.errorMessages(clientEnrolleeDetail.getErrorMessages())
-				.groupNumber(clientEnrolleeDetail.getGroupNumber()).memberType(clientEnrolleeDetail.getMemberType())
-				.numberOfFacilities(clientEnrolleeDetail.getNumberOfFacilities())
-				.pcpProviders(clientEnrolleeDetail.getPcpproviders().stream().map(this::transformPcpProvider).collect(Collectors.toList()))
-				.pcpValidationFlag(clientEnrolleeDetail.isPcpValidationFlag())
-				.recordIdentifier(clientEnrolleeDetail.getRecordIdentifier())
-				.build();
+		if(clientEnrolleeDetail != null) {
+			EnrolleeDetail enrolleeDetail = EnrolleeDetail.builder()
+					.benefitPackages(transformWSBenefitPackages(clientEnrolleeDetail.getBenefitpackages()))
+					.businessLevels(clientEnrolleeDetail.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
+					.divisionNumber(clientEnrolleeDetail.getDivisionNumber())
+					.enrolleeStatusCode(clientEnrolleeDetail.getEnrolleeStatusCode())
+					.errorMessages(clientEnrolleeDetail.getErrorMessages())
+					.groupNumber(clientEnrolleeDetail.getGroupNumber()).memberType(clientEnrolleeDetail.getMemberType())
+					.numberOfFacilities(clientEnrolleeDetail.getNumberOfFacilities())
+					.pcpProviders(clientEnrolleeDetail.getPcpproviders().stream().map(this::transformPcpProvider).collect(Collectors.toList()))
+					.pcpValidationFlag(clientEnrolleeDetail.isPcpValidationFlag())
+					.recordIdentifier(clientEnrolleeDetail.getRecordIdentifier())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformEnrolleeDetail");
+			return enrolleeDetail;
+		}
 		log.info("END PCPSearchResponseTransformer.transformEnrolleeDetail");
-		return enrolleeDetail;
+		return null;
 	}
 
 	private PcpProvider transformPcpProvider(com.deltadental.platform.pcp.stub.PcpProvider clientPcpProvider) {
 		log.info("START PCPSearchResponseTransformer.transformPcpProvider");
-		PcpProvider pcpprovider = PcpProvider.builder()
-				.businessLevels(clientPcpProvider.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
-				.distance(clientPcpProvider.getDistance()).facilityLatitude(clientPcpProvider.getFacilityLatitude())
-				.facilityLongitude(clientPcpProvider.getFacilityLongitude())
-				.groupPracticeNumber(clientPcpProvider.getGroupPracticeNumber())
-				.languages(clientPcpProvider.getLanguages()).maxAge(clientPcpProvider.getMaxAge())
-				.maxMemberCount(clientPcpProvider.getMaxMemberCount()).minAge(clientPcpProvider.getMinAge())
-				.mtvNetworkId(clientPcpProvider.getMtvNetworkId())
-				.officeHours(transformOfficeHours(clientPcpProvider.getOfficeHours()))
-				.patientCount(clientPcpProvider.getPatientCount())
-				.practiceLocationNumber(clientPcpProvider.getPracticeLocationNumber())
-				.practiceLocationPhone(clientPcpProvider.getPracticeLocationPhone())
-				.providerAccessibleFacility(clientPcpProvider.getProviderAccessibleFacility())
-				.providerAddress(transformProviderAddress(clientPcpProvider.getProviderAddress()))
-				.providerFacilityId(clientPcpProvider.getProviderFacilityId())
-				.providerFacilityName(clientPcpProvider.getProviderFacilityName())
-				.providerType(clientPcpProvider.getProviderType())
-				.providerWorkMode(clientPcpProvider.getProviderWorkMode())
-				.specialtyCode(clientPcpProvider.getSpecialtyCode())
-				.specialtyDescription(clientPcpProvider.getSpecialtyDescription())
-				.build();
+		if(clientPcpProvider != null) {
+			PcpProvider pcpprovider = PcpProvider.builder()
+					.businessLevels(clientPcpProvider.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
+					.distance(clientPcpProvider.getDistance()).facilityLatitude(clientPcpProvider.getFacilityLatitude())
+					.facilityLongitude(clientPcpProvider.getFacilityLongitude())
+					.groupPracticeNumber(clientPcpProvider.getGroupPracticeNumber())
+					.languages(clientPcpProvider.getLanguages()).maxAge(clientPcpProvider.getMaxAge())
+					.maxMemberCount(clientPcpProvider.getMaxMemberCount()).minAge(clientPcpProvider.getMinAge())
+					.mtvNetworkId(clientPcpProvider.getMtvNetworkId())
+					.officeHours(transformOfficeHours(clientPcpProvider.getOfficeHours()))
+					.patientCount(clientPcpProvider.getPatientCount())
+					.practiceLocationNumber(clientPcpProvider.getPracticeLocationNumber())
+					.practiceLocationPhone(clientPcpProvider.getPracticeLocationPhone())
+					.providerAccessibleFacility(clientPcpProvider.getProviderAccessibleFacility())
+					.providerAddress(transformProviderAddress(clientPcpProvider.getProviderAddress()))
+					.providerFacilityId(clientPcpProvider.getProviderFacilityId())
+					.providerFacilityName(clientPcpProvider.getProviderFacilityName())
+					.providerType(clientPcpProvider.getProviderType())
+					.providerWorkMode(clientPcpProvider.getProviderWorkMode())
+					.specialtyCode(clientPcpProvider.getSpecialtyCode())
+					.specialtyDescription(clientPcpProvider.getSpecialtyDescription())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformPcpProvider");
+			return pcpprovider;
+		}
 		log.info("END PCPSearchResponseTransformer.transformPcpProvider");
-		return pcpprovider;
+		return null;
 	}
 
 	private Address transformProviderAddress(com.deltadental.platform.pcp.stub.Address providerAddress) {
 		log.info("START PCPSearchResponseTransformer.transformProviderAddress");
-		Address address = Address.builder()
-				.addressLine1(providerAddress.getAddressLine1())
-				.addressLine2(providerAddress.getAddressLine2())
-				.city(providerAddress.getCity())
-				.state(providerAddress.getState())
-				.zipCode(providerAddress.getZipCode())
-				.build();
+		if(providerAddress != null) {
+			Address address = Address.builder()
+					.addressLine1(providerAddress.getAddressLine1())
+					.addressLine2(providerAddress.getAddressLine2())
+					.city(providerAddress.getCity())
+					.state(providerAddress.getState())
+					.zipCode(providerAddress.getZipCode())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformProviderAddress");
+			return address;
+			}
 		log.info("END PCPSearchResponseTransformer.transformProviderAddress");
-		return address;
+		return null;
 	}
 
 	private OfficeHour transformOfficeHours(com.deltadental.platform.pcp.stub.OfficeHour officeHours) {
 		log.info("START PCPSearchResponseTransformer.transformOfficeHours");
-		OfficeHour oh = OfficeHour.builder().officeHours(officeHours.getOfficeHours()).build();
+		if(officeHours != null) {
+			OfficeHour oh = OfficeHour.builder().officeHours(officeHours.getOfficeHours()).build();
+			log.info("END PCPSearchResponseTransformer.transformOfficeHours");
+			return oh;
+		}
 		log.info("END PCPSearchResponseTransformer.transformOfficeHours");
-		return oh;
+		return null;
 	}
 
 	private BusinessLevels transformBusinessLevels(com.deltadental.platform.pcp.stub.BusinessLevels wsBl) {
 		log.info("START PCPSearchResponseTransformer.transformBusinessLevels");
-		BusinessLevels domainBl = BusinessLevels.builder()
-				.businessLevel4(wsBl.getBusinessLevel4())
-				.businessLevel5(wsBl.getBusinessLevel5())
-				.businessLevel6(wsBl.getBusinessLevel6())
-				.businessLevel7(wsBl.getBusinessLevel7())
-				.effectiveDate(wsBl.getEffectiveDate())
-				.endDate(wsBl.getEndDate())
-				.networkId(wsBl.getNetworkId())
-				.classCode(wsBl.getClassCode())
-				.build();
+		if(wsBl != null) {
+			BusinessLevels domainBl = BusinessLevels.builder()
+					.businessLevel4(wsBl.getBusinessLevel4())
+					.businessLevel5(wsBl.getBusinessLevel5())
+					.businessLevel6(wsBl.getBusinessLevel6())
+					.businessLevel7(wsBl.getBusinessLevel7())
+					.effectiveDate(wsBl.getEffectiveDate())
+					.endDate(wsBl.getEndDate())
+					.networkId(wsBl.getNetworkId())
+					.classCode(wsBl.getClassCode())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformBusinessLevels");
+			return domainBl;
+		}
 		log.info("END PCPSearchResponseTransformer.transformBusinessLevels");
-		return domainBl;
-	}
-
-	private BusinessLevels transformWSBPBusinessLevelsForBusinessLevels(BpBusinessLevels wsBpBl) {
-		log.info("START PCPSearchResponseTransformer.transformWSBPBusinessLevelsForBusinessLevels");
-		BusinessLevels domainBl = BusinessLevels.builder()
-				.businessLevel4(wsBpBl.getBusinessLevel4())
-				.businessLevel5(wsBpBl.getBusinessLevel5())
-				.businessLevel6(wsBpBl.getBusinessLevel6())
-				.businessLevel7(wsBpBl.getBusinessLevel7())
-				.effectiveDate(wsBpBl.getEffectiveDate())
-				.endDate(wsBpBl.getEndDate())
-				.networkId(wsBpBl.getNetworkId())
-				.build();
-		log.info("END PCPSearchResponseTransformer.transformWSBPBusinessLevelsForBusinessLevels");
-		return domainBl;
+		return null;
 	}
 
 	private BPBusinessLevels transformBPBusinessLevelsForBPBusinessLevels(BpBusinessLevels wsBpBl) {
 		log.info("START PCPSearchResponseTransformer.transformBPBusinessLevelsForBPBusinessLevels");
-		BPBusinessLevels domainBpBl = BPBusinessLevels.builder()
-				.benefitPackage(transformBenefitPackage(wsBpBl.getBenPkg()))
-				.businessLevel4(wsBpBl.getBusinessLevel4())
-				.businessLevel5(wsBpBl.getBusinessLevel5())
-				.businessLevel6(wsBpBl.getBusinessLevel6())
-				.businessLevel7(wsBpBl.getBusinessLevel7())
-				.effectiveDate(wsBpBl.getEffectiveDate())
-				.endDate(wsBpBl.getEndDate())
-				.networkId(wsBpBl.getEndDate())
-				.build();
+		if(wsBpBl != null) {
+			BPBusinessLevels domainBpBl = BPBusinessLevels.builder()
+					.benefitPackage(transformBenefitPackage(wsBpBl.getBenPkg()))
+					.businessLevel4(wsBpBl.getBusinessLevel4())
+					.businessLevel5(wsBpBl.getBusinessLevel5())
+					.businessLevel6(wsBpBl.getBusinessLevel6())
+					.businessLevel7(wsBpBl.getBusinessLevel7())
+					.effectiveDate(wsBpBl.getEffectiveDate())
+					.endDate(wsBpBl.getEndDate())
+					.networkId(wsBpBl.getEndDate())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformBPBusinessLevelsForBPBusinessLevels");
+			return domainBpBl;
+		} 
 		log.info("END PCPSearchResponseTransformer.transformBPBusinessLevelsForBPBusinessLevels");
-		return domainBpBl;
+		return null;
 	}
 
 	private BenefitPackage transformBenefitPackage(com.deltadental.platform.pcp.stub.BenefitPackage stubBp) {
 		log.info("START PCPSearchResponseTransformer.transformBenefitPackage");
-		BenefitPackage bp = BenefitPackage.builder()
-				.benefitPackageId(stubBp.getBenefitPackageId())
-				.bpIdEffectiveDate(stubBp.getBpideffectiveDate())
-				.bpIdEndDate(stubBp.getBpidendDate())
-				.build();
+		if(stubBp != null) {
+			BenefitPackage bp = BenefitPackage.builder()
+					.benefitPackageId(stubBp.getBenefitPackageId())
+					.bpIdEffectiveDate(stubBp.getBpideffectiveDate())
+					.bpIdEndDate(stubBp.getBpidendDate())
+					.build();
+			log.info("END PCPSearchResponseTransformer.transformBenefitPackage");
+			return bp;
+		}
 		log.info("END PCPSearchResponseTransformer.transformBenefitPackage");
-		return bp;
+		return null;
 	}
 
 	private List<BenefitPackage> transformWSBenefitPackages(List<com.deltadental.platform.pcp.stub.BenefitPackage> benefitpackages) {
