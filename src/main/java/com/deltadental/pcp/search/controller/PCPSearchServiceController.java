@@ -1,5 +1,7 @@
 package com.deltadental.pcp.search.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -61,7 +63,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_PROVIDERS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<PCPAssignmentResponse> getProviders(@RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
+	public ResponseEntity<PCPAssignmentResponse> getProviders(@Valid @RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
 		log.info("START PCPSearchServiceController.getProviders");
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.getProviders(pcpAssignmentRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
@@ -81,7 +83,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_FACILITY_SEARCH_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<FacilityResponse> facilitySearch(@RequestBody FacilitySearchRequest facilitySearchRequest) {
+	public ResponseEntity<FacilityResponse> facilitySearch(@Valid @RequestBody FacilitySearchRequest facilitySearchRequest) {
 		log.info("START PCPSearchServiceController.facilitySearch");
 		ResponseEntity<FacilityResponse> responseEntity = null;
 		FacilityResponse facilityResponse = pcpSearchService.facilitySearch(facilitySearchRequest);
@@ -107,7 +109,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_BUSINESS_LEVELS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<BlResolutionResponse> getBusinessLevels(@RequestBody BlServiceRequest blServiceRequest)  {
+	public ResponseEntity<BlResolutionResponse> getBusinessLevels(@Valid @RequestBody BlServiceRequest blServiceRequest)  {
 		log.info("START PCPSearchServiceController.getBusinessLevels");
 		BlResolutionResponse blResolutionResponse = pcpSearchService.getBusinessLevels(blServiceRequest);
 		ResponseEntity<BlResolutionResponse> responseEntity = new ResponseEntity<>(blResolutionResponse, HttpStatus.OK); 
@@ -127,7 +129,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_BP_AND_BUSINESS_LEVELS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<BPBLResolutionResponse> getBPsAndBussinessLevels(@RequestBody BlServiceRequest blServiceRequest) {
+	public ResponseEntity<BPBLResolutionResponse> getBPsAndBussinessLevels(@Valid @RequestBody BlServiceRequest blServiceRequest) {
 		log.info("START PCPSearchServiceController.getBPsAndBussinessLevels");
 		BPBLResolutionResponse bpblResolutionResponse = pcpSearchService.getBPsAndBussinessLevels(blServiceRequest);
 		ResponseEntity<BPBLResolutionResponse> responseEntity = new ResponseEntity<>(bpblResolutionResponse, HttpStatus.OK); 
@@ -147,7 +149,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_STATE_PCP_ASSIGNMENT_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<StatePcpAssignmentResponse> getStatePCPAssignment(@RequestBody StatePcpAssignmentRequest statePcpAssignmentRequest) {
+	public ResponseEntity<StatePcpAssignmentResponse> getStatePCPAssignment(@Valid @RequestBody StatePcpAssignmentRequest statePcpAssignmentRequest) {
 		log.info("START PCPSearchServiceController.getStatePCPAssignment");
 		StatePcpAssignmentResponse statePcpAssignmentResponse = pcpSearchService.getStatePCPAssignment(statePcpAssignmentRequest);
 		ResponseEntity<StatePcpAssignmentResponse> responseEntity = new ResponseEntity<>(statePcpAssignmentResponse, HttpStatus.OK); 
@@ -167,7 +169,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_GROUP_BENEFIT_PACK_BUSINESS_LEVEL_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<BPBLResolutionResponse> groupBenefitPackBussinessLevel(@RequestBody BlServiceRequest blServiceRequest) {
+	public ResponseEntity<BPBLResolutionResponse> groupBenefitPackBussinessLevel(@Valid @RequestBody BlServiceRequest blServiceRequest) {
 		log.info("START PCPSearchServiceController.groupBenefitPackBussinessLevel");
 		BPBLResolutionResponse bpblResolutionResponse = pcpSearchService.groupBenefitPackBussinessLevel(blServiceRequest);
 		ResponseEntity<BPBLResolutionResponse> responseEntity = new ResponseEntity<>(bpblResolutionResponse, HttpStatus.OK); 
@@ -187,7 +189,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_PROVIDER_VALIDATION_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<PCPAssignmentResponse> providerValidate(@RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
+	public ResponseEntity<PCPAssignmentResponse> providerValidate(@Valid @RequestBody PcpAssignmentRequest pcpAssignmentRequest) {
 		log.info("START PCPSearchServiceController.providerValidate");
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.providerValidate(pcpAssignmentRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
@@ -207,7 +209,7 @@ public class PCPSearchServiceController {
 	@ResponseBody
 	@MethodExecutionTime
     @PostMapping(value = PCPSearchServiceConstants.GET_NEWPROVIDERS_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<ProvidersResponse> providers(@RequestBody ProvidersRequest providersRequest) {
+	public ResponseEntity<ProvidersResponse> providers(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchServiceController.providerValidate");
 		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
 		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK); 
