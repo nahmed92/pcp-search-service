@@ -36,8 +36,6 @@ ENTRYPOINT java $JAVA_OPTS \
 	-Dservice.name=${SERVICE_NAME} \
 	-Dservice.instance.id=${SERVICE_INSTANCE_ID} \
 	-Dserver.monitor.file=${SERVICE_MONITOR_FILE} \
-	-Djava.security.egd=file:/dev/./urandom \
-	-Djavax.net.ssl.trustStore=/usr/java/latest/jre/lib/security/cacerts \
 	-Dmanagement.endpoint.health.enabled=${MANAGEMENT_ENDPOINT_HEALTH_ENABLED} \
 	-Dmanagement.endpoint.health.show-details=${MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS} \
 	-Denvironment=${ENVIRONMENT} \
