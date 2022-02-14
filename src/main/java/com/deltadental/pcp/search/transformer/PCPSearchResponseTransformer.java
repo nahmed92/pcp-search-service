@@ -3,6 +3,7 @@ package com.deltadental.pcp.search.transformer;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
 import com.deltadental.pcp.search.domain.Address;
@@ -225,10 +226,11 @@ public class PCPSearchResponseTransformer {
 			EnrolleeDetail enrolleeDetail = EnrolleeDetail.builder()
 					.benefitPackages(transformWSBenefitPackages(clientEnrolleeDetail.getBenefitpackages()))
 					.businessLevels(clientEnrolleeDetail.getBusinesslevels().stream().map(this::transformBusinessLevels).collect(Collectors.toList()))
-					.divisionNumber(clientEnrolleeDetail.getDivisionNumber())
+					.divisionNumber(StringUtils.trimToNull(clientEnrolleeDetail.getDivisionNumber()))
 					.enrolleeStatusCode(clientEnrolleeDetail.getEnrolleeStatusCode())
 					.errorMessages(clientEnrolleeDetail.getErrorMessages())
-					.groupNumber(clientEnrolleeDetail.getGroupNumber()).memberType(clientEnrolleeDetail.getMemberType())
+					.groupNumber(StringUtils.trimToNull(clientEnrolleeDetail.getGroupNumber()))
+					.memberType(clientEnrolleeDetail.getMemberType())
 					.numberOfFacilities(clientEnrolleeDetail.getNumberOfFacilities())
 					.pcpProviders(clientEnrolleeDetail.getPcpproviders().stream().map(this::transformPcpProvider).collect(Collectors.toList()))
 					.pcpValidationFlag(clientEnrolleeDetail.isPcpValidationFlag())
@@ -304,14 +306,14 @@ public class PCPSearchResponseTransformer {
 		log.info("START PCPSearchResponseTransformer.transformBusinessLevels");
 		if(wsBl != null) {
 			BusinessLevels domainBl = BusinessLevels.builder()
-					.businessLevel4(wsBl.getBusinessLevel4())
-					.businessLevel5(wsBl.getBusinessLevel5())
-					.businessLevel6(wsBl.getBusinessLevel6())
-					.businessLevel7(wsBl.getBusinessLevel7())
-					.effectiveDate(wsBl.getEffectiveDate())
-					.endDate(wsBl.getEndDate())
-					.networkId(wsBl.getNetworkId())
-					.classCode(wsBl.getClassCode())
+					.businessLevel4(StringUtils.trimToNull(wsBl.getBusinessLevel4()))
+					.businessLevel5(StringUtils.trimToNull(wsBl.getBusinessLevel5()))
+					.businessLevel6(StringUtils.trimToNull(wsBl.getBusinessLevel6()))
+					.businessLevel7(StringUtils.trimToNull(wsBl.getBusinessLevel7()))
+					.effectiveDate(StringUtils.trimToNull(wsBl.getEffectiveDate()))
+					.endDate(StringUtils.trimToNull(wsBl.getEndDate()))
+					.networkId(StringUtils.trimToNull(wsBl.getNetworkId()))
+					.classCode(StringUtils.trimToNull(wsBl.getClassCode()))
 					.build();
 			log.info("END PCPSearchResponseTransformer.transformBusinessLevels");
 			return domainBl;
@@ -325,13 +327,13 @@ public class PCPSearchResponseTransformer {
 		if(wsBpBl != null) {
 			BPBusinessLevels domainBpBl = BPBusinessLevels.builder()
 					.benefitPackage(transformBenefitPackage(wsBpBl.getBenPkg()))
-					.businessLevel4(wsBpBl.getBusinessLevel4())
-					.businessLevel5(wsBpBl.getBusinessLevel5())
-					.businessLevel6(wsBpBl.getBusinessLevel6())
-					.businessLevel7(wsBpBl.getBusinessLevel7())
-					.effectiveDate(wsBpBl.getEffectiveDate())
-					.endDate(wsBpBl.getEndDate())
-					.networkId(wsBpBl.getEndDate())
+					.businessLevel4(StringUtils.trimToNull(wsBpBl.getBusinessLevel4()))
+					.businessLevel5(StringUtils.trimToNull(wsBpBl.getBusinessLevel5()))
+					.businessLevel6(StringUtils.trimToNull(wsBpBl.getBusinessLevel6()))
+					.businessLevel7(StringUtils.trimToNull(wsBpBl.getBusinessLevel7()))
+					.effectiveDate(StringUtils.trimToNull(wsBpBl.getEffectiveDate()))
+					.endDate(StringUtils.trimToNull(wsBpBl.getEndDate()))
+					.networkId(StringUtils.trimToNull(wsBpBl.getEndDate()))
 					.build();
 			log.info("END PCPSearchResponseTransformer.transformBPBusinessLevelsForBPBusinessLevels");
 			return domainBpBl;
@@ -344,9 +346,9 @@ public class PCPSearchResponseTransformer {
 		log.info("START PCPSearchResponseTransformer.transformBenefitPackage");
 		if(stubBp != null) {
 			BenefitPackage bp = BenefitPackage.builder()
-					.benefitPackageId(stubBp.getBenefitPackageId())
-					.bpIdEffectiveDate(stubBp.getBpideffectiveDate())
-					.bpIdEndDate(stubBp.getBpidendDate())
+					.benefitPackageId(StringUtils.trimToNull(stubBp.getBenefitPackageId()))
+					.bpIdEffectiveDate(StringUtils.trimToNull(stubBp.getBpideffectiveDate()))
+					.bpIdEndDate(StringUtils.trimToNull(stubBp.getBpidendDate()))
 					.build();
 			log.info("END PCPSearchResponseTransformer.transformBenefitPackage");
 			return bp;
