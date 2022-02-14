@@ -1,31 +1,27 @@
 {
 	"pcpRequests": [
 		{
-			"autoAssignmentFlag": "false",
-			"enrollees": [
-				{
-					"batchAutoAssignFlag": "false",
-					"benefitPackageID": "DCAA5400",
-					"ccaOverrideFlag": "false",
-					"dateofBirth": "1988-01-10",
-					"divisionNumber": "00007",
-					"pcpIdentifier": "DC228101",
-					"pcpEffectiveDate": "06-01-2020",
-					"pcpEndDate": "12-31-9999",
-					"enrolleeBusinessLevels": {
-						"businessLevel4": "INDIVIDUL",
-						"businessLevel5": "DDIC DHMO",
-						"businessLevel6": "CA",
-						"businessLevel7": "DLTACARE USA",
-						"networkId": "DELTACARE"
-					},
-					"groupNumber": "70116",
-					"memberAddress": {
-						"zipCode": "94538"
-					},
-					"memberType": "01"
-				}
-			]
+			"contractID": 1197805257,
+			"enrollees": {
+				"benefitPackageID": "DNJ14A00",
+				"divisionNumber": 1,
+				"enrolleeBusinessLevels": {
+					"businessLevel4": "GROUP",
+					"businessLevel5": "DDIC DHMO",
+					"businessLevel6": "NJ",
+					"businessLevel7": "DLTACARE USA",
+					"effectiveDate": 10012022,
+					"endDate": "",
+					"networkId": "DELTACARE"
+				},
+				"groupNumber": 76674,
+				"memberType": 1,
+				"mtvPersonID": "",
+				"pcpEffectiveDate": 10012022,
+				"pcpEndDate": "",
+				"pcpIdentifier": "DC038586",
+				"recordIdentifier": "8230sdf39482dfshwd8w"
+			}
 		}
 	],
 	"sourceSystem": "EEP"

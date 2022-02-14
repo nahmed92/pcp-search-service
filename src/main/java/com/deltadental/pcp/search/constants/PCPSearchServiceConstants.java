@@ -17,7 +17,8 @@ public class PCPSearchServiceConstants {
 	public static final String SUMMARY_GROUP_BENEFIT_PACK_BUSINESS_LEVEL = "Group Benefit Package Business Level";
 	public static final String SUMMARY_PROVIDER_VALIDATION = "Provider Validation";
 	public static final String SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS = "Retrive Distinct Exception Groups";
-	public static final String SUMMARY_PROVIDERS = "Retrive Providers";	
+	public static final String SUMMARY_PROVIDERS = "Retrive Providers";
+	public static final String SUMMARY_PCPVALIDATE = "Primary Care Provider(PCP) Validation";
 
 	public static final String SUMMARY_GET_PROVIDERS_NOTES = "This API retrives all the providers for the pcp assignment request.";
 	public static final String SUMMARY_FACILITY_SEARCH_NOTES = "This API retrives all the facilities for the facility search request.";
@@ -27,7 +28,8 @@ public class PCPSearchServiceConstants {
 	public static final String SUMMARY_GROUP_BENEFIT_PACK_BUSINESS_LEVEL_NOTES = "This API retrives all the Group Benefit Package Business Levels";
 	public static final String SUMMARY_PROVIDER_VALIDATION_NOTES = "This API retrives Provider Validation information for  pcp assignment request.";
 	public static final String SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_NOTES = "This API Retrive Distinct Exception Groups";
-	public static final String SUMMARY_PROVIDERS_NOTES = "This api retrive all the providers for a contract and member.";
+	public static final String SUMMARY_PROVIDERS_NOTES = "This API retrive all the providers for a contract and member.";
+	public static final String SUMMARY_SUMMARY_PCPVALIDATE_NOTES = "This API validates the Primary Care Provider(PCP)";
 	
 	public static final String GET_PROVIDERS_URI = "/get-providers";
 	public static final String GET_FACILITY_SEARCH_URI = "/facility-search";
@@ -38,5 +40,6 @@ public class PCPSearchServiceConstants {
 	public static final String GET_PROVIDER_VALIDATION_URI = "/provider-validation";
 	public static final String GET_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_URI = "/retrive-distinct-exception-groups";
 	public static final String GET_NEWPROVIDERS_URI = "/providers";
+	public static final String GET_PCPVALIDATE_URI = "/pcp-validate";
 
 }

@@ -32,6 +32,7 @@ import com.deltadental.platform.pcp.stub.GetStatePCPAssignmentResponse;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
 import com.deltadental.platform.pcp.stub.PcpAssignmentResponse;
 import com.deltadental.platform.pcp.stub.PcpResponse;
+import com.deltadental.platform.pcp.stub.PcpValidateResponse;
 import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
 
 import lombok.extern.slf4j.Slf4j;
@@ -359,6 +360,12 @@ public class PCPSearchResponseTransformer {
 		List<BenefitPackage> domainsBps = benefitpackages.stream().map(this::transformBenefitPackage).collect(Collectors.toList());
 		log.info("END PCPSearchResponseTransformer.transformWSBenefitPackages");
 		return domainsBps;
+	}
+
+	public PCPAssignmentResponse transformPcpValidateResponse(PcpValidateResponse pcpValidateResponse) {
+		PcpAssignmentResponse clientPcpAssignmentResponse = pcpValidateResponse.getReturn();
+		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(clientPcpAssignmentResponse);
+		return pcpAssignmentResponse;
 	}
 
 }

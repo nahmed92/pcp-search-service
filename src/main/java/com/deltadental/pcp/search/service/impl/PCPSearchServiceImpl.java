@@ -12,6 +12,7 @@ import com.deltadental.pcp.search.domain.BlServiceRequest;
 import com.deltadental.pcp.search.domain.FacilityResponse;
 import com.deltadental.pcp.search.domain.FacilitySearchRequest;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
+import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
@@ -34,6 +35,8 @@ import com.deltadental.platform.pcp.stub.GetStatePCPAssignment;
 import com.deltadental.platform.pcp.stub.GetStatePCPAssignmentResponse;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
+import com.deltadental.platform.pcp.stub.PcpValidate;
+import com.deltadental.platform.pcp.stub.PcpValidateResponse;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
 import com.deltadental.platform.pcp.stub.Providers;
@@ -156,6 +159,16 @@ public class PCPSearchServiceImpl implements PCPSearchService {
 		ProvidersResponse providersResponse = pcpAssignmentSoapClient.providers(providers);
 		com.deltadental.pcp.search.domain.ProvidersResponse response = pcpSearchResponseTransformer.transformProvidersResponse(providersResponse);
 		log.info("END PCPSearchServiceImpl.providers");
+		return response;
+	}
+
+	@Override
+	public PCPAssignmentResponse pcpValidate(PCPValidateRequest pcpValidateRequest) throws ServiceException {
+		log.info("START PCPSearchServiceImpl.pcpValidate");
+		PcpValidate providers = pcpSearchRequestTransformer.transformPcpValidateRequest(pcpValidateRequest);
+		PcpValidateResponse pcpValidateResponse = pcpAssignmentSoapClient.pcpValidate(providers);
+		PCPAssignmentResponse response = pcpSearchResponseTransformer.transformPcpValidateResponse(pcpValidateResponse);
+		log.info("END PCPSearchServiceImpl.pcpValidate");
 		return response;
 	}
 

@@ -22,6 +22,7 @@ import com.deltadental.pcp.search.domain.BlServiceRequest;
 import com.deltadental.pcp.search.domain.FacilityResponse;
 import com.deltadental.pcp.search.domain.FacilitySearchRequest;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
+import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
@@ -181,10 +182,10 @@ public class PCPSearchServiceController {
 			value = PCPSearchServiceConstants.SUMMARY_PROVIDER_VALIDATION, 
 			notes = PCPSearchServiceConstants.SUMMARY_PROVIDER_VALIDATION_NOTES, 
 			response = PCPAssignmentResponse.class)
-    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully processed provider validation", response = PCPAssignmentResponse.class),
+    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully validated provider", response = PCPAssignmentResponse.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
 //                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
-                    @ApiResponse(code = 404, message = "Unable to find provider for validation.", response = ServiceError.class),
+                    @ApiResponse(code = 404, message = "Unable validate provider.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
 	@MethodExecutionTime
@@ -201,7 +202,7 @@ public class PCPSearchServiceController {
 			value = PCPSearchServiceConstants.SUMMARY_PROVIDERS, 
 			notes = PCPSearchServiceConstants.SUMMARY_PROVIDERS_NOTES, 
 			response = PCPAssignmentResponse.class)
-    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully processed providers", response = PCPAssignmentResponse.class),
+    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
 //                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
                     @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
@@ -238,4 +239,24 @@ public class PCPSearchServiceController {
 		return responseEntity;
 	}
 
+	
+	@ApiOperation(
+			value = PCPSearchServiceConstants.SUMMARY_PCPVALIDATE, 
+			notes = PCPSearchServiceConstants.SUMMARY_SUMMARY_PCPVALIDATE_NOTES, 
+			response = PCPAssignmentResponse.class)
+    @ApiResponses({ @ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
+                    @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
+//                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
+                    @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
+                    @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
+	@ResponseBody
+	@MethodExecutionTime
+    @PostMapping(value = PCPSearchServiceConstants.GET_PCPVALIDATE_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<PCPAssignmentResponse> pcpValidate(@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
+		log.info("START PCPSearchServiceController.providerValidate");
+		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.pcpValidate(pcpValidateRequest);
+		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
+		log.info("END PCPSearchServiceController.providerValidate");
+		return responseEntity;
+	}
 }

@@ -12,6 +12,7 @@ import com.deltadental.pcp.search.domain.PCPBLEnrollee;
 import com.deltadental.pcp.search.domain.PCPEnrollee;
 import com.deltadental.pcp.search.domain.PCPRefineSearch;
 import com.deltadental.pcp.search.domain.PCPRequest;
+import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.PrimaryEnrolleePCPInfo;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
@@ -25,9 +26,11 @@ import com.deltadental.platform.pcp.stub.GetProviders;
 import com.deltadental.platform.pcp.stub.GetStatePCPAssignment;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.PcpEnrollee;
+import com.deltadental.platform.pcp.stub.PcpProviderRequest;
 import com.deltadental.platform.pcp.stub.PcpRefineSearch;
 import com.deltadental.platform.pcp.stub.PcpRequest;
 import com.deltadental.platform.pcp.stub.PcpSearchRequest;
+import com.deltadental.platform.pcp.stub.PcpValidate;
 import com.deltadental.platform.pcp.stub.PcpblEnrollee;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
 import com.deltadental.platform.pcp.stub.Providers;
@@ -312,6 +315,28 @@ public class PCPSearchRequestTransformer {
 		}
 		log.info("END PCPSearchRequestTransformer.transformPcpblEnrollee");
 		return stubPcpblEnrollee;
+	}
+
+	public PcpValidate transformPcpValidateRequest(PCPValidateRequest pcpValidateRequest) {
+		log.info("START PCPSearchRequestTransformer.transformPcpValidateRequest");
+		PcpValidate pcpValidate = new PcpValidate();
+		if(pcpValidateRequest != null) {
+			PcpProviderRequest pcpProviderRequest = new PcpProviderRequest();
+			pcpProviderRequest.setContractId(pcpValidateRequest.getContractId());
+			pcpProviderRequest.setLookAheadDays(pcpValidateRequest.getLookAheadDays());
+			pcpProviderRequest.setMemberType(pcpValidateRequest.getMemberType());
+			pcpProviderRequest.setMtvPersonId(pcpValidateRequest.getMtvPersonId());
+			pcpProviderRequest.setPcpEffDate(pcpValidateRequest.getPcpEffDate());
+			pcpProviderRequest.setPcpEndDate(pcpValidateRequest.getPcpEndDate());
+			pcpProviderRequest.setProduct(pcpValidateRequest.getProduct());
+			pcpProviderRequest.setProviderId(pcpValidateRequest.getProviderId());
+			pcpProviderRequest.setRecordIdentifier(pcpValidateRequest.getRecordIdentifier());
+			pcpProviderRequest.setSourceSystem(pcpValidateRequest.getSourceSystem());
+			pcpValidate.setArg0(pcpProviderRequest);
+		}
+		
+		log.info("END PCPSearchRequestTransformer.transformPcpValidateRequest");
+		return pcpValidate;
 	}
 
 }
