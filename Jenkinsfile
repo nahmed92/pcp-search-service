@@ -79,7 +79,8 @@ pipeline {
 				docker rmi ${DOCKER_REGISTRY}/${JOB_NAME%%/*}:${SERVICE}_${BRANCH_NAME}_${BUILD_NUMBER}'''
 			}
 		}
-		stage('Deploy - DEV') {
+		/*
+	    stage('Deploy - DEV') {
 			environment{
 				RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
 				DEPLOYMENT_ENVIRONMENT = 'DEV'
@@ -113,7 +114,7 @@ pipeline {
 					echo "DEV Testing"
 					}
 			}
-		}
+		}*/
 		stage('Deploy - DIT') {
 			environment{
 				RUNDECK_INSTANCE="${RUNDECK_DEPLOY_INSTANCE}"
