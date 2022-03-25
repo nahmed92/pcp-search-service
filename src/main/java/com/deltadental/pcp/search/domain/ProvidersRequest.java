@@ -20,5 +20,7 @@ public class ProvidersRequest {
 	private String pcpEffectiveDate;
 	private String zipcode;
 	private String sourceSystem;
+	private String autoAssignment;
+	private String userID;
 	private Address address;
 }
