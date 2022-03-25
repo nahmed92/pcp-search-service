@@ -117,6 +117,8 @@ public class PCPSearchRequestTransformer {
 		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
 		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
 		pcpSearchRequest.setZipcode(providersRequest.getZipcode());
+		pcpSearchRequest.setSourceSystem(providersRequest.getSourceSystem());
+		pcpSearchRequest.setAddress(getAddress(providersRequest.getAddress()));
 		providers.setArg0(pcpSearchRequest);
 		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		return providers;

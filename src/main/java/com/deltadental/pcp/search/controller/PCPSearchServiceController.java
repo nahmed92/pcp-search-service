@@ -204,7 +204,7 @@ public class PCPSearchServiceController {
 			response = PCPAssignmentResponse.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-//                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
+
                     @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
@@ -225,7 +225,7 @@ public class PCPSearchServiceController {
 			response = RetrieveDistinctExceptionGroupsRes.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully Retrived Distinct Exception Groups", response = RetrieveDistinctExceptionGroupsRes.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-//                    @ApiResponse(code = 415, message = "Unsupported Media Type", response = ServiceError.class),
+
                     @ApiResponse(code = 404, message = "Unable to Retrive Distinct ServiceError Groups.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
@@ -246,7 +246,6 @@ public class PCPSearchServiceController {
 			response = PCPAssignmentResponse.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
                     @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-//                    @ApiResponse(code = 403, message = "Unauthorized", response = ServiceError.class),
                     @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody

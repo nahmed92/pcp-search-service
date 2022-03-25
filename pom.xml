@@ -352,6 +352,7 @@
 					<arguments>
 						<argument>--spring.profiles.active=mock</argument>
 					</arguments>
+					<mainClass>com.deltadental.pcp.search.application.PcpSearchServiceApplication</mainClass>
 				</configuration>
 			</plugin>
 			<!-- Compiler plugin -->

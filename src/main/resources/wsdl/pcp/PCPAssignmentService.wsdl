@@ -45,9 +45,11 @@
             </xsd:complexType>
             <xsd:complexType name="pcpSearchRequest">
                 <xsd:sequence>
+                    <xsd:element minOccurs="0" name="address" type="ns0:address"/>
                     <xsd:element minOccurs="0" name="contractID" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="memberId" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="pcpEffectiveDate" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="sourceSystem" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="zipcode" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
@@ -191,6 +193,7 @@
                     <xsd:element minOccurs="0" name="practiceLocation" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="randomSelection" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="recordIdentifier" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="reinstatePCPCheck" type="xsd:string"/>
                     <xsd:element minOccurs="0" name="sourceSystem" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
@@ -358,90 +361,6 @@
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="getStatePCPAssignmentResponse" type="tns:getStatePCPAssignmentResponse"/>
-            <xsd:complexType name="getBPsAndBussinessLevels">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getBPsAndBussinessLevels" type="tns:getBPsAndBussinessLevels"/>
-            <xsd:complexType name="getBPsAndBussinessLevelsResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:bpblResolutionResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getBPsAndBussinessLevelsResponse" type="tns:getBPsAndBussinessLevelsResponse"/>
-            <xsd:complexType name="pcpValidate">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:pcpProviderRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="pcpValidate" type="tns:pcpValidate"/>
-            <xsd:complexType name="pcpValidateResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="pcpValidateResponse" type="tns:pcpValidateResponse"/>
-            <xsd:complexType name="providers">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:pcpSearchRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="providers" type="tns:providers"/>
-            <xsd:complexType name="providersResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="providersResponse" type="tns:providersResponse"/>
-            <xsd:complexType name="groupBenefitPackBussinessLevel">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="groupBenefitPackBussinessLevel" type="tns:groupBenefitPackBussinessLevel"/>
-            <xsd:complexType name="groupBenefitPackBussinessLevelResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:bpblResolutionResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="groupBenefitPackBussinessLevelResponse" type="tns:groupBenefitPackBussinessLevelResponse"/>
-            <xsd:complexType name="facilitySearch">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:facilitySearchRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="facilitySearch" type="tns:facilitySearch"/>
-            <xsd:complexType name="facilitySearchResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:facilityResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="facilitySearchResponse" type="tns:facilitySearchResponse"/>
-            <xsd:complexType name="getProviders">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:pcpAssignmentRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getProviders" type="tns:getProviders"/>
-            <xsd:complexType name="getProvidersResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getProvidersResponse" type="tns:getProvidersResponse"/>
-            <xsd:complexType name="getBussinessLevels">
-                <xsd:sequence>
-                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getBussinessLevels" type="tns:getBussinessLevels"/>
-            <xsd:complexType name="getBussinessLevelsResponse">
-                <xsd:sequence>
-                    <xsd:element name="return" type="ns1:blResolutionResponse"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getBussinessLevelsResponse" type="tns:getBussinessLevelsResponse"/>
             <xsd:complexType name="retrieveDistinctExceptionGroups">
                 <xsd:sequence>
                     <xsd:element name="arg0" type="xsd:string"/>
@@ -454,6 +373,18 @@
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="retrieveDistinctExceptionGroupsResponse" type="tns:retrieveDistinctExceptionGroupsResponse"/>
+            <xsd:complexType name="getBussinessLevels">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBussinessLevels" type="tns:getBussinessLevels"/>
+            <xsd:complexType name="getBussinessLevelsResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:blResolutionResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBussinessLevelsResponse" type="tns:getBussinessLevelsResponse"/>
             <xsd:complexType name="providerValidate">
                 <xsd:sequence>
                     <xsd:element name="arg0" type="ns1:pcpAssignmentRequest"/>
@@ -466,6 +397,78 @@
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="providerValidateResponse" type="tns:providerValidateResponse"/>
+            <xsd:complexType name="providers">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:pcpSearchRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="providers" type="tns:providers"/>
+            <xsd:complexType name="providersResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="providersResponse" type="tns:providersResponse"/>
+            <xsd:complexType name="pcpValidate">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:pcpProviderRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="pcpValidate" type="tns:pcpValidate"/>
+            <xsd:complexType name="pcpValidateResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="pcpValidateResponse" type="tns:pcpValidateResponse"/>
+            <xsd:complexType name="groupBenefitPackBussinessLevel">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="groupBenefitPackBussinessLevel" type="tns:groupBenefitPackBussinessLevel"/>
+            <xsd:complexType name="groupBenefitPackBussinessLevelResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:bpblResolutionResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="groupBenefitPackBussinessLevelResponse" type="tns:groupBenefitPackBussinessLevelResponse"/>
+            <xsd:complexType name="getProviders">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:pcpAssignmentRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getProviders" type="tns:getProviders"/>
+            <xsd:complexType name="getProvidersResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:pcpAssignmentResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getProvidersResponse" type="tns:getProvidersResponse"/>
+            <xsd:complexType name="getBPsAndBussinessLevels">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:blServiceRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBPsAndBussinessLevels" type="tns:getBPsAndBussinessLevels"/>
+            <xsd:complexType name="getBPsAndBussinessLevelsResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:bpblResolutionResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBPsAndBussinessLevelsResponse" type="tns:getBPsAndBussinessLevelsResponse"/>
+            <xsd:complexType name="facilitySearch">
+                <xsd:sequence>
+                    <xsd:element name="arg0" type="ns1:facilitySearchRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="facilitySearch" type="tns:facilitySearch"/>
+            <xsd:complexType name="facilitySearchResponse">
+                <xsd:sequence>
+                    <xsd:element name="return" type="ns1:facilityResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="facilitySearchResponse" type="tns:facilitySearchResponse"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="getStatePCPAssignmentInput">
@@ -474,41 +477,11 @@
     <wsdl:message name="getStatePCPAssignmentOutput">
         <wsdl:part element="tns:getStatePCPAssignmentResponse" name="parameters"/>
     </wsdl:message>
-    <wsdl:message name="getBPsAndBussinessLevelsInput">
-        <wsdl:part element="tns:getBPsAndBussinessLevels" name="parameters"/>
+    <wsdl:message name="retrieveDistinctExceptionGroupsInput">
+        <wsdl:part element="tns:retrieveDistinctExceptionGroups" name="parameters"/>
     </wsdl:message>
-    <wsdl:message name="getBPsAndBussinessLevelsOutput">
-        <wsdl:part element="tns:getBPsAndBussinessLevelsResponse" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="pcpValidateInput">
-        <wsdl:part element="tns:pcpValidate" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="pcpValidateOutput">
-        <wsdl:part element="tns:pcpValidateResponse" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="providersInput">
-        <wsdl:part element="tns:providers" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="providersOutput">
-        <wsdl:part element="tns:providersResponse" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="groupBenefitPackBussinessLevelInput">
-        <wsdl:part element="tns:groupBenefitPackBussinessLevel" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="groupBenefitPackBussinessLevelOutput">
-        <wsdl:part element="tns:groupBenefitPackBussinessLevelResponse" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="facilitySearchInput">
-        <wsdl:part element="tns:facilitySearch" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="facilitySearchOutput">
-        <wsdl:part element="tns:facilitySearchResponse" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="getProvidersInput">
-        <wsdl:part element="tns:getProviders" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="getProvidersOutput">
-        <wsdl:part element="tns:getProvidersResponse" name="parameters"/>
+    <wsdl:message name="retrieveDistinctExceptionGroupsOutput">
+        <wsdl:part element="tns:retrieveDistinctExceptionGroupsResponse" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getBussinessLevelsInput">
         <wsdl:part element="tns:getBussinessLevels" name="parameters"/>
@@ -516,58 +489,88 @@
     <wsdl:message name="getBussinessLevelsOutput">
         <wsdl:part element="tns:getBussinessLevelsResponse" name="parameters"/>
     </wsdl:message>
-    <wsdl:message name="retrieveDistinctExceptionGroupsInput">
-        <wsdl:part element="tns:retrieveDistinctExceptionGroups" name="parameters"/>
-    </wsdl:message>
-    <wsdl:message name="retrieveDistinctExceptionGroupsOutput">
-        <wsdl:part element="tns:retrieveDistinctExceptionGroupsResponse" name="parameters"/>
-    </wsdl:message>
     <wsdl:message name="providerValidateInput">
         <wsdl:part element="tns:providerValidate" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="providerValidateOutput">
         <wsdl:part element="tns:providerValidateResponse" name="parameters"/>
     </wsdl:message>
+    <wsdl:message name="providersInput">
+        <wsdl:part element="tns:providers" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="providersOutput">
+        <wsdl:part element="tns:providersResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="pcpValidateInput">
+        <wsdl:part element="tns:pcpValidate" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="pcpValidateOutput">
+        <wsdl:part element="tns:pcpValidateResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="groupBenefitPackBussinessLevelInput">
+        <wsdl:part element="tns:groupBenefitPackBussinessLevel" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="groupBenefitPackBussinessLevelOutput">
+        <wsdl:part element="tns:groupBenefitPackBussinessLevelResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getProvidersInput">
+        <wsdl:part element="tns:getProviders" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getProvidersOutput">
+        <wsdl:part element="tns:getProvidersResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBPsAndBussinessLevelsInput">
+        <wsdl:part element="tns:getBPsAndBussinessLevels" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBPsAndBussinessLevelsOutput">
+        <wsdl:part element="tns:getBPsAndBussinessLevelsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="facilitySearchInput">
+        <wsdl:part element="tns:facilitySearch" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="facilitySearchOutput">
+        <wsdl:part element="tns:facilitySearchResponse" name="parameters"/>
+    </wsdl:message>
     <wsdl:portType name="IpcpAssignment">
         <wsdl:operation name="getStatePCPAssignment">
             <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getStatePCPAssignmentInput" ns1:Action=""/>
             <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getStatePCPAssignmentOutput" ns1:Action=""/>
         </wsdl:operation>
-        <wsdl:operation name="getBPsAndBussinessLevels">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBPsAndBussinessLevelsInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBPsAndBussinessLevelsOutput" ns1:Action=""/>
-        </wsdl:operation>
-        <wsdl:operation name="pcpValidate">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:pcpValidateInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:pcpValidateOutput" ns1:Action=""/>
-        </wsdl:operation>
-        <wsdl:operation name="providers">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providersInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providersOutput" ns1:Action=""/>
-        </wsdl:operation>
-        <wsdl:operation name="groupBenefitPackBussinessLevel">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:groupBenefitPackBussinessLevelInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:groupBenefitPackBussinessLevelOutput" ns1:Action=""/>
-        </wsdl:operation>
-        <wsdl:operation name="facilitySearch">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:facilitySearchInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:facilitySearchOutput" ns1:Action=""/>
-        </wsdl:operation>
-        <wsdl:operation name="getProviders">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getProvidersInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getProvidersOutput" ns1:Action=""/>
+        <wsdl:operation name="retrieveDistinctExceptionGroups">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:retrieveDistinctExceptionGroupsInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:retrieveDistinctExceptionGroupsOutput" ns1:Action=""/>
         </wsdl:operation>
         <wsdl:operation name="getBussinessLevels">
             <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBussinessLevelsInput" ns1:Action=""/>
             <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBussinessLevelsOutput" ns1:Action=""/>
         </wsdl:operation>
-        <wsdl:operation name="retrieveDistinctExceptionGroups">
-            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:retrieveDistinctExceptionGroupsInput" ns1:Action=""/>
-            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:retrieveDistinctExceptionGroupsOutput" ns1:Action=""/>
-        </wsdl:operation>
         <wsdl:operation name="providerValidate">
             <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providerValidateInput" ns1:Action=""/>
             <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providerValidateOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="providers">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providersInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:providersOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="pcpValidate">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:pcpValidateInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:pcpValidateOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="groupBenefitPackBussinessLevel">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:groupBenefitPackBussinessLevelInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:groupBenefitPackBussinessLevelOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="getProviders">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getProvidersInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getProvidersOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="getBPsAndBussinessLevels">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBPsAndBussinessLevelsInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:getBPsAndBussinessLevelsOutput" ns1:Action=""/>
+        </wsdl:operation>
+        <wsdl:operation name="facilitySearch">
+            <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:facilitySearchInput" ns1:Action=""/>
+            <wsdl:output xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" message="tns:facilitySearchOutput" ns1:Action=""/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="IpcpAssignmentSoapHttp" type="tns:IpcpAssignment">
@@ -581,52 +584,7 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="getBPsAndBussinessLevels">
-            <soap:operation soapAction=""/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="pcpValidate">
-            <soap:operation soapAction=""/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="providers">
-            <soap:operation soapAction=""/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="groupBenefitPackBussinessLevel">
-            <soap:operation soapAction=""/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="facilitySearch">
-            <soap:operation soapAction=""/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getProviders">
+        <wsdl:operation name="retrieveDistinctExceptionGroups">
             <soap:operation soapAction=""/>
             <wsdl:input>
                 <soap:body use="literal"/>
@@ -644,7 +602,7 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="retrieveDistinctExceptionGroups">
+        <wsdl:operation name="providerValidate">
             <soap:operation soapAction=""/>
             <wsdl:input>
                 <soap:body use="literal"/>
@@ -653,7 +611,52 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="providerValidate">
+        <wsdl:operation name="providers">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pcpValidate">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="groupBenefitPackBussinessLevel">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getProviders">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBPsAndBussinessLevels">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="facilitySearch">
             <soap:operation soapAction=""/>
             <wsdl:input>
                 <soap:body use="literal"/>
@@ -665,7 +668,7 @@
     </wsdl:binding>
     <wsdl:service name="pcpAssignmentWS">
         <wsdl:port binding="tns:IpcpAssignmentSoapHttp" name="pcpAssignmentPORT">
-            <soap:address location="http://aw-lx0557.deltadev.ent:24011/pcpservices/assignment"/>
+            <soap:address location="http://aw-lx0558.deltadev.ent:24011/pcpservices/assignment"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -19,4 +19,6 @@ public class ProvidersRequest {
 	private String memberId;
 	private String pcpEffectiveDate;
 	private String zipcode;
+	private String sourceSystem;
+	private Address address;
 }
