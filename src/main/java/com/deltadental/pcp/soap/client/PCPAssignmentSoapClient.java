@@ -1,5 +1,6 @@
 package com.deltadental.pcp.soap.client;
 
+import com.deltadental.platform.common.exception.ServiceException;
 import com.deltadental.platform.pcp.stub.FacilitySearch;
 import com.deltadental.platform.pcp.stub.FacilitySearchResponse;
 import com.deltadental.platform.pcp.stub.GetBPsAndBussinessLevels;

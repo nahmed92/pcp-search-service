@@ -213,8 +213,8 @@ public class PCPSearchServiceController {
 	public ResponseEntity<ProvidersResponse> providers(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchServiceController.providerValidate");
 		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
-		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK); 
 		log.info("END PCPSearchServiceController.providerValidate");
+		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK); 
 		return responseEntity;
 	}
 
