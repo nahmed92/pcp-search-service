@@ -45,8 +45,10 @@ import com.deltadental.platform.pcp.stub.ProvidersResponse;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+@Data
 @Service("pcpSearchService")
 @Slf4j
 public class PCPSearchServiceImpl implements PCPSearchService {
