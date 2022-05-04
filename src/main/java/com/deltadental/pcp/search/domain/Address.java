@@ -1,6 +1,8 @@
 package com.deltadental.pcp.search.domain;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,6 +25,8 @@ public class Address {
 	private String addressLine2;
 	private String city;
 	private String state;
+	@NotNull
+	@Size(min = 5, max = 9, message = "Zip code should be in between 5 and 9 in length.")
 	private String zipCode;
 	
 }
