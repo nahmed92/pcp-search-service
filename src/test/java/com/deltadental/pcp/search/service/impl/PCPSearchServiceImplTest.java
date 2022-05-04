@@ -24,7 +24,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.deltadental.pcp.search.config.ApplicationConfig;
-import com.deltadental.pcp.search.config.PcpAssignmentWSConfig;
 import com.deltadental.pcp.search.domain.BPBLResolutionResponse;
 import com.deltadental.pcp.search.domain.BlResolutionResponse;
 import com.deltadental.pcp.search.domain.BlServiceRequest;
@@ -69,12 +68,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @ExtendWith(SpringExtension.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = {ApplicationConfig.class, PcpAssignmentWSConfig.class })
+@SpringBootTest(classes = {ApplicationConfig.class})
 @TestPropertySource(properties = { "spring.config.location=classpath:application-mock.properties", "spring.config.enabled=false"})
 @TestPropertySource("classpath:application-mock.properties")
 @TestInstance(Lifecycle.PER_CLASS)
 @DisplayName("When Testing PCP Search Service Impl")
-@Slf4j
 public class PCPSearchServiceImplTest {
 
 	private PCPSearchServiceImpl pcpSearchServiceImpl;  
