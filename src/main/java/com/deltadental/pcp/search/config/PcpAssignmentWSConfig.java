@@ -14,6 +14,7 @@ import com.deltadental.pcp.soap.client.PCPAssignmentSoapClientImpl;
 import com.deltadental.platform.pcp.stub.ObjectFactory;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import lombok.Data;
 
@@ -70,6 +71,7 @@ public class PcpAssignmentWSConfig {
 		objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
 		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+		objectMapper.registerModule(new JavaTimeModule());
 		return objectMapper;
 	}
 

@@ -1,7 +1,9 @@
 package com.deltadental.pcp.search.transformer;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
 import com.deltadental.pcp.search.domain.Address;
@@ -41,6 +43,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPSearchRequestTransformer {
 
+	private static final DateTimeFormatter _FORMATTER = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+	
 	public GetProviders transformGetProviders(PcpAssignmentRequest pcpAssignmentRequest) {
 		log.info("START PCPSearchRequestTransformer.transformGetProviders");
 		GetProviders getProviders = new GetProviders();
@@ -115,8 +119,9 @@ public class PCPSearchRequestTransformer {
 		PcpSearchRequest pcpSearchRequest = new PcpSearchRequest();
 		pcpSearchRequest.setContractID(providersRequest.getContractID());
 		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
-		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
-		pcpSearchRequest.setZipcode(providersRequest.getZipcode());
+		pcpSearchRequest.setZipcode(StringUtils.trimToEmpty(providersRequest.getAddress().getZipCode()));
+		String pcpEffectiveDate = providersRequest.getPcpEffectiveDate().format(_FORMATTER);
+		pcpSearchRequest.setPcpEffectiveDate(pcpEffectiveDate);
 		pcpSearchRequest.setSourceSystem(providersRequest.getSourceSystem());
 		pcpSearchRequest.setAutoAssignment(providersRequest.getAutoAssignment());
 		pcpSearchRequest.setAddress(getAddress(providersRequest.getAddress()));

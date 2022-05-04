@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,7 @@ import com.deltadental.pcp.search.domain.RetrieveDistinctExceptionGroupsRes;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.StatePcpAssignmentResponse;
 import com.deltadental.pcp.search.service.PCPSearchService;
+import com.deltadental.pcp.search.service.ProvidersAuditService;
 import com.deltadental.platform.common.annotation.aop.MethodExecutionTime;
 import com.deltadental.platform.common.exception.ServiceError;
 
@@ -46,11 +48,16 @@ import lombok.extern.slf4j.Slf4j;
 @Api(value = "/pcp-search")
 @Slf4j
 @Data
+@Validated
 public class PCPSearchServiceController {
 
 	@Autowired(required=true)
 	@Qualifier("pcpSearchService")
 	private PCPSearchService pcpSearchService;
+	
+	@Autowired(required=true)
+	@Qualifier("providersAuditService")
+	private ProvidersAuditService providersAuditService; 
 	
 	@ApiOperation(
 			value = PCPSearchServiceConstants.SUMMARY_GET_PROVIDERS, 
@@ -203,8 +210,7 @@ public class PCPSearchServiceController {
 			notes = PCPSearchServiceConstants.SUMMARY_PROVIDERS_NOTES, 
 			response = PCPAssignmentResponse.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
-                    @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-
+                    @ApiResponse(code = 400, message = "Bad Request (validation error)", response = ServiceError.class),
                     @ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
@@ -213,6 +219,7 @@ public class PCPSearchServiceController {
 	public ResponseEntity<ProvidersResponse> providers(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchServiceController.providerValidate");
 		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
+		providersAuditService.saveProvidersAudit(providersRequest, providersResponse);
 		log.info("END PCPSearchServiceController.providerValidate");
 		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK); 
 		return responseEntity;
@@ -224,7 +231,7 @@ public class PCPSearchServiceController {
 			notes = PCPSearchServiceConstants.SUMMARY_RETRIEVE_DISTINCT_EXCEPTION_GROUPS_NOTES, 
 			response = RetrieveDistinctExceptionGroupsRes.class)
     @ApiResponses({ @ApiResponse(code = 200, message = "Successfully Retrived Distinct Exception Groups", response = RetrieveDistinctExceptionGroupsRes.class),
-                    @ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
+                    @ApiResponse(code = 400, message = "Bad Request (validation error)", response = ServiceError.class),
 
                     @ApiResponse(code = 404, message = "Unable to Retrive Distinct ServiceError Groups.", response = ServiceError.class),
                     @ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
