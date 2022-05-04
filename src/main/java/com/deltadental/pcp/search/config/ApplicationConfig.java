@@ -10,7 +10,6 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
-import com.deltadental.pcp.soap.client.PCPAssignmentSoapClientImpl;
 import com.deltadental.platform.pcp.stub.ObjectFactory;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,7 +36,7 @@ public class ApplicationConfig {
 
 	@Bean(name = "pcpAssignmentSoapClient")
     public PCPAssignmentSoapClient pcpAssignmentSoapClient(Jaxb2Marshaller marshaller) {
-		PCPAssignmentSoapClientImpl pcpAssignmentSoapClient = new PCPAssignmentSoapClientImpl();
+		PCPAssignmentSoapClient pcpAssignmentSoapClient = new PCPAssignmentSoapClient();
 		pcpAssignmentSoapClient.setDefaultUri(pcpWSSoapUri);
 		pcpAssignmentSoapClient.setMarshaller(marshaller);
 		pcpAssignmentSoapClient.setUnmarshaller(marshaller);

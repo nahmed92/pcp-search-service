@@ -254,7 +254,7 @@ public class PCPSearchServiceController {
     @PostMapping(value = PCPSearchServiceConstants.GET_PCPVALIDATE_URI, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<PCPAssignmentResponse> pcpValidate(@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
 		log.info("START PCPSearchServiceController.providerValidate");
-		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.pcpValidate(pcpValidateRequest);
+		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse, HttpStatus.OK); 
 		log.info("END PCPSearchServiceController.providerValidate");
 		return responseEntity;

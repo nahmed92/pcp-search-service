@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +32,7 @@ import lombok.extern.slf4j.Slf4j;
 @Api(value = "/pcp-search")
 @Slf4j
 @Validated
-public class PCPSearchPCPController {
+public class PCPValidateController {
 
 	@Autowired(required = true)
 	@Qualifier("pcpSearchService")
@@ -42,19 +42,19 @@ public class PCPSearchPCPController {
 	@ApiResponses({
 			@ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
 			@ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
-			@ApiResponse(code = 404, message = "Unable to find providers.", response = ServiceError.class),
+			@ApiResponse(code = 404, message = "Unable to validate provider.", response = ServiceError.class),
 			@ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
 	@MethodExecutionTime
-	@GetMapping(value = "/pcp/validate", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+	@PostMapping(value = "/pcp/validate", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<PCPAssignmentResponse> pcpValidate(
+	public ResponseEntity<PCPAssignmentResponse> validate(
 			@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
-		log.info("START PCPSearchPCPController.pcpValidate");
-		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.pcpValidate(pcpValidateRequest);
+		log.info("START PCPValidateController.validate");
+		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
 		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse,
 				HttpStatus.OK);
-		log.info("END PCPSearchPCPController.pcpValidate");
+		log.info("END PCPValidateController.validate");
 		return responseEntity;
 	}
 }
