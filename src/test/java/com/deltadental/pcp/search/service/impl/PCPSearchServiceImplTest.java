@@ -59,7 +59,6 @@ import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevel;
 import com.deltadental.platform.pcp.stub.GroupBenefitPackBussinessLevelResponse;
 import com.deltadental.platform.pcp.stub.PcpAssignmentResponse;
 import com.deltadental.platform.pcp.stub.ProviderValidate;
-import com.deltadental.platform.pcp.stub.ProviderValidateResponse;
 import com.deltadental.platform.pcp.stub.Providers;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroups;
 import com.deltadental.platform.pcp.stub.RetrieveDistinctExceptionGroupsResponse;

@@ -38,5 +38,15 @@ ENTRYPOINT java $JAVA_OPTS \
 	-Dserver.monitor.file=${SERVICE_MONITOR_FILE} \
 	-Dmanagement.endpoint.health.enabled=${MANAGEMENT_ENDPOINT_HEALTH_ENABLED} \
 	-Dmanagement.endpoint.health.show-details=${MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS} \
+	-Dspring.datasource.url=${DATASOURCE_URL} \
+    -Dspring.datasource.username=${DATASOURCE_USERNAME} \
+    -Dspring.datasource.password=${DATASOURCE_PASSWORD} \
+	-Dspring.datasource.hikari.connection-timeout=${DATASOURCE_CONNECTION_TIMEOUT} \
+    -Dspring.datasource.driver-class=${DATASOURCE_DRIVER_CLASS} \
+    -Dspring.jpa.hibernate.naming.implicit-strategy=${JPA_NAMING_IMPLICIT_STRATEGY} \
+    -Dspring.jpa.hibernate.naming.physical-strategy=${JPA_NAMING_PHYSICAL_STRATEGY} \
+	-Dspring.jpa.hibernate.c3p0.min.size=${JPA_MIN_SIZE} \
+    -Dspring.jpa.hibernate.c3p0.max.size=${JPA_MAX_SIZE} \
+    -Dspring.jpa.hibernate.c3p0.timeout=${JPA_TIMEOUT} \
 	-Denvironment=${ENVIRONMENT} \
 	-jar /pcp-search-service-3.0.0.jar
