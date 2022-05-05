@@ -2,6 +2,7 @@ package com.deltadental.pcp.search.domain;
 
 import java.time.LocalDate;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -21,11 +22,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Valid
 public class PCPValidateRequest {
 
 	@NotBlank
 	private String contractId;
 	
+	@NotBlank
     private String lookAheadDays;
     
     @NotBlank
