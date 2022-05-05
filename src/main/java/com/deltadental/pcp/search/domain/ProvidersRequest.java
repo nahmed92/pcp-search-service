@@ -45,7 +45,7 @@ public class ProvidersRequest {
 	private String autoAssignment;
 	
 	@NotBlank
-	private String userID;
+	private String userId;
 	
 	@Valid
 	private Address address;

@@ -54,7 +54,7 @@ public class ProvidersRequestValidator {
 			throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException("Source System Cannot be empty.");
 		}
 		
-		if (providersRequest == null || StringUtils.isBlank(providersRequest.getUserID())) {
+		if (providersRequest == null || StringUtils.isBlank(providersRequest.getUserId())) {
 			throw PCPSearchServiceErrors.PROVIDERS_USERID.createException("User ID Cannot be empty.");
 		}
 		

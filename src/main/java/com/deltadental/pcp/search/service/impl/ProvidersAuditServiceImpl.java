@@ -53,7 +53,7 @@ public class ProvidersAuditServiceImpl implements ProvidersAuditService {
 		String pcpEffectiveDate = providersRequest.getPcpEffectiveDate().format(_FORMATTER);
 		providersAuditEntity.setPcpEffectiveDate(StringUtils.trimToNull(pcpEffectiveDate));
 		providersAuditEntity.setSourceSystem(StringUtils.trimToNull(providersRequest.getSourceSystem()));
-		providersAuditEntity.setUserId(StringUtils.trimToNull(providersRequest.getUserID()));
+		providersAuditEntity.setUserId(StringUtils.trimToNull(providersRequest.getUserId()));
 		providersAuditEntity.setAutoAssignment(providersRequest.getAutoAssignment());		
 		Address address = providersRequest.getAddress();
 		providersAuditEntity.setAddressLineOne(StringUtils.trimToNull(address.getAddressLine1()));
