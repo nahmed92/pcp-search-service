@@ -48,7 +48,7 @@ public class ProvidersAuditServiceImpl implements ProvidersAuditService {
 	private ProvidersAuditEntity getProvidersAuditEntity(ProvidersRequest providersRequest, ProvidersResponse providersResponse) throws SerialException, SQLException {
 		ProvidersAuditEntity providersAuditEntity = new ProvidersAuditEntity();
 		providersAuditEntity.setProvidersAuditId(UUID.randomUUID().toString());
-		providersAuditEntity.setContractId(StringUtils.trimToNull(providersRequest.getContractID()));
+		providersAuditEntity.setContractId(StringUtils.trimToNull(providersRequest.getContractId()));
 		providersAuditEntity.setMemberId(StringUtils.trimToNull(providersRequest.getMemberId()));
 		String pcpEffectiveDate = providersRequest.getPcpEffectiveDate().format(_FORMATTER);
 		providersAuditEntity.setPcpEffectiveDate(StringUtils.trimToNull(pcpEffectiveDate));

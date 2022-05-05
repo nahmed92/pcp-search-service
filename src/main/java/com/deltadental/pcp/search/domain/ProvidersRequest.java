@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class ProvidersRequest {
 	
 	@NotBlank
-	private String contractID;
+	private String contractId;
 	
 	@NotBlank
 	@Size(min =2, max = 2, message = "Member ID should be two chars length!")

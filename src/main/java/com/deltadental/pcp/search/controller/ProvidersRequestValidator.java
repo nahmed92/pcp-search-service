@@ -27,7 +27,7 @@ public class ProvidersRequestValidator {
 			}
 		}
 		
-		if (providersRequest == null || StringUtils.isEmpty(providersRequest.getContractID())) {
+		if (providersRequest == null || StringUtils.isEmpty(providersRequest.getContractId())) {
 			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException("Invalid Contract ID");
 		}
 		

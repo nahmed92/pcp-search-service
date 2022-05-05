@@ -117,7 +117,7 @@ public class PCPSearchRequestTransformer {
 		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		Providers providers = new Providers();
 		PcpSearchRequest pcpSearchRequest = new PcpSearchRequest();
-		pcpSearchRequest.setContractID(providersRequest.getContractID());
+		pcpSearchRequest.setContractID(providersRequest.getContractId());
 		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
 		pcpSearchRequest.setZipcode(StringUtils.trimToEmpty(providersRequest.getAddress().getZipCode()));
 		String pcpEffectiveDate = providersRequest.getPcpEffectiveDate().format(_FORMATTER);
@@ -334,8 +334,10 @@ public class PCPSearchRequestTransformer {
 			pcpProviderRequest.setLookAheadDays(pcpValidateRequest.getLookAheadDays());
 			pcpProviderRequest.setMemberType(pcpValidateRequest.getMemberType());
 			pcpProviderRequest.setMtvPersonId(pcpValidateRequest.getMtvPersonId());
-			pcpProviderRequest.setPcpEffDate(pcpValidateRequest.getPcpEffDate());
-			pcpProviderRequest.setPcpEndDate(pcpValidateRequest.getPcpEndDate());
+			String pcpEffectiveDate = pcpValidateRequest.getPcpEffDate().format(_FORMATTER);
+			pcpProviderRequest.setPcpEffDate(pcpEffectiveDate);
+			String pcpEndDate = pcpValidateRequest.getPcpEndDate().format(_FORMATTER);
+			pcpProviderRequest.setPcpEndDate(pcpEndDate);
 			pcpProviderRequest.setProduct(pcpValidateRequest.getProduct());
 			pcpProviderRequest.setProviderId(pcpValidateRequest.getProviderId());
 			pcpProviderRequest.setRecordIdentifier(pcpValidateRequest.getRecordIdentifier());

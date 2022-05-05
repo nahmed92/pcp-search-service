@@ -1,5 +1,12 @@
 package com.deltadental.pcp.search.domain;
 
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -16,14 +23,33 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PCPValidateRequest {
 
+	@NotBlank
 	private String contractId;
+	
     private String lookAheadDays;
+    
+    @NotBlank
     private String memberType;
+    
+    @NotBlank
     private String mtvPersonId;
-    private String pcpEffDate;
-    private String pcpEndDate;
+    
+    @NotNull
+    @JsonFormat(shape = Shape.STRING, pattern = "MM-dd-yyyy")
+    private LocalDate pcpEffDate;    
+    
+    @NotNull
+    @JsonFormat(shape = Shape.STRING, pattern = "MM-dd-yyyy")
+    private LocalDate pcpEndDate;
+    
+    @NotBlank
     private String product;
+    
+    @NotBlank
     private String providerId;
+    
     private String recordIdentifier;
+    
+    @NotBlank
     private String sourceSystem;
 }
