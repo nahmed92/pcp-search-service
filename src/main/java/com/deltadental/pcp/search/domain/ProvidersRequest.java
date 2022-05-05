@@ -3,13 +3,14 @@ package com.deltadental.pcp.search.domain;
 import java.time.LocalDate;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,14 +21,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Valid
 public class ProvidersRequest {
 	
-	@NotNull
+	@NotBlank
 	private String contractID;
 	
-	@NotNull
+	@NotBlank
 	@Size(min =2, max = 2, message = "Member ID should be two chars length!")
 	private String memberId;
 	
@@ -35,14 +36,15 @@ public class ProvidersRequest {
     @JsonFormat(shape = Shape.STRING, pattern = "MM-dd-yyyy")
 	private LocalDate pcpEffectiveDate;
 	
-	@NotNull
+	@NotBlank
 	private String sourceSystem;
 	
-	@NotNull
+	@NotBlank
+	@Pattern(regexp = "Y|N", flags = Pattern.Flag.CASE_INSENSITIVE)
 	@Size(min =1, max = 1, message = "Auto Assignment Value should be Y or N only!")
 	private String autoAssignment;
 	
-	@NotNull
+	@NotBlank
 	private String userID;
 	
 	@Valid

@@ -3,12 +3,11 @@ package com.deltadental.pcp.search.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,14 +35,15 @@ import lombok.extern.slf4j.Slf4j;
 @Validated
 public class PCPSearchProvidersController {
 
-	@Autowired(required = true)
-	@Qualifier("pcpSearchService")
+	@Autowired
 	private PCPSearchService pcpSearchService;
 
-	@Autowired(required = true)
-	@Qualifier("providersAuditService")
+	@Autowired
 	private ProvidersAuditService providersAuditService;
 
+	@Autowired
+	private ProvidersRequestValidator requestValidator;
+	
 	@ApiOperation(value = PCPSearchServiceConstants.SUMMARY_PROVIDERS, notes = PCPSearchServiceConstants.SUMMARY_PROVIDERS_NOTES, response = PCPAssignmentResponse.class)
 	@ApiResponses({
 			@ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
@@ -52,10 +52,11 @@ public class PCPSearchProvidersController {
 			@ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
 	@MethodExecutionTime
-	@GetMapping(value = "/providers/_search", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+	@PostMapping(value = "/providers/_search", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ProvidersResponse> searchProviders(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchProvidersController.searchProviders");
+//		requestValidator.validateProvidersRequest(providersRequest);
 		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
 		providersAuditService.saveProvidersAudit(providersRequest, providersResponse);
 		log.info("END PCPSearchProvidersController.searchProviders");
