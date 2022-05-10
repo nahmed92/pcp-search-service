@@ -35,7 +35,7 @@ public class ProvidersRequest {
 	@Digits(integer = 2, fraction = 0, message = "Member ID allows only digits, not allowed alpha numeric charactors")
 	private String memberId;
 	
-	@NotNull
+	@NotBlank
     @JsonFormat(shape = Shape.STRING, pattern = "MM-dd-yyyy")
 	private LocalDate pcpEffectiveDate;
 	
