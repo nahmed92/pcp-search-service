@@ -30,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(value = "/pcp-search")
+@Api(description = "Endpoint for searching providers.", value = "/pcp-search")
 @Slf4j
 @Validated
 public class PCPSearchProvidersController {
