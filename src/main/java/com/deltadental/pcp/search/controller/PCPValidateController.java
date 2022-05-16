@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.deltadental.pcp.search.constants.PCPSearchServiceConstants;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
@@ -51,10 +52,12 @@ public class PCPValidateController {
 	public ResponseEntity<PCPAssignmentResponse> validate(
 			@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
 		log.info("START PCPValidateController.validate");
-		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
-		ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse,
-				HttpStatus.OK);
-		log.info("END PCPValidateController.validate");
-		return responseEntity;
+		try {
+			PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
+			ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse,HttpStatus.OK);
+			return responseEntity;
+		} catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, e.getMessage());
+		}
 	}
 }

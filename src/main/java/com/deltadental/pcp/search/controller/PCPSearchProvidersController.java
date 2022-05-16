@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.deltadental.pcp.search.constants.PCPSearchServiceConstants;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
@@ -57,11 +58,15 @@ public class PCPSearchProvidersController {
 	public ResponseEntity<ProvidersResponse> searchProviders(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchProvidersController.searchProviders");
 //		requestValidator.validateProvidersRequest(providersRequest);
-		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
-		providersAuditService.saveProvidersAudit(providersRequest, providersResponse);
-		log.info("END PCPSearchProvidersController.searchProviders");
-		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK);
-		return responseEntity;
+		try {
+			ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
+			providersAuditService.saveProvidersAudit(providersRequest, providersResponse);
+			log.info("END PCPSearchProvidersController.searchProviders");
+			ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK);
+			return responseEntity;
+		} catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, e.getMessage());
+		}
 	}
 
 }
