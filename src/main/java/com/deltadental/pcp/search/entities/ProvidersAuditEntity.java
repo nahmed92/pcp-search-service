@@ -37,7 +37,7 @@ public class ProvidersAuditEntity implements Serializable {
 	private String responseJson;
 	
     @CreationTimestamp
-	@Column(name = "created_at")
+	@Column(name = "creation_at")
 	private Timestamp crationAt;
 
 	@UpdateTimestamp
