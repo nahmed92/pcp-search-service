@@ -19,7 +19,7 @@ import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.service.PCPSearchService;
-import com.deltadental.pcp.search.service.ProvidersAuditService;
+import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.platform.common.annotation.aop.MethodExecutionTime;
 import com.deltadental.platform.common.exception.ServiceError;
 
