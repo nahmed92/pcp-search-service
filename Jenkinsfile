@@ -542,12 +542,12 @@ pipeline {
 	ApplicationArea=""
     APP=""
     //team Dl and Release Management Team
-    SEND_MAIL = "ITSSReleaseTeam@delta.org,KBasireddy@delta.org,akosana@delta.org,pkumar2@delta.org"
+    SEND_MAIL = "ITSSReleaseTeam@delta.org,KBasireddy@delta.org,skalahasthi2@delta.org,pkumar2@delta.org,nahmed@delta.org"
 
     //Application type
 		SERVICE_TYPE="JAVA"
-    //PO who will approve Prod CM Record in new Jira Workflow France Huttela
-	    PO="ca32098"
+    //PO who will approve Prod CM Record in new Jira Workflow Meg
+	    PO="ca27567"
     //Github Repository which contains automation test suites
    //TEST_REPO="https://rc-github.deltads.ent/DEVPROJECTS/jasmine-apitest-automation"
 	 TEST_REPO="https://rc-github.deltads.ent/DEVPROJECTS/GroupConnectServiceTestAutomationJS"

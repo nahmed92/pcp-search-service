@@ -1,5 +1,3 @@
-USE [PCP-Search]
-GO
 
 create table [dbo].[providers_audit](
 	[providers_audit_id] [varchar](200) NOT NULL,
