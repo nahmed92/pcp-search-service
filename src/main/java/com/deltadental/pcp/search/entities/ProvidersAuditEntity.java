@@ -12,6 +12,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,67 +29,28 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "PROVIDERS_AUDIT", schema = "dbo")
+@Table(name = "providers_audit", schema = "dbo")
 @Entity
-@org.hibernate.annotations.Entity(dynamicUpdate = true)
 public class ProvidersAuditEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id 
-	@Column(name = "PROVIDERS_AUDIT_ID")
-	private String providersAuditId;
+	@Id
+	@Column(name = "id")
+	private String id;
 
-	@Column(name = "AUTO_ASSIGNMENT")
-	private String autoAssignment;
+	@Column(name = "request_json")
+	private String requestJson;
 
-	@Column(name = "CONTRACT_ID")
-	private String contractId;
-
-	@Column(name = "MEMBER_ID")
-	private String memberId;
-
-	@Column(name = "PCP_EFFECTIVE_DATE")
-	private String pcpEffectiveDate;
-
-	@Column(name = "SOURCE_SYSTEM")
-	private String sourceSystem;
-
-	@Column(name = "USER_ID")
-	private String userId;
-
-	@Column(name = "ADDRESS_LINE1")
-	private String addressLineOne;
-
-	@Column(name = "ADDRESS_LINE2")
-	private String addressLineTwo;
-
-	@Column(name = "CITY")
-	private String city;
-
-	@Column(name = "STATE")
-	private String state;
-
-	@Column(name = "ZIP_CODE")
-	private String zipCode;
-
-	@Column(name = "CREATION_TS")
-	private Timestamp crationTs;
-
-	@Column(name = "LAST_MAINT_TS")
-	private Timestamp lastMaintTs;
-
-    @Column(name = "RESPONSE_JSON")
+	@Column(name = "response_json")
 	private String responseJson;
 
-	@PrePersist
-	public void onInsert() {
-		crationTs = Timestamp.from(ZonedDateTime.now(ZoneId.of("America/Los_Angeles")).toInstant());
-		lastMaintTs = crationTs;
-	}
+	@Column(name = "created_at")
+	@CreationTimestamp
+	private Timestamp createdAt;
 
-	@PreUpdate
-	public void onUpdate() {
-		lastMaintTs = Timestamp.from(ZonedDateTime.now(ZoneId.of("America/Los_Angeles")).toInstant());
-	}
+	@Column(name = "last_updated_at")
+	@UpdateTimestamp
+	private Timestamp lastUpdatedAt;
+
 }
