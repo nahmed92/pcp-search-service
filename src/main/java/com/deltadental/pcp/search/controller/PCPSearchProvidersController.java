@@ -60,7 +60,7 @@ public class PCPSearchProvidersController {
 //		requestValidator.validateProvidersRequest(providersRequest);
 		try {
 			ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
-			providersAuditService.saveProvidersAudit(providersRequest, providersResponse);
+			providersAuditService.save(providersRequest, providersResponse);
 			log.info("END PCPSearchProvidersController.searchProviders");
 			ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK);
 			return responseEntity;
