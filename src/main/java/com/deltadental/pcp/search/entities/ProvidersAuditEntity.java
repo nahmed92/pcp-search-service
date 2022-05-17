@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.AllArgsConstructor;
@@ -35,12 +36,12 @@ public class ProvidersAuditEntity implements Serializable {
     @Column(name = "response_json")
 	private String responseJson;
 	
-	@Column(name = "creation_at")
-	private Timestamp creationAt;
+    @CreationTimestamp
+	@Column(name = "created_at")
+	private Timestamp crationAt;
 
-
-	@Column(name = "last_updated_at")
 	@UpdateTimestamp
+	@Column(name = "last_updated_at")
 	private Timestamp lastUpdatedAt;
 
 }
