@@ -62,8 +62,12 @@ public class ProvidersRequestValidator {
 			if (providersRequest.getAddress() == null || StringUtils.isBlank(providersRequest.getAddress().getZipCode())) {
 				throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException("Zip Code Cannot be empty.");
 			} else {
-				if(providersRequest != null || providersRequest.getAddress() != null || StringUtils.trim(providersRequest.getAddress().getZipCode()).length() < 5 || StringUtils.trim(providersRequest.getAddress().getZipCode()).length() > 9) {
-					throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException("Zip Code Cannot be empty.");
+				if(providersRequest.getAddress() != null) {
+					if(StringUtils.trim(providersRequest.getAddress().getZipCode()).length() < 5 || StringUtils.trim(providersRequest.getAddress().getZipCode()).length() > 9) {
+						throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException("Zip Code Cannot be empty.");
+					}
+				} else {
+					
 				}
 			}
 		} else {
