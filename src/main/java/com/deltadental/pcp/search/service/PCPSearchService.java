@@ -1,17 +1,11 @@
 package com.deltadental.pcp.search.service;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.deltadental.pcp.search.domain.EnrolleeDetail;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
-import com.deltadental.pcp.search.domain.PCPResponse;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
@@ -75,7 +69,6 @@ public class PCPSearchService {
 			Providers providers = pcpSearchRequestTransformer.transformProvidersRequest(providersRequest);
 			ProvidersResponse providersResponse = pcpAssignmentSoapClient.providers(providers);
 			response = pcpSearchResponseTransformer.transformProvidersResponse(providersResponse);
-			setProcessStatusCode(response);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + providersRequest, exception);
 			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(providersRequest);
@@ -99,28 +92,5 @@ public class PCPSearchService {
 		log.info("END PCPSearchService.validate");
 		return response;
 	}
-
-	private void setProcessStatusCode(com.deltadental.pcp.search.domain.ProvidersResponse response) {
-		log.info("START PCPAssignmentService.setProcessStatusCode()");
-		if(response != null) {
-			PCPAssignmentResponse pcpAssignmentResponse = response.getPcpAssignmentResponse();
-			if(null != pcpAssignmentResponse) {
-				List<PCPResponse> pcpResponses = pcpAssignmentResponse.getPcpResponses();
-				if(CollectionUtils.isNotEmpty(pcpResponses)) {
-					for (PCPResponse pcpResponse : pcpResponses) {
-						List<EnrolleeDetail> enrollees = pcpResponse.getEnrollees();
-						for (EnrolleeDetail enrolleeDetail : enrollees) {
-							List<String> errorMessages = enrolleeDetail.getErrorMessages();
-							boolean pcpValidationFlag = errorMessages.stream().anyMatch(error -> StringUtils.equals(StringUtils.trimToEmpty(error), PCP_VALID_FOR_ENROLLEE));
-							if(!pcpValidationFlag) {
-								pcpAssignmentResponse.setProcessStatusCode(FAIL);
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-		log.info("END PCPAssignmentService.setProcessStatusCode()");
-	}
+	
 }
