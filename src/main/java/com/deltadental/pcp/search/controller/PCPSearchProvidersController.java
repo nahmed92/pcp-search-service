@@ -2,6 +2,7 @@ package com.deltadental.pcp.search.controller;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,11 +32,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(description = "Endpoint for searching providers.", value = "/pcp-search")
+@Api(value = "/pcp-search")
 @Slf4j
 @Validated
 public class PCPSearchProvidersController {
 
+	private static final String SUCCESS = "Success";
+	
 	@Autowired
 	private PCPSearchService pcpSearchService;
 
@@ -58,15 +61,22 @@ public class PCPSearchProvidersController {
 	public ResponseEntity<ProvidersResponse> searchProviders(@Valid @RequestBody ProvidersRequest providersRequest) {
 		log.info("START PCPSearchProvidersController.searchProviders");
 //		requestValidator.validateProvidersRequest(providersRequest);
+		ProvidersResponse providersResponse = null;
 		try {
-			ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
+			providersResponse = pcpSearchService.providers(providersRequest);
 			providersAuditService.save(providersRequest, providersResponse);
-			log.info("END PCPSearchProvidersController.searchProviders");
-			ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK);
-			return responseEntity;
 		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, e.getMessage());
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
 		}
+		log.info("END PCPSearchProvidersController.searchProviders");
+		return new ResponseEntity<>(providersResponse, getHttpStatus(providersResponse));
 	}
 
+	private HttpStatus getHttpStatus(ProvidersResponse providersResponse) {
+		if(providersResponse == null) {
+			return HttpStatus.NOT_FOUND;
+		} else {
+			return StringUtils.equals(SUCCESS, providersResponse.getPcpAssignmentResponse().getProcessStatusCode())  ? HttpStatus.OK : HttpStatus.BAD_REQUEST; 
+		}
+	}
 }
