@@ -90,7 +90,7 @@ public class PCPSearchServiceImplTest {
 		Mockito.doReturn(providersResponse).when(pcpAssignmentSoapClientMock).providers(ArgumentMatchers.any(com.deltadental.platform.pcp.stub.Providers.class));
 		Mockito.doReturn(expectedProvidersResponse).when(pcpSearchResponseTransformerMock).transformProvidersResponse(ArgumentMatchers.any(com.deltadental.platform.pcp.stub.ProvidersResponse.class));
 		
-		ProvidersResponse actual = pcpSearchServiceImpl.providers(providersRequest);
+		ProvidersResponse actual = pcpSearchServiceImpl.searchProviders(providersRequest);
 		assertResults(expectedProvidersResponse, actual);
 		Mockito.verify(pcpSearchRequestTransformerMock, times(1)).transformProvidersRequest(ArgumentMatchers.any(ProvidersRequest.class));
 		Mockito.verify(pcpAssignmentSoapClientMock, times(1)).providers(ArgumentMatchers.any(com.deltadental.platform.pcp.stub.Providers.class));

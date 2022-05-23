@@ -58,6 +58,6 @@ public class ProvidersAuditService {
 				log.error("Exception parsing provider response : ", e);
 			}
 		}
-		return null;
+		return "";
 	}
 }

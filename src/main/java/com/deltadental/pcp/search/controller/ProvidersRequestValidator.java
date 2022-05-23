@@ -34,70 +34,70 @@ public class ProvidersRequestValidator {
 			}
 
 			if (StringUtils.isEmpty(request.getContractId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException("Invalid Contract ID");
+				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
 			} else {
 				if(!allowDigitsOnly(request.getContractId())) {
-					throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException("Invalid Contract ID");
+					throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
 				}
 			}
 
 			if (StringUtils.isBlank(request.getMemberId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException("Invalid Member ID");
+				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
 			} else {
 				if (StringUtils.trim(request.getMemberId()).length() != 2) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException("Invalid Member ID");
+					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
 				}
 				if(!allowDigitsOnly(request.getMemberId())) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException("Invalid Member ID");
+					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
 				}
 			}
 
 			if (request.getPcpEffectiveDate() == null) {
-				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException("Invalid PCP Effective Date");
+				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
 			} else {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 				try {
 					formatter.format(request.getPcpEffectiveDate());
 				} catch (Exception e) {
-					throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException("Invalid PCP Effective Date");
+					throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
 				}
 			}
 
 			if (StringUtils.isBlank(request.getSourceSystem())) {
-				throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException("Source System Cannot be empty.");
+				throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException();
 			}
 
 			if (StringUtils.isBlank(request.getUserId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_USERID.createException("User ID Cannot be empty.");
+				throw PCPSearchServiceErrors.PROVIDERS_USERID.createException();
 			}
 
 			if(request.getAddress() != null) {
 				if (StringUtils.isBlank(request.getAddress().getZipCode())) {
-					throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException("Zip Code Cannot be empty.");
+					throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException();
 				} else {
 					if (!isZipCodeValid(request.getAddress().getZipCode())) {
-						throw PCPSearchServiceErrors.PROVIDERS_ZIP_FORMAT.createException("Invalid Zipcode format.");
+						throw PCPSearchServiceErrors.PROVIDERS_ZIP_FORMAT.createException();
 					}
 				}
 			} else {
-				throw PCPSearchServiceErrors.ADDRESS_REQUIRED.createException("Address cannot be empty.");
+				throw PCPSearchServiceErrors.ADDRESS_REQUIRED.createException();
 			}
 			
 		} else {
-			throw PCPSearchServiceErrors.PROVIDER_SEARCH_REQUEST.createException("Request cannot be empty.");
+			throw PCPSearchServiceErrors.PROVIDER_SEARCH_REQUEST.createException();
 		}
 
 		log.info("END ProvidersRequestValidator.validateProvidersRequest()");
 	}
 	
-	private boolean isZipCodeValid(String zipCode) {
+	public boolean isZipCodeValid(String zipCode) {
 		String regex = "^[0-9]{5}(?:-[0-9]{4})?$";		 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(zipCode);
 		return matcher.matches();
 	}
 	
-	private boolean allowDigitsOnly(String field) {
+	public boolean allowDigitsOnly(String field) {
 		String regex = "\\d+";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(field);

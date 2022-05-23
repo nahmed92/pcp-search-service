@@ -1,5 +1,6 @@
 package com.deltadental.pcp.search.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +15,6 @@ import com.deltadental.pcp.search.constants.PCPSearchServiceConstants;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.service.PCPSearchService;
-import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.platform.common.annotation.aop.MethodExecutionTime;
 import com.deltadental.platform.common.exception.ServiceException;
 
@@ -30,11 +30,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPSearchProvidersController {
 
+	private static final String SUCCESS = "Success";
+	
 	@Autowired
 	private PCPSearchService pcpSearchService;
-
-	@Autowired
-	private ProvidersAuditService providersAuditService;
 
 	@Autowired
 	private ProvidersRequestValidator requestValidator;
@@ -51,11 +50,18 @@ public class PCPSearchProvidersController {
 	public ResponseEntity<ProvidersResponse> searchProviders(@RequestBody ProvidersRequest providersRequest) throws ServiceException {
 		log.info("START PCPSearchProvidersController.searchProviders");
 		requestValidator.validateProvidersRequest(providersRequest);
-		ProvidersResponse providersResponse = pcpSearchService.providers(providersRequest);
-		providersAuditService.save(providersRequest, providersResponse);
-		log.info("END PCPSearchProvidersController.searchProviders");
-		ResponseEntity<ProvidersResponse> responseEntity = new ResponseEntity<>(providersResponse, HttpStatus.OK);
-		return responseEntity;
+		ProvidersResponse providersResponse = pcpSearchService.searchProviders(providersRequest);
+		log.info("END PCPSearchProvidersController.searchProviders");		
+		return getHttpStatus(providersResponse);
 	}
 
+	private ResponseEntity<ProvidersResponse> getHttpStatus(ProvidersResponse providersResponse) {
+		HttpStatus httpStatus = HttpStatus.OK;
+		if(providersResponse == null || providersResponse.getPcpAssignmentResponse() == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else if(!SUCCESS.equalsIgnoreCase(providersResponse.getPcpAssignmentResponse().getProcessStatusCode())) { 
+			httpStatus = HttpStatus.BAD_REQUEST;			
+		}
+		return new ResponseEntity<>(providersResponse, httpStatus);
+	}
 }

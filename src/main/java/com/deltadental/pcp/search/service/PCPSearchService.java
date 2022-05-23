@@ -15,6 +15,7 @@ import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
+import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
@@ -35,8 +36,6 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 public class PCPSearchService {
 
-	private static final String FAIL = "Fail";
-	
 	@Autowired
 	private PCPAssignmentSoapClient pcpAssignmentSoapClient;
 
@@ -46,6 +45,9 @@ public class PCPSearchService {
 	@Autowired
 	private PCPSearchResponseTransformer pcpSearchResponseTransformer;
 
+	@Autowired
+	private ProvidersAuditService providersAuditService;
+	
 	@MethodExecutionTime
 	public PCPAssignmentResponse getProviders(@Valid PcpAssignmentRequest pcpAssignmentRequest)
 			throws ServiceException {
@@ -64,7 +66,7 @@ public class PCPSearchService {
 	}	
 
 	@MethodExecutionTime
-	public com.deltadental.pcp.search.domain.ProvidersResponse providers(ProvidersRequest providersRequest)
+	public com.deltadental.pcp.search.domain.ProvidersResponse searchProviders(ProvidersRequest providersRequest)
 			throws ServiceException {
 		log.info("START PCPSearchService.providers");
 		com.deltadental.pcp.search.domain.ProvidersResponse response = null;
@@ -72,10 +74,11 @@ public class PCPSearchService {
 			Providers providers = pcpSearchRequestTransformer.transformProvidersRequest(providersRequest);
 			ProvidersResponse providersResponse = pcpAssignmentSoapClient.providers(providers);
 			response = pcpSearchResponseTransformer.transformProvidersResponse(providersResponse);
-			setProcessStatusCode(response);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + providersRequest, exception);
 			throw PCPSearchServiceErrors.PROVIDERS_SEARCH_ERROR.createException(providersRequest);
+		} finally {
+			providersAuditService.save(providersRequest, response);
 		}
 		log.info("END PCPSearchService.providers");
 		return response;
@@ -97,25 +100,5 @@ public class PCPSearchService {
 		return response;
 	}
 
-	private void setProcessStatusCode(com.deltadental.pcp.search.domain.ProvidersResponse response) {
-		log.info("START PCPAssignmentService.setProcessStatusCode()");
-		if(response != null) {
-			PCPAssignmentResponse pcpAssignmentResponse = response.getPcpAssignmentResponse();
-			if(null != pcpAssignmentResponse) {
-				List<PCPResponse> pcpResponses = pcpAssignmentResponse.getPcpResponses();
-				if(CollectionUtils.isNotEmpty(pcpResponses)) {
-					for (PCPResponse pcpResponse : pcpResponses) {
-						List<EnrolleeDetail> enrollees = pcpResponse.getEnrollees();
-						for (EnrolleeDetail enrolleeDetail : enrollees) {
-							List<String> errorMessages = enrolleeDetail.getErrorMessages();
-							if(CollectionUtils.isNotEmpty(errorMessages)) {
-								pcpAssignmentResponse.setProcessStatusCode(FAIL);
-							}
-						}
-					}
-				}
-			}
-		}
-		log.info("END PCPAssignmentService.setProcessStatusCode()");
-	}
+	
 }
