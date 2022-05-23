@@ -57,7 +57,7 @@ public class PCPSearchService {
 			pcpAssignmentResponse = pcpSearchResponseTransformer.transformGetProvidersResponse(getProvidersResponse);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + pcpAssignmentRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(pcpAssignmentRequest);
+			throw PCPSearchServiceErrors.GETPROVIDERS_SERVER_ERROR.createException(pcpAssignmentRequest);
 		}
 		log.info("END PCPSearchService.getProviders");
 		return pcpAssignmentResponse;
@@ -75,7 +75,7 @@ public class PCPSearchService {
 			setProcessStatusCode(response);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + providersRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(providersRequest);
+			throw PCPSearchServiceErrors.PROVIDERS_SEARCH_ERROR.createException(providersRequest);
 		}
 		log.info("END PCPSearchService.providers");
 		return response;
@@ -91,7 +91,7 @@ public class PCPSearchService {
 			response = pcpSearchResponseTransformer.transformPcpValidateResponse(pcpValidateResponse);
 		} catch (Exception exception) {
 			log.error("Unable to perform pcp validation for request {} ", pcpValidateRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(pcpValidateRequest);
+			throw PCPSearchServiceErrors.PROVIDER_VALIDATE_ERROR.createException(pcpValidateRequest);
 		}
 		log.info("END PCPSearchService.validate");
 		return response;
