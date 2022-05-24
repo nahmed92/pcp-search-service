@@ -120,8 +120,7 @@ public class PCPSearchRequestTransformer {
 		pcpSearchRequest.setContractID(providersRequest.getContractId());
 		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
 		pcpSearchRequest.setZipcode(StringUtils.trimToEmpty(providersRequest.getAddress().getZipCode()));
-		String pcpEffectiveDate = providersRequest.getPcpEffectiveDate().format(_FORMATTER);
-		pcpSearchRequest.setPcpEffectiveDate(pcpEffectiveDate);
+		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
 		pcpSearchRequest.setSourceSystem(providersRequest.getSourceSystem());
 		pcpSearchRequest.setAutoAssignment(providersRequest.getAutoAssignment());
 		pcpSearchRequest.setAddress(getAddress(providersRequest.getAddress()));
