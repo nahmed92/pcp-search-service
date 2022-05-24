@@ -10,6 +10,7 @@ import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
+import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
@@ -39,64 +40,60 @@ public class PCPSearchService {
 	@Autowired
 	private PCPSearchResponseTransformer pcpSearchResponseTransformer;
 
+	@Autowired
+	private ProvidersAuditService providersAuditService;
+	
 	@MethodExecutionTime
 	public PCPAssignmentResponse getProviders(@Valid PcpAssignmentRequest pcpAssignmentRequest)
 			throws ServiceException {
-		log.info("START PCPSearchServiceImpl.getProviders");
+		log.info("START PCPSearchService.getProviders");
+		PCPAssignmentResponse pcpAssignmentResponse = null;
 		try {
 			GetProviders getProviders = pcpSearchRequestTransformer.transformGetProviders(pcpAssignmentRequest);
 			GetProvidersResponse getProvidersResponse = pcpAssignmentSoapClient.getProviders(getProviders);
-			PCPAssignmentResponse pcpAssignmentResponse = pcpSearchResponseTransformer
-					.transformGetProvidersResponse(getProvidersResponse);
-			log.info("END PCPSearchServiceImpl.getProviders");
-			return pcpAssignmentResponse;
-		} catch (ServiceException se) {
-			if (!PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.name().equals(se.getErrorCode())) {
-				throw se;
-			}
+			pcpAssignmentResponse = pcpSearchResponseTransformer.transformGetProvidersResponse(getProvidersResponse);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + pcpAssignmentRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(pcpAssignmentRequest);
+			throw PCPSearchServiceErrors.GETPROVIDERS_SERVER_ERROR.createException(pcpAssignmentRequest);
 		}
-		return null;
+		log.info("END PCPSearchService.getProviders");
+		return pcpAssignmentResponse;
 	}	
 
 	@MethodExecutionTime
-	public com.deltadental.pcp.search.domain.ProvidersResponse providers(ProvidersRequest providersRequest)
+	public com.deltadental.pcp.search.domain.ProvidersResponse searchProviders(ProvidersRequest providersRequest)
 			throws ServiceException {
-		log.info("START PCPSearchServiceImpl.providers");
+		log.info("START PCPSearchService.providers");
+		com.deltadental.pcp.search.domain.ProvidersResponse response = null;
 		try {
 			Providers providers = pcpSearchRequestTransformer.transformProvidersRequest(providersRequest);
 			ProvidersResponse providersResponse = pcpAssignmentSoapClient.providers(providers);
-			com.deltadental.pcp.search.domain.ProvidersResponse response = pcpSearchResponseTransformer
-					.transformProvidersResponse(providersResponse);
-			log.info("END PCPSearchServiceImpl.providers");
-			return response;
-		} catch (ServiceException se) {
-			if (!PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.name().equals(se.getErrorCode())) {
-				throw se;
-			}
+			response = pcpSearchResponseTransformer.transformProvidersResponse(providersResponse);
 		} catch (Exception exception) {
 			log.error("Unable to fetch providers for request" + providersRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(providersRequest);
+			throw PCPSearchServiceErrors.PROVIDERS_SEARCH_ERROR.createException(providersRequest);
+		} finally {
+			providersAuditService.save(providersRequest, response);
 		}
-		return null;
+		log.info("END PCPSearchService.providers");
+		return response;
 	}
 
 	@MethodExecutionTime
 	public PCPAssignmentResponse validate(PCPValidateRequest pcpValidateRequest) throws ServiceException {
-		log.info("START PCPSearchServiceImpl.validate");
+		log.info("START PCPSearchService.validate");
+		PCPAssignmentResponse response = null;
 		try {
 			PcpValidate providers = pcpSearchRequestTransformer.transformPcpValidateRequest(pcpValidateRequest);
 			PcpValidateResponse pcpValidateResponse = pcpAssignmentSoapClient.pcpValidate(providers);
-			PCPAssignmentResponse response = pcpSearchResponseTransformer
-					.transformPcpValidateResponse(pcpValidateResponse);
-			log.info("END PCPSearchServiceImpl.validate");
-			return response;
+			response = pcpSearchResponseTransformer.transformPcpValidateResponse(pcpValidateResponse);
 		} catch (Exception exception) {
 			log.error("Unable to perform pcp validation for request {} ", pcpValidateRequest, exception);
-			throw PCPSearchServiceErrors.INTERNAL_SERVER_ERROR.createException(pcpValidateRequest);
+			throw PCPSearchServiceErrors.PROVIDER_VALIDATE_ERROR.createException(pcpValidateRequest);
 		}
+		log.info("END PCPSearchService.validate");
+		return response;
 	}
 
+	
 }

@@ -41,7 +41,7 @@ public class PCPValidateController {
 
 	@ApiOperation(value = PCPSearchServiceConstants.SUMMARY_PCPVALIDATE, notes = PCPSearchServiceConstants.SUMMARY_SUMMARY_PCPVALIDATE_NOTES, response = PCPAssignmentResponse.class)
 	@ApiResponses({
-			@ApiResponse(code = 200, message = "Successfully retrived providers", response = PCPAssignmentResponse.class),
+			@ApiResponse(code = 200, message = "Successfully validated provider", response = PCPAssignmentResponse.class),
 			@ApiResponse(code = 400, message = "Bad request", response = ServiceError.class),
 			@ApiResponse(code = 404, message = "Unable to validate provider.", response = ServiceError.class),
 			@ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
@@ -49,15 +49,15 @@ public class PCPValidateController {
 	@MethodExecutionTime
 	@PostMapping(value = "/pcp/validate", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<PCPAssignmentResponse> validate(
-			@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
+	public ResponseEntity<PCPAssignmentResponse> validate(@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
 		log.info("START PCPValidateController.validate");
+		PCPAssignmentResponse pcpAssignmentResponse = null;
 		try {
-			PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
-			ResponseEntity<PCPAssignmentResponse> responseEntity = new ResponseEntity<>(pcpAssignmentResponse,HttpStatus.OK);
-			return responseEntity;
+			pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
 		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, e.getMessage());
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
 		}
+		log.info("END PCPValidateController.validate");
+		return new ResponseEntity<>(pcpAssignmentResponse,HttpStatus.OK);
 	}
 }

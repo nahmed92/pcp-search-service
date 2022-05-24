@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.deltadental.pcp.search.*" })
+@ComponentScan(basePackages = { "com.deltadental.pcp.search.*","com.deltadental.platform.common.exception" })
 public class PcpSearchServiceApplication {
 	
 	public static void main(String[] args) {

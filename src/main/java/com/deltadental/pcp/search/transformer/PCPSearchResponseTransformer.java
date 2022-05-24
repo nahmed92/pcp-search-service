@@ -3,6 +3,7 @@ package com.deltadental.pcp.search.transformer;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -42,6 +43,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPSearchResponseTransformer {
 
+	private static final String FAIL = "Fail";
+	
 	public PCPAssignmentResponse transformGetProvidersResponse(GetProvidersResponse getProvidersResponse) {
 		log.info("START PCPSearchResponseTransformer.transformGetProvidersResponse");
 		PcpAssignmentResponse clientPcpAssignmentResponse = getProvidersResponse.getReturn();
@@ -138,8 +141,32 @@ public class PCPSearchResponseTransformer {
 		PcpAssignmentResponse _return = providersResponse.getReturn();
 		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(_return);
 		response.setPcpAssignmentResponse(pcpAssignmentResponse);
+		updateProviderResponseErrorCode(response);
 		log.info("END PCPSearchResponseTransformer.transformProvidersResponse");
 		return response;
+	}
+	
+	private void updateProviderResponseErrorCode(com.deltadental.pcp.search.domain.ProvidersResponse response) {
+		log.info("START PCPAssignmentService.setProcessStatusCode()");
+		if(response != null) {
+			PCPAssignmentResponse pcpAssignmentResponse = response.getPcpAssignmentResponse();
+			if(null != pcpAssignmentResponse) {
+				List<PCPResponse> pcpResponses = pcpAssignmentResponse.getPcpResponses();
+				if(CollectionUtils.isNotEmpty(pcpResponses)) {
+					for (PCPResponse pcpResponse : pcpResponses) {
+						List<EnrolleeDetail> enrollees = pcpResponse.getEnrollees();
+						for (EnrolleeDetail enrolleeDetail : enrollees) {
+							List<String> errorMessages = enrolleeDetail.getErrorMessages();
+							if(CollectionUtils.isNotEmpty(errorMessages)) {
+								pcpAssignmentResponse.setProcessStatusCode(FAIL);
+								return;
+							}
+						}
+					}
+				}
+			}
+		}
+		log.info("END PCPAssignmentService.setProcessStatusCode()");
 	}
 	
 	private Facility transformFacility(com.deltadental.platform.pcp.stub.Facility wsFacility) {
