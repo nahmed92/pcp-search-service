@@ -1,16 +1,11 @@
 package com.deltadental.pcp.search.service;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.deltadental.pcp.search.domain.EnrolleeDetail;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
-import com.deltadental.pcp.search.domain.PCPResponse;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;

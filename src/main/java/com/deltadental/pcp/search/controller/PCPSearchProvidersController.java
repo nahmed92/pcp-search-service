@@ -1,6 +1,5 @@
 package com.deltadental.pcp.search.controller;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(description = "Endpoint for searching providers.", value = "/pcp-search")
+@Api(value = "/pcp-search")
 @Slf4j
 public class PCPSearchProvidersController {
 
