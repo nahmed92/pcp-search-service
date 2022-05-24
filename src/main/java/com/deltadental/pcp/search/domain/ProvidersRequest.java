@@ -1,9 +1,5 @@
 package com.deltadental.pcp.search.domain;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -22,8 +18,7 @@ public class ProvidersRequest {
 	
 	private String memberId;
 	
-	@JsonFormat(shape = Shape.STRING, pattern = "MM-dd-yyyy")
-	private LocalDate pcpEffectiveDate;
+	private String pcpEffectiveDate;
 	
 	private String sourceSystem;
 	

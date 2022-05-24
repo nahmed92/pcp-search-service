@@ -1,5 +1,6 @@
 package com.deltadental.pcp.search.controller;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -52,12 +53,12 @@ public class ProvidersRequestValidator {
 				}
 			}
 
-			if (request.getPcpEffectiveDate() == null) {
+			if (StringUtils.isBlank(request.getPcpEffectiveDate())) {
 				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
 			} else {
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 				try {
-					formatter.format(request.getPcpEffectiveDate());
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+					LocalDate.parse(request.getPcpEffectiveDate(), formatter);
 				} catch (Exception e) {
 					throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
 				}
