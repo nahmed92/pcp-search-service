@@ -1,6 +1,5 @@
 package com.deltadental.pcp.search.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
@@ -12,11 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Facility {
 	
-	private String facilityID;
+	private String facilityId;
 	private String facilityName;
 	private String addressLine1;
 	private String addressLine2;
@@ -30,5 +28,7 @@ public class Facility {
 	private String enrollStatus;
 	private String facilityStatus;
 	private String effectiveDate;
-	
+	private String providerSpecialtyDec;
+	private String groupPracticeName;
+	private String providerLanguages;	
 }

@@ -2,14 +2,18 @@ package com.deltadental.pcp.search.service;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.deltadental.pcp.search.domain.Facility;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
+import com.deltadental.pcp.search.pd.entities.FacilitySearchEntity;
+import com.deltadental.pcp.search.pd.repos.FacilitySearchRepo;
 import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
@@ -42,6 +46,12 @@ public class PCPSearchService {
 
 	@Autowired
 	private ProvidersAuditService providersAuditService;
+	
+//	@Autowired
+//	private FacilitySearchRepo facilitySearchRepo;
+
+	@Autowired
+	private FacilitySearchRepo facilitySearchRepo;
 	
 	@MethodExecutionTime
 	public PCPAssignmentResponse getProviders(@Valid PcpAssignmentRequest pcpAssignmentRequest)
@@ -95,5 +105,55 @@ public class PCPSearchService {
 		return response;
 	}
 
-	
+	@MethodExecutionTime
+	public Facility searchFacility(String facilityId) throws ServiceException {
+		log.info("START PCPSearchServiceImpl.searchFacility");
+		if(StringUtils.isBlank(facilityId)) {
+			log.error("Facility id is mandatory.");
+			throw PCPSearchServiceErrors.FACILITY_ID_REQUIRED.createException();
+		}		
+		FacilitySearchEntity facilitySearchEntity = null;
+		try {
+			log.info("Searching for facility id {} ",facilityId);
+			facilitySearchEntity = facilitySearchRepo.searchFacilityByFacilityId(facilityId);
+			log.info("Found Facility {} for facility id {} ",facilitySearchEntity, facilityId);
+		} catch (Exception exception) {
+			log.error("Unable to search facility for facility id {} ", facilityId, exception);
+			throw PCPSearchServiceErrors.FACILITY_SEARCH_ERROR.createException();
+		}
+		Facility facility = map(facilitySearchEntity);
+		if(facility == null) {
+			log.info("Facility not found for facility id {} ",facilityId);
+			throw PCPSearchServiceErrors.FACILITY_NOT_FOUND.createException();
+		} 
+		log.info("END PCPSearchServiceImpl.searchFacility");
+		return facility;
+	}
+
+	private Facility map(FacilitySearchEntity facilitySearchEntity) {
+		log.info("START : PCPSearchService.map");
+		Facility facility = null;
+		if(null != facilitySearchEntity) {
+			facility = Facility.builder()					
+			.facilityId(facilitySearchEntity.getFacilityId())
+			.facilityName(facilitySearchEntity.getGroupPracticeName())			
+			.facilityStatus(facilitySearchEntity.getFacilityStatus())
+			.addressLine1(facilitySearchEntity.getAddressLine1())
+			.addressLine2(facilitySearchEntity.getAddressLine2())
+			.addressLine3(facilitySearchEntity.getAddressLine3())
+			.city(facilitySearchEntity.getCity())
+			.state(facilitySearchEntity.getState())
+			.zip(facilitySearchEntity.getZip())
+			.phoneNumber(facilitySearchEntity.getPhoneNumber())
+			.specility(facilitySearchEntity.getProviderSpecialty())
+			.contracted(facilitySearchEntity.getContracted())
+			.effectiveDate(facilitySearchEntity.getEffectiveDate())
+			.enrollStatus(facilitySearchEntity.getEnrollStatus())
+			.providerSpecialtyDec(facilitySearchEntity.getProviderSpecialtyDec())
+			.build();
+			log.info("Facility mapped {} ", facility);
+		}
+		log.info("END : PCPSearchService.map");
+		return facility;
+	}
 }

@@ -180,7 +180,7 @@ public class PCPSearchResponseTransformer {
 					.contracted(wsFacility.getContracted())
 					.effectiveDate(wsFacility.getEffectiveDate())
 					.enrollStatus(wsFacility.getEffectiveDate())
-					.facilityID(wsFacility.getFacilityID())
+					.facilityId(wsFacility.getFacilityID())
 					.facilityName(wsFacility.getFacilityName())
 					.facilityStatus(wsFacility.getFacilitystatus())
 					.phoneNumber(wsFacility.getPhoneNumber())
