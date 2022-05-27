@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
 @Api(value = "/pcp-search")
 @Slf4j
-public class PCPSearchProvidersController {
+public class SearchProvidersController {
 
 	private static final String SUCCESS = "Success";
 	
