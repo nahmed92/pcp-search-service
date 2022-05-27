@@ -27,24 +27,9 @@ public class FacilitySearchEntity {
 	@Column(name = "facility_id")
 	private String facilityId;
 
-	@Column(name = "address_line1")
-	private String addressLine1;
-
-	@Column(name = "address_line2")
-	private String addressLine2;
-
-	@Column(name = "address_line3")
-	private String addressLine3;
-
-	@Column(name = "city")
-	private String city;
-
-	@Column(name = "state")
-	private String state;
-
-	@Column(name = "zip")
-	private String zip;
-
+	@Column(name = "address")
+	private String address;
+	
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
