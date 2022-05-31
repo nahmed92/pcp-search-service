@@ -13,7 +13,6 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -28,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.deltadental.pcp.search.repos" , entityManagerFactoryRef = "serviceDBEntityManagerFactory", transactionManagerRef = "serviceDBTransactionManager")
 @EntityScan(basePackages = { "com.deltadental.pcp.search.entities" })
-@EnableJpaAuditing
 @Slf4j
 public class ServiceDBConfig {
 

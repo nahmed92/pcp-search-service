@@ -12,7 +12,6 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -29,7 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 @EnableJpaRepositories(basePackages = "com.deltadental.pcp.search.pd.repos", 
 	    entityManagerFactoryRef = "a3EntityManagerFactory", 
 	    transactionManagerRef = "a3TransactionManager")
-@EnableJpaAuditing
 @Slf4j
 public class A3DBConfig {
 
