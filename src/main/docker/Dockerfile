@@ -52,5 +52,5 @@ ENTRYPOINT java $JAVA_OPTS \
         -Da3.datasource.username=${A3_DATASOURCE_USERNAME} \
         -Da3.datasource.password=${A3_DATASOURCE_PASSWORD} \
         -Da3.datasource.driverClassName=${A3_DATASOURCE_DRIVERCLASSNAME} \
-        -Da3.datasource.hibernate.dialect=${A3_DATASOURCE_HIBERNATE.DIALECT} \
+        -Da3.datasource.hibernate.dialect=${A3_DATASOURCE_HIBERNATE_DIALECT} \
 	-jar /pcp-search-service-1.0.0.jar
