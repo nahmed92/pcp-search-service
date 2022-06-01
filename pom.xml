@@ -50,7 +50,7 @@
 		<docker.plugin.version>0.2.3</docker.plugin.version>
 
 		<!-- SonarQube properties -->
-		<jacoco.version>0.8.5</jacoco.version>
+		<!--<jacoco.version>0.8.5</jacoco.version>
 		<jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
 		<jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
 		<jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
@@ -62,9 +62,16 @@
 		<sonar-jacoco-listeners.version>1.4</sonar-jacoco-listeners.version>
 		<sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
 		<sonar.surefire.reportsPath>target/surefire-reports</sonar.surefire.reportsPath>
-		<sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+		<sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>-->
 
-		<checkstyle.version>8.4</checkstyle.version>
+		<jacoco.version>0.8.5</jacoco.version>
+		<sonar.projectKey>PCP-SEARCH-SERVICE</sonar.projectKey>
+		<sonar.projectName>PCP Search Service</sonar.projectName>
+		<sonar.language>java</sonar.language>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar-jacoco-listeners.version>1.4</sonar-jacoco-listeners.version>
+		<sonar.coverage.jacoco.xmlReportPath>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPath>
 
 		<!-- Logger versions -->
 		<log4j2.version>2.14.0</log4j2.version>
@@ -500,13 +507,13 @@
 				</configuration>
 			</plugin>
 			<!-- Jacoco integration test plugin -->
-<!--			<plugin>
+			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.6.0.1398</version>
 			</plugin>
-
-			&lt;!&ndash; Checkstyle plugin &ndash;&gt;
+			<!-- Jacoco integration test plugin -->
+<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -600,6 +607,53 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+					<resource>
+						<targetPath>META-INF</targetPath>
+						<directory>src/main/resources/META-INF</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>coverage</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 <!--	<profiles>
 		<profile>
 			<id>codeQuality</id>
