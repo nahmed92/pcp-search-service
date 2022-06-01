@@ -441,12 +441,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+<!--				<configuration>
 					<arguments>
-						<argument>--spring.profiles.active=mock</argument>
+						<argument>&#45;&#45;spring.profiles.active=mock</argument>
 					</arguments>
 					<mainClass>com.deltadental.pcp.search.application.App</mainClass>
-				</configuration>
+				</configuration>-->
 			</plugin>
 			<!-- Compiler plugin -->
 			<plugin>
@@ -454,12 +454,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler.version}</version>
 				<configuration>
-					<release>11</release>
+					<release>${java.version}</release>
 					<forceJavacCompilerUse>true</forceJavacCompilerUse>
 				</configuration>
 			</plugin>
 			<!-- Docker image creation -->
-			<plugin>
+<!--			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>${docker.plugin.version}</version>
@@ -474,7 +474,7 @@
 						</resource>
 					</resources>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			<!-- End Docker image creation -->
 
 			<plugin>
@@ -500,13 +500,13 @@
 				</configuration>
 			</plugin>
 			<!-- Jacoco integration test plugin -->
-			<plugin>
+<!--			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.6.0.1398</version>
 			</plugin>
 
-			<!-- Checkstyle plugin -->
+			&lt;!&ndash; Checkstyle plugin &ndash;&gt;
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -528,13 +528,13 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- Surefire unit test plugin -->
+			&lt;!&ndash; Surefire unit test plugin &ndash;&gt;
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<argLine>
-						--illegal-access=permit
+						&#45;&#45;illegal-access=permit
 					</argLine>
 					<properties>
 						<property>
@@ -545,31 +545,31 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-			<!-- Failsafe integration test plugin -->
+			&lt;!&ndash; Failsafe integration test plugin &ndash;&gt;
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<configuration>
-					<argLine>--illegal-access=permit -Xmx1024m -XX:MaxPermSize=256m}</argLine>
+					<argLine>&#45;&#45;illegal-access=permit -Xmx1024m -XX:MaxPermSize=256m}</argLine>
 					<properties>
 						<property>
 							<name>listener</name>
 							<value>org.sonar.java.jacoco.JUnitListener</value>
 						</property>
 					</properties>
-					<!-- Put failsafe reports with surefire to have access to tests failures/success 
-						reports in sonar -->
+					&lt;!&ndash; Put failsafe reports with surefire to have access to tests failures/success
+						reports in sonar &ndash;&gt;
 					<reportsDirectory>${project.build.directory}/surefire-reports
 					</reportsDirectory>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
-				<executions>
-					<!-- Prepares a variable, jacoco.agent.ut.arg, that contains the info 
-						to be passed to the JVM hosting the code being tested. -->
+<!--				<executions>
+					&lt;!&ndash; Prepares a variable, jacoco.agent.ut.arg, that contains the info
+						to be passed to the JVM hosting the code being tested. &ndash;&gt;
 					<execution>
 						<id>prepare-ut-agent</id>
 						<phase>process-test-classes</phase>
@@ -582,8 +582,8 @@
 							<append>true</append>
 						</configuration>
 					</execution>
-					<!-- Prepares a variable, jacoco.agent.it.arg, that contains the info 
-						to be passed to the JVM hosting the code being tested. -->
+					&lt;!&ndash; Prepares a variable, jacoco.agent.it.arg, that contains the info
+						to be passed to the JVM hosting the code being tested. &ndash;&gt;
 					<execution>
 						<id>prepare-it-agent</id>
 						<phase>pre-integration-test</phase>
@@ -596,16 +596,16 @@
 							<append>true</append>
 						</configuration>
 					</execution>
-				</executions>
+				</executions>-->
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
+<!--	<profiles>
 		<profile>
 			<id>codeQuality</id>
 			<build>
 				<plugins>
-					<!-- Checkstyle plugin -->
+					&lt;!&ndash; Checkstyle plugin &ndash;&gt;
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-checkstyle-plugin</artifactId>
@@ -628,14 +628,14 @@
 						</executions>
 					</plugin>
 
-					<!-- Surefire unit test plugin -->
+					&lt;!&ndash; Surefire unit test plugin &ndash;&gt;
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>2.22.2</version>
 						<configuration>
 							<argLine>
-								--illegal-access=permit
+								&#45;&#45;illegal-access=permit
 							</argLine>
 							<properties>
 								<property>
@@ -647,21 +647,21 @@
 						</configuration>
 					</plugin>
 
-					<!-- Failsafe integration test plugin -->
+					&lt;!&ndash; Failsafe integration test plugin &ndash;&gt;
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-failsafe-plugin</artifactId>
 						<version>2.22.2</version>
 						<configuration>
-							<argLine>--illegal-access=permit -Xmx1024m -XX:MaxPermSize=256m}</argLine>
+							<argLine>&#45;&#45;illegal-access=permit -Xmx1024m -XX:MaxPermSize=256m}</argLine>
 							<properties>
 								<property>
 									<name>listener</name>
 									<value>org.sonar.java.jacoco.JUnitListener</value>
 								</property>
 							</properties>
-							<!-- Put failsafe reports with surefire to have access to tests failures/success 
-								reports in sonar -->
+							&lt;!&ndash; Put failsafe reports with surefire to have access to tests failures/success
+								reports in sonar &ndash;&gt;
 							<reportsDirectory>${project.build.directory}/surefire-reports
 							</reportsDirectory>
 						</configuration>
@@ -671,8 +671,8 @@
 						<artifactId>jacoco-maven-plugin</artifactId>
 						<version>0.8.5</version>
 						<executions>
-							<!-- Prepares a variable, jacoco.agent.ut.arg, that contains the info 
-								to be passed to the JVM hosting the code being tested. -->
+							&lt;!&ndash; Prepares a variable, jacoco.agent.ut.arg, that contains the info
+								to be passed to the JVM hosting the code being tested. &ndash;&gt;
 							<execution>
 								<id>prepare-ut-agent</id>
 								<phase>process-test-classes</phase>
@@ -685,8 +685,8 @@
 									<append>true</append>
 								</configuration>
 							</execution>
-							<!-- Prepares a variable, jacoco.agent.it.arg, that contains the info 
-								to be passed to the JVM hosting the code being tested. -->
+							&lt;!&ndash; Prepares a variable, jacoco.agent.it.arg, that contains the info
+								to be passed to the JVM hosting the code being tested. &ndash;&gt;
 							<execution>
 								<id>prepare-it-agent</id>
 								<phase>pre-integration-test</phase>
@@ -735,7 +735,7 @@
 			</dependencies>
 		</profile>
 
-		<!-- Integraton tests -->
+		&lt;!&ndash; Integraton tests &ndash;&gt;
 		<profile>
 			<id>run-its</id>
 			<build>
@@ -788,5 +788,5 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+	</profiles>-->
 </project>
