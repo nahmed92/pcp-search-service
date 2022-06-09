@@ -16,16 +16,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @Data
+@Slf4j
 public class ApplicationConfig {
 
 	@Value("${pcp.webservice.soap.uri}")
 	private String pcpWSSoapUri;
 	
 	private static final String WS_STUB_PACKAGE = "com.deltadental.platform.pcp.stub";
-
 
 	@Bean
 	public Jaxb2Marshaller marshaller() {

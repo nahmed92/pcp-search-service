@@ -1,23 +1,22 @@
 package com.deltadental.pcp.search.service;
 
-import javax.validation.Valid;
-
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.deltadental.pcp.search.domain.Facility;
 import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
-import com.deltadental.pcp.search.domain.PcpAssignmentRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
+import com.deltadental.pcp.search.pd.entities.FacilitySearchEntity;
+import com.deltadental.pcp.search.pd.repos.FacilitySearchRepo;
 import com.deltadental.pcp.search.service.impl.ProvidersAuditService;
 import com.deltadental.pcp.search.transformer.PCPSearchRequestTransformer;
 import com.deltadental.pcp.search.transformer.PCPSearchResponseTransformer;
 import com.deltadental.pcp.soap.client.PCPAssignmentSoapClient;
 import com.deltadental.platform.common.annotation.aop.MethodExecutionTime;
 import com.deltadental.platform.common.exception.ServiceException;
-import com.deltadental.platform.pcp.stub.GetProviders;
-import com.deltadental.platform.pcp.stub.GetProvidersResponse;
 import com.deltadental.platform.pcp.stub.PcpValidate;
 import com.deltadental.platform.pcp.stub.PcpValidateResponse;
 import com.deltadental.platform.pcp.stub.Providers;
@@ -42,24 +41,10 @@ public class PCPSearchService {
 
 	@Autowired
 	private ProvidersAuditService providersAuditService;
-	
-	@MethodExecutionTime
-	public PCPAssignmentResponse getProviders(@Valid PcpAssignmentRequest pcpAssignmentRequest)
-			throws ServiceException {
-		log.info("START PCPSearchService.getProviders");
-		PCPAssignmentResponse pcpAssignmentResponse = null;
-		try {
-			GetProviders getProviders = pcpSearchRequestTransformer.transformGetProviders(pcpAssignmentRequest);
-			GetProvidersResponse getProvidersResponse = pcpAssignmentSoapClient.getProviders(getProviders);
-			pcpAssignmentResponse = pcpSearchResponseTransformer.transformGetProvidersResponse(getProvidersResponse);
-		} catch (Exception exception) {
-			log.error("Unable to fetch providers for request" + pcpAssignmentRequest, exception);
-			throw PCPSearchServiceErrors.GETPROVIDERS_SERVER_ERROR.createException(pcpAssignmentRequest);
-		}
-		log.info("END PCPSearchService.getProviders");
-		return pcpAssignmentResponse;
-	}	
 
+	@Autowired
+	private FacilitySearchRepo facilitySearchRepo;
+	
 	@MethodExecutionTime
 	public com.deltadental.pcp.search.domain.ProvidersResponse searchProviders(ProvidersRequest providersRequest)
 			throws ServiceException {
@@ -95,5 +80,28 @@ public class PCPSearchService {
 		return response;
 	}
 
-	
+	@MethodExecutionTime
+	public Facility searchFacility(String facilityId) throws ServiceException {
+		log.info("START PCPSearchServiceImpl.searchFacility");
+		if(StringUtils.isBlank(facilityId)) {
+			log.error("Facility id is mandatory.");
+			throw PCPSearchServiceErrors.FACILITY_ID_REQUIRED.createException();
+		}		
+		FacilitySearchEntity facilitySearchEntity = null;
+		try {
+			log.info("Searching for facility id {} ",facilityId);
+			facilitySearchEntity = facilitySearchRepo.searchFacilityByFacilityId(facilityId);
+			log.info("Found Facility {} for facility id {} ",facilitySearchEntity, facilityId);
+		} catch (Exception exception) {
+			log.error("Unable to search facility for facility id {} ", facilityId, exception);
+			throw PCPSearchServiceErrors.FACILITY_SEARCH_ERROR.createException();
+		}
+		Facility facility = pcpSearchResponseTransformer.mapFacility(facilitySearchEntity);
+		if(facility == null) {
+			log.info("Facility not found for facility id {} ",facilityId);
+			throw PCPSearchServiceErrors.FACILITY_NOT_FOUND.createException();
+		} 
+		log.info("END PCPSearchServiceImpl.searchFacility");
+		return facility;
+	}
 }

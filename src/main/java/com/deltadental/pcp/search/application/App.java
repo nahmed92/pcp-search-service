@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.deltadental.pcp.search.*","com.deltadental.platform.common.exception" })
-public class PcpSearchServiceApplication {
+public class App {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(PcpSearchServiceApplication.class, args);
+		SpringApplication.run(App.class, args);
 	}
 
 }
