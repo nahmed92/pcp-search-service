@@ -10,8 +10,8 @@ import com.deltadental.platform.common.logger.LoggerFilter;
 public class ServiceFilters {
 
 	@Bean
-	public FilterRegistrationBean loggerFilterRegistrationBean() {
-		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+	public FilterRegistrationBean<LoggerFilter> loggerFilterRegistrationBean() {
+		FilterRegistrationBean<LoggerFilter> registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setName("Logger");
 		registrationBean.setFilter(new LoggerFilter());
 		registrationBean.setOrder(4);

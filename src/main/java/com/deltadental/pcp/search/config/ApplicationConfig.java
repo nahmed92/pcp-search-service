@@ -74,7 +74,6 @@ public class ApplicationConfig {
 
 	@Bean
 	ObjectFactory objectFactory() {
-		ObjectFactory objectFactory = new ObjectFactory();
-		return objectFactory;
+		return new ObjectFactory();
 	}
 }
