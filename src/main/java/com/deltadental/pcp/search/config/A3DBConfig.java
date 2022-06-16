@@ -58,7 +58,11 @@ public class A3DBConfig {
 
 	@Bean(name = "a3TransactionManager")
 	public PlatformTransactionManager a3TransactionManager(final @Qualifier("a3EntityManagerFactory") LocalContainerEntityManagerFactoryBean a3EntityManagerFactoryBean) {
-		return new JpaTransactionManager(a3EntityManagerFactoryBean.getObject());
+		JpaTransactionManager jpaTransactionManager= new JpaTransactionManager();
+		if(a3EntityManagerFactoryBean !=null) {
+			jpaTransactionManager.setEntityManagerFactory(a3EntityManagerFactoryBean.getObject());
+		}		
+		return new JpaTransactionManager();
 	}
 	
 	@Bean(name = "a3JdbcTemplate")

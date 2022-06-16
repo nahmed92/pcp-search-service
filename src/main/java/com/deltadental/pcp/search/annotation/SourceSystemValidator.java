@@ -10,12 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SourceSystemValidator implements ConstraintValidator<SourceSystem, String>  {
 	
-	
-	@Override
-    public void initialize(SourceSystem constraint) {
-    
-	}
-	
 	@Override
 	public boolean isValid(String sourceSystem, ConstraintValidatorContext context) {
 		if(StringUtils.isEmpty(sourceSystem)) {

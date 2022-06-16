@@ -38,8 +38,7 @@ public class PCPSearchResponseTransformer {
 	 */
 	public PCPAssignmentResponse transformPcpValidateResponse(PcpValidateResponse pcpValidateResponse) {
 		PcpAssignmentResponse clientPcpAssignmentResponse = pcpValidateResponse.getReturn();
-		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(clientPcpAssignmentResponse);
-		return pcpAssignmentResponse;
+		return getPCPAssignmentResponse(clientPcpAssignmentResponse);
 	}
 
 	/**
@@ -50,8 +49,8 @@ public class PCPSearchResponseTransformer {
 	public ProvidersResponse transformProvidersResponse(com.deltadental.platform.pcp.stub.ProvidersResponse providersResponse) {
 		log.info("START PCPSearchResponseTransformer.transformProvidersResponse");
 		ProvidersResponse response = new ProvidersResponse();
-		PcpAssignmentResponse _return = providersResponse.getReturn();
-		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(_return);
+		PcpAssignmentResponse returnValue = providersResponse.getReturn();
+		PCPAssignmentResponse pcpAssignmentResponse = getPCPAssignmentResponse(returnValue);
 		response.setPcpAssignmentResponse(pcpAssignmentResponse);
 		updateProviderResponseErrorCode(response);
 		log.info("END PCPSearchResponseTransformer.transformProvidersResponse");
@@ -91,22 +90,15 @@ public class PCPSearchResponseTransformer {
 	 */
 	private void updateProviderResponseErrorCode(com.deltadental.pcp.search.domain.ProvidersResponse response) {
 		log.info("START PCPAssignmentService.setProcessStatusCode()");
-		if(response != null) {
+		if(response != null && null != response.getPcpAssignmentResponse()) {
 			PCPAssignmentResponse pcpAssignmentResponse = response.getPcpAssignmentResponse();
-			if(null != pcpAssignmentResponse) {
-				List<PCPResponse> pcpResponses = pcpAssignmentResponse.getPcpResponses();
-				if(CollectionUtils.isNotEmpty(pcpResponses)) {
-					for (PCPResponse pcpResponse : pcpResponses) {
-						List<EnrolleeDetail> enrollees = pcpResponse.getEnrollees();
-						for (EnrolleeDetail enrolleeDetail : enrollees) {
-							List<String> errorMessages = enrolleeDetail.getErrorMessages();
-							if(CollectionUtils.isNotEmpty(errorMessages)) {
+				if(CollectionUtils.isNotEmpty(pcpAssignmentResponse.getPcpResponses())) {
+					for (PCPResponse pcpResponse : pcpAssignmentResponse.getPcpResponses()) {
+							if(pcpResponse.getEnrollees().stream().anyMatch(i -> CollectionUtils.isNotEmpty(i.getErrorMessages()))) {
 								pcpAssignmentResponse.setProcessStatusCode(FAIL);
 								return;
 							}
-						}
 					}
-				}
 			}
 		}
 		log.info("END PCPAssignmentService.setProcessStatusCode()");

@@ -60,7 +60,11 @@ public class ServiceDBConfig {
 	@Primary
 	@Bean(name = "serviceDBTransactionManager")
 	public PlatformTransactionManager serviceDBTransactionManager(final @Qualifier("serviceDBEntityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
-		return new JpaTransactionManager(entityManagerFactory.getObject());
+		JpaTransactionManager  jpaTransaction = new JpaTransactionManager();
+		if(entityManagerFactory!=null) {
+			jpaTransaction.setEntityManagerFactory(entityManagerFactory.getObject());
+		}		
+		return jpaTransaction;
 	}
 
 	@Bean(name = "serviceDBJdbcTemplate")

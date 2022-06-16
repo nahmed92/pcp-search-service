@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProvidersResponse {
 	
-	//FIXME: flatten response
 	private PCPAssignmentResponse pcpAssignmentResponse;
     
 }

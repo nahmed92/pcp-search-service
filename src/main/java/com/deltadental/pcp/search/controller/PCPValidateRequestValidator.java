@@ -19,50 +19,42 @@ public class PCPValidateRequestValidator {
 	public void validate(PCPValidateRequest request) throws ServiceException {
 		log.info("START PCPValidateRequestValidator.validate()");
 		if (request != null) {
-
-			if (StringUtils.isEmpty(request.getContractId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
-			} else {
-				if(!allowDigitsOnly(request.getContractId())) {
-					throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
-				}
-			}
-
-			if (StringUtils.isBlank(request.getMemberType())) {
-				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
-			} else {
-				if (StringUtils.trim(request.getMemberType()).length() != 2) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
-				}
-				if(!allowDigitsOnly(request.getMemberType())) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
-				}
-			}
-
-//			if (StringUtils.isBlank(request.getPcpEffDate())) {
-//				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
-//			} else {
-//				try {
-//					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
-//					LocalDate.parse(request.getPcpEffectiveDate(), formatter);
-//				} catch (Exception e) {
-//					throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
-//				}
-//			}
+			validateForContractId(request.getContractId());
+			validateForMemberType(request.getMemberType());
 
 			if (StringUtils.isBlank(request.getSourceSystem())) {
 				throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException();
 			}
-
-//			if (StringUtils.isBlank(request.getUserId())) {
-//				throw PCPSearchServiceErrors.PROVIDERS_USERID.createException();
-//			}
 
 		}  else {
 			throw PCPSearchServiceErrors.PCP_VALIDATE_REQUEST.createException();
 		}
 
 		log.info("END PCPValidateRequestValidator.validate()");
+	}
+	
+	
+	private void validateForContractId(String contractId) {
+		if (StringUtils.isEmpty(contractId)) {
+			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
+		} else {
+			if(!allowDigitsOnly(contractId)) {
+				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
+			}
+		}
+	}
+	
+	private void validateForMemberType(String memberType) {
+		if (StringUtils.isBlank(memberType)) {
+			throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
+		} else {
+			if (StringUtils.trim(memberType).length() != 2) {
+				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
+			}
+			if(!allowDigitsOnly(memberType)) {
+				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
+			}
+		}
 	}
 	
 	public boolean allowDigitsOnly(String field) {

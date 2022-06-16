@@ -10,7 +10,10 @@ import com.deltadental.pcp.search.pd.entities.FacilitySearchEntity;
 @Repository
 public interface FacilitySearchRepo extends JpaRepository<FacilitySearchEntity, Integer>{
 	
-	final static String FACILITY_SEARCH_QUERY = "SELECT DISTINCT "
+	static String CASE_CONSTANT = "CASE";
+	static String END_CONSTANT = "END";
+	
+	final String FACILITY_SEARCH_QUERY = "SELECT DISTINCT "
 			+ "    ROWNUM row_number, "
 			+ "    facility_id, "
 			+ "    address, "			
@@ -42,25 +45,25 @@ public interface FacilitySearchRepo extends JpaRepository<FacilitySearchEntity, 
 			+ "            || substr(a.practice_location_phone,7,4),7,substr(a.practice_location_phone,1,3) "
 			+ "            || '-' "
 			+ "            || substr(a.practice_location_phone,4,4) ) phone_number, "
-			+ "            CASE "
+			+ CASE_CONSTANT               
 			+ "                    WHEN provider_type = 'D' THEN DECODE(provider_specialty,'00','General Dentist','15','Endodontist','40','Periodontist','10','Oral Surgeon' "
 			+ ",'20','Orthodontist','30','Pedodontist','Specialist') "
 			+ "                    WHEN provider_type = 'V' THEN 'Vision' "
-			+ "                END "
+			+ END_CONSTANT
 			+ "            AS provider_specialty_desc, "
 			+ "            DECODE(a.par_status,'P','Yes','No') contracted, "
 			+ "            a.provider_lastname group_practice_name, "
 			+ "            a.provider_specialty, "
 			+ "            'NA' AS effective_date, "
-			+ "            CASE "
+			+ CASE_CONSTANT
 			+ "                    WHEN a.future_facility = 'Y' THEN 'INACTIVE' "
 			+ "                    ELSE 'ACTIVE' "
-			+ "                END "
+			+ END_CONSTANT
 			+ "            AS facility_status, "
-			+ "            CASE "
+			+ CASE_CONSTANT
 			+ "                    WHEN a.network_association = '30' THEN '' "
 			+ "                    ELSE DECODE(nvl(a.accepts_new_patients,'Y'),'Y','OPEN','N','CLOSED','Unknown') "
-			+ "                END "
+			+ END_CONSTANT
 			+ "            AS enrollstatus, "
 			+ "            lng.provider_languages "
 			+ "        FROM "
