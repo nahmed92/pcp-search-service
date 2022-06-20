@@ -60,6 +60,9 @@
 		<sonar-jacoco-listeners.version>1.4</sonar-jacoco-listeners.version>
 		<sonar.coverage.jacoco.xmlReportPath>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPath>
 
+    <sonar.coverage.exclusions>
+        **/src/main/java/com/deltadental/pcp/search/domain/**
+    </sonar.coverage.exclusions>
 		<!-- Logger versions -->
 		<log4j2.version>2.14.0</log4j2.version>
 		<slf4j.version>1.7.25</slf4j.version>
@@ -442,6 +445,18 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
+				 <configuration>
+		        <excludes>
+		            <exclude>com/deltadental/pcp/search/domain/**</exclude>
+		            <exclude>com/deltadental/pcp/search/entities/**</exclude>
+		            <exclude>com/deltadental/pcp/search/annotation/**</exclude>
+		            <exclude>com/deltadental/pcp/search/application/**</exclude>
+		            <exclude>com/deltadental/pcp/search/filters/**</exclude>
+		            <exclude>com/deltadental/pcp/search/config/**</exclude>
+		            <exclude>com/deltadental/platform/pcp/stub/**</exclude>
+		            <exclude>com/deltadental/pcp/search/pd/entities/**</exclude>
+		        </excludes>
+		     </configuration>
 			</plugin>
 		</plugins>
 	</build>
