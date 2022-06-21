@@ -81,6 +81,13 @@ public class PCPValidateRequestValidatorTest {
     				PCPSearchServiceErrors.PCP_VALIDATE_REQUEST.name());
     	}
 	}
+	
+	@Test
+    public void testallowDigitsOnly(){
+    	boolean allow = validator.allowDigitsOnly("1234edf");
+    	Assertions.assertEquals(allow, false);
+    	
+	}
 
 
 }

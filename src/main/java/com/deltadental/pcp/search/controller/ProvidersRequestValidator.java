@@ -10,6 +10,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
+import com.deltadental.pcp.search.annotation.ExcludeFromJacocoGeneratedReport;
 import com.deltadental.pcp.search.domain.Address;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
@@ -41,6 +42,7 @@ public class ProvidersRequestValidator {
 		log.info("END ProvidersRequestValidator.validateProvidersRequest()");
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForAutoAssignment(String autoAssignment) {
 		if (StringUtils.isBlank(autoAssignment)) {
 			throw PCPSearchServiceErrors.PCP_SEARCH_001.createException();
@@ -49,6 +51,7 @@ public class ProvidersRequestValidator {
 		}
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForMemberId(String memberId) {
 		if (StringUtils.isBlank(memberId)) {
 			throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
@@ -63,6 +66,7 @@ public class ProvidersRequestValidator {
 
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForContractId(String contractId) {
 		if (StringUtils.isEmpty(contractId)) {
 			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
@@ -71,6 +75,7 @@ public class ProvidersRequestValidator {
 		}
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForPCPEffectiveDate(String pcpEffectiveDate) {
 		if (StringUtils.isBlank(pcpEffectiveDate)) {
 			throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
@@ -85,12 +90,14 @@ public class ProvidersRequestValidator {
 
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForBlankField(String field, PCPSearchServiceErrors pcpSearchServiceErrors) {
 		if (StringUtils.isBlank(field)) {
 			throw pcpSearchServiceErrors.createException();
 		}
 	}
 
+	@ExcludeFromJacocoGeneratedReport
 	private void validateForAdressField(Address address) {
 		if (address == null) {
 			throw PCPSearchServiceErrors.ADDRESS_REQUIRED.createException();

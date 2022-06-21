@@ -455,6 +455,7 @@
 		            <exclude>com/deltadental/pcp/search/config/**</exclude>
 		            <exclude>com/deltadental/platform/pcp/stub/**</exclude>
 		            <exclude>com/deltadental/pcp/search/pd/entities/**</exclude>
+		            <exclude>lombok/**</exclude>
 		        </excludes>
 		     </configuration>
 			</plugin>
