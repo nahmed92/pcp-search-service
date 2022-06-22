@@ -27,24 +27,24 @@ public class PCPValidateRequestValidator {
 				throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException();
 			}
 
-		}  else {
+		} else {
 			throw PCPSearchServiceErrors.PCP_VALIDATE_REQUEST.createException();
 		}
 
 		log.info("END PCPValidateRequestValidator.validate()");
 	}
-	
+
 	@ExcludeFromJacocoGeneratedReport
 	private void validateForContractId(String contractId) {
 		if (StringUtils.isEmpty(contractId)) {
 			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
 		} else {
-			if(!allowDigitsOnly(contractId)) {
+			if (!allowDigitsOnly(contractId)) {
 				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
 			}
 		}
 	}
-	
+
 	@ExcludeFromJacocoGeneratedReport
 	private void validateForMemberType(String memberType) {
 		if (StringUtils.isBlank(memberType)) {
@@ -53,12 +53,12 @@ public class PCPValidateRequestValidator {
 			if (StringUtils.trim(memberType).length() != 2) {
 				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
 			}
-			if(!allowDigitsOnly(memberType)) {
+			if (!allowDigitsOnly(memberType)) {
 				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
 			}
 		}
 	}
-	
+
 	public boolean allowDigitsOnly(String field) {
 		String regex = "\\d+";
 		Pattern pattern = Pattern.compile(regex);

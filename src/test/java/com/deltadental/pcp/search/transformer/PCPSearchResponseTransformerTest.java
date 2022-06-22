@@ -88,6 +88,31 @@ public class PCPSearchResponseTransformerTest {
 		Assertions.assertEquals(facility.getEnrollStatus(),"1234");
 	}
 	
+	@Test
+	public void testMapFacilityWhenEffectiveDateIsNull() {
+		FacilitySearchEntity facilityEntity = FacilitySearchEntity.builder()
+				.address("Test Address")
+				.contracted("1234")
+				.effectiveDate("NA")
+				.facilityId("FAC_123")
+				.facilityStatus("Status_test")
+				.enrollStatus("1234")
+				.providerLanguages("English")
+				.build();
+       Facility facility =   pcpSearchResponseTransformer.mapFacility(facilityEntity);
+		Assertions.assertNotNull(facility);  
+		Assertions.assertEquals(facility.getAddress(),"Test Address");
+		Assertions.assertEquals(facility.getContracted(),"1234");
+		Assertions.assertEquals(facility.getEffectiveDate(),"");		
+		Assertions.assertEquals(facility.getFacilityId(),"FAC_123");
+		Assertions.assertEquals(facility.getFacilityStatus(),"Status_test");
+		Assertions.assertEquals(facility.getEnrollStatus(),"1234");
+	}
 	
+	@Test
+	public void testMapFacilityIfFacilityEntityIsNull() {
+       Facility facility =   pcpSearchResponseTransformer.mapFacility(null);
+		Assertions.assertNull(facility);  
+	}
 
 }

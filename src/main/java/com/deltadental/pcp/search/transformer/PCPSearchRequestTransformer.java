@@ -61,11 +61,13 @@ public class PCPSearchRequestTransformer {
 		PcpSearchRequest pcpSearchRequest = new PcpSearchRequest();
 		pcpSearchRequest.setContractID(providersRequest.getContractId());
 		pcpSearchRequest.setMemberId(providersRequest.getMemberId());
+		if(providersRequest.getAddress()!=null) {
+		pcpSearchRequest.setAddress(mapStubAddress(providersRequest.getAddress()));
 		pcpSearchRequest.setZipcode(StringUtils.trimToEmpty(providersRequest.getAddress().getZipCode()));
+		}
 		pcpSearchRequest.setPcpEffectiveDate(providersRequest.getPcpEffectiveDate());
 		pcpSearchRequest.setSourceSystem(providersRequest.getSourceSystem());
 		pcpSearchRequest.setAutoAssignment(providersRequest.getAutoAssignment());
-		pcpSearchRequest.setAddress(mapStubAddress(providersRequest.getAddress()));
 		providers.setArg0(pcpSearchRequest);
 		log.info("START PCPSearchRequestTransformer.transformProviderValidate");
 		return providers;
@@ -79,13 +81,11 @@ public class PCPSearchRequestTransformer {
 	private com.deltadental.platform.pcp.stub.Address mapStubAddress(Address address) {
 		log.info("START PCPSearchRequestTransformer.getAddress");
 		com.deltadental.platform.pcp.stub.Address peAddress = new com.deltadental.platform.pcp.stub.Address();
-		if(address != null) {
 			peAddress.setAddressLine1(address.getAddressLine1());
 			peAddress.setAddressLine2(address.getAddressLine2());
 			peAddress.setCity(address.getCity());
 			peAddress.setState(address.getState());
 			peAddress.setZipCode(address.getZipCode());
-		}
 		log.info("END PCPSearchRequestTransformer.getAddress");
 		return peAddress;
 	}
