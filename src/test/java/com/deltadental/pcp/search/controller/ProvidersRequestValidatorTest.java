@@ -260,4 +260,34 @@ public class ProvidersRequestValidatorTest {
         				PCPSearchServiceErrors.PROVIDERS_ZIP_FORMAT.name());
         	}
 	}
+    	
+    	@Test
+        public void testProvidersRequestWhenRequestIsNull(){
+        	try {
+        	validator.validateProvidersRequest(null);
+        	}catch(ServiceException exception) {
+        		Assertions.assertEquals(exception.getErrorCode().toString() ,
+        				PCPSearchServiceErrors.PROVIDER_SEARCH_REQUEST.name());
+        	}
+	}
+    	
+    	@Test
+        public void testProvidersRequest(){
+        		Address address = Address.builder()
+        				.addressLine1("10700 Acadmy")
+        				.city("Albu")
+        				.zipCode("87111")
+        				.build();
+        	
+        		ProvidersRequest providersRequest = ProvidersRequest.builder()
+        				.address(address)
+        				.autoAssignment("Y")
+        				.contractId("12344")
+        				.memberId("01")
+        				.pcpEffectiveDate("02-04-2022")
+        				.sourceSystem("source_01")
+        				.userId("1234")
+        				.build();
+        	validator.validateProvidersRequest(providersRequest);
+    	}
 }

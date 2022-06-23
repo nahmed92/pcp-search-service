@@ -71,8 +71,31 @@ public class PCPSearchRequestTransformerTest {
 	
 	@Test
 	public void testtransformProvidersRequest() {	
+		Address address = new Address();
+		address.setAddressLine1("10700");
+		address.setCity("ABQ");
+		address.setZipCode("87111");
 		ProvidersRequest providersRequest = ProvidersRequest.builder()
-				.address(new Address())
+				.address(address)
+				.autoAssignment("4321")
+				.contractId("prod01")
+				.memberId("member01")
+				.pcpEffectiveDate("02-04-2022")
+				.sourceSystem("source_01")
+				.build();
+		Providers providers = pcpSearchRequestTransformer.transformProvidersRequest(providersRequest);
+		Assertions.assertNotNull(providers);  
+		Assertions.assertEquals(providers.getArg0().getContractID(),"prod01");
+		Assertions.assertEquals(providers.getArg0().getAutoAssignment(),"4321");
+		Assertions.assertEquals(providers.getArg0().getMemberId(),"member01");
+		Assertions.assertEquals(providers.getArg0().getPcpEffectiveDate(),"02-04-2022");
+		Assertions.assertEquals(providers.getArg0().getSourceSystem(),"source_01");
+	}
+	
+	@Test
+	public void testtransformProvidersRequestWhenAddressNull() {	
+		ProvidersRequest providersRequest = ProvidersRequest.builder()
+				.address(null)
 				.autoAssignment("4321")
 				.contractId("prod01")
 				.memberId("member01")
@@ -89,5 +112,11 @@ public class PCPSearchRequestTransformerTest {
 	}
 	
 	
+	@Test
+	public void testTransformPcpValidateRequestWhenRequestIsNull() {	
+		PcpValidate pcpValidate = pcpSearchRequestTransformer.transformPcpValidateRequest(null);
+		Assertions.assertNotNull(pcpValidate); 
+		Assertions.assertNull(pcpValidate.getArg0());	
+	}
 
 }
