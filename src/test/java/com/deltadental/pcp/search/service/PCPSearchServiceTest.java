@@ -14,7 +14,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -23,7 +22,6 @@ import com.deltadental.pcp.search.domain.Address;
 import com.deltadental.pcp.search.domain.Facility;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
-import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
 import com.deltadental.pcp.search.pd.entities.FacilitySearchEntity;
 import com.deltadental.pcp.search.pd.repos.FacilitySearchRepo;

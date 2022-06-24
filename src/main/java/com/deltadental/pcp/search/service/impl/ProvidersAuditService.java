@@ -6,7 +6,6 @@ import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.deltadental.pcp.search.annotation.ExcludeFromJacocoGeneratedReport;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.entities.ProvidersAuditEntity;
@@ -39,7 +38,6 @@ public class ProvidersAuditService {
 		log.info("END ProvidersAuditService.save()");
 	}
 
-	@ExcludeFromJacocoGeneratedReport
 	private ProvidersAuditEntity map(ProvidersRequest request, ProvidersResponse response) {
 		log.info("START ProvidersAuditService.map()");
 		ProvidersAuditEntity providersAuditEntity = ProvidersAuditEntity.builder()
@@ -52,7 +50,6 @@ public class ProvidersAuditService {
 
 	}
 
-	@ExcludeFromJacocoGeneratedReport
 	private String getJsonString(Object obj) {
 		if (ObjectUtils.notEqual(obj, null)) {
 			try {

@@ -20,12 +20,10 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import com.deltadental.pcp.search.config.ApplicationConfig;
 import com.deltadental.pcp.search.domain.Address;
-import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.entities.ProvidersAuditEntity;
 import com.deltadental.pcp.search.repos.ProvidersAuditRepo;
-import com.deltadental.pcp.search.service.PCPSearchService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
@@ -66,6 +64,12 @@ public class ProvidersAuditServiceTest {
 				.build();
 		ProvidersResponse providersResponse = new ProvidersResponse();
 		providersAuditService.save(providersRequest,providersResponse);
+	}
+	
+	@Test
+	public void testProviderSaveExceptionAndRequestIsNull() {	
+		ProvidersResponse providersResponse = new ProvidersResponse();
+		providersAuditService.save(null,providersResponse);
 	}
 	
 	@Test

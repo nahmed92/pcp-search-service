@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.deltadental.pcp.search.annotation.ExcludeFromJacocoGeneratedReport;
 import com.deltadental.pcp.search.domain.PCPValidateRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
 import com.deltadental.platform.common.exception.ServiceException;
@@ -34,7 +33,6 @@ public class PCPValidateRequestValidator {
 		log.info("END PCPValidateRequestValidator.validate()");
 	}
 
-	@ExcludeFromJacocoGeneratedReport
 	private void validateForContractId(String contractId) {
 		if (StringUtils.isEmpty(contractId)) {
 			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
@@ -45,7 +43,6 @@ public class PCPValidateRequestValidator {
 		}
 	}
 
-	@ExcludeFromJacocoGeneratedReport
 	private void validateForMemberType(String memberType) {
 		if (StringUtils.isBlank(memberType)) {
 			throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();

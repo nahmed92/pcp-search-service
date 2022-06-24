@@ -8,7 +8,6 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.deltadental.pcp.search.annotation.ExcludeFromJacocoGeneratedReport;
 import com.deltadental.pcp.search.domain.Address;
 import com.deltadental.pcp.search.domain.BenefitPackage;
 import com.deltadental.pcp.search.domain.BusinessLevels;
@@ -89,10 +88,9 @@ public class PCPSearchResponseTransformer {
 	 * This method update the response status.
 	 * @param response
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private void updateProviderResponseErrorCode(com.deltadental.pcp.search.domain.ProvidersResponse response) {
 		log.info("START PCPAssignmentService.setProcessStatusCode()");
-		if(response != null && null != response.getPcpAssignmentResponse()) {
+		if(null != response.getPcpAssignmentResponse()) {
 			PCPAssignmentResponse pcpAssignmentResponse = response.getPcpAssignmentResponse();
 				if(CollectionUtils.isNotEmpty(pcpAssignmentResponse.getPcpResponses())) {
 					for (PCPResponse pcpResponse : pcpAssignmentResponse.getPcpResponses()) {
@@ -111,7 +109,6 @@ public class PCPSearchResponseTransformer {
 	 * @param clientPcpAssignmentResponse
 	 * @return PCPAssignmentResponse
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private PCPAssignmentResponse getPCPAssignmentResponse(PcpAssignmentResponse clientPcpAssignmentResponse) {
 		log.info("START PCPSearchResponseTransformer.getPCPAssignmentResponse");
 		if(clientPcpAssignmentResponse != null) {
@@ -135,7 +132,6 @@ public class PCPSearchResponseTransformer {
 	 * @param clientPcpRespnse
 	 * @return PCPResponse
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private PCPResponse transformPCPResponse(PcpResponse clientPcpRespnse) {
 		log.info("START PCPSearchResponseTransformer.transformPCPResponse");
 		if(clientPcpRespnse != null) {
@@ -154,7 +150,6 @@ public class PCPSearchResponseTransformer {
 	 * @param clientEnrolleeDetail
 	 * @return EnrolleeDetail
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private EnrolleeDetail transformEnrolleeDetail(com.deltadental.platform.pcp.stub.EnrolleeDetail clientEnrolleeDetail) {
 		log.info("START PCPSearchResponseTransformer.transformEnrolleeDetail");
 		if(clientEnrolleeDetail != null) {
@@ -183,7 +178,6 @@ public class PCPSearchResponseTransformer {
 	 * @param clientPcpProvider
 	 * @return PcpProvider
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private PcpProvider transformPcpProvider(com.deltadental.platform.pcp.stub.PcpProvider clientPcpProvider) {
 		log.info("START PCPSearchResponseTransformer.transformPcpProvider");
 		if(clientPcpProvider != null) {
@@ -220,7 +214,6 @@ public class PCPSearchResponseTransformer {
 	 * @param providerAddress
 	 * @return Address
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private Address transformProviderAddress(com.deltadental.platform.pcp.stub.Address providerAddress) {
 		log.info("START PCPSearchResponseTransformer.transformProviderAddress");
 		if(providerAddress != null) {
@@ -243,7 +236,6 @@ public class PCPSearchResponseTransformer {
 	 * @param officeHours
 	 * @return OfficeHour
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private OfficeHour transformOfficeHours(com.deltadental.platform.pcp.stub.OfficeHour officeHours) {
 		log.info("START PCPSearchResponseTransformer.transformOfficeHours");
 		if(officeHours != null) {
@@ -260,7 +252,6 @@ public class PCPSearchResponseTransformer {
 	 * @param wsBl
 	 * @return BusinessLevels
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private BusinessLevels transformBusinessLevels(com.deltadental.platform.pcp.stub.BusinessLevels wsBl) {
 		log.info("START PCPSearchResponseTransformer.transformBusinessLevels");
 		if(wsBl != null) {
@@ -286,7 +277,6 @@ public class PCPSearchResponseTransformer {
 	 * @param stubBp
 	 * @return BenefitPackage
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private BenefitPackage transformBenefitPackage(com.deltadental.platform.pcp.stub.BenefitPackage stubBp) {
 		log.info("START PCPSearchResponseTransformer.transformBenefitPackage");
 		if(stubBp != null) {
@@ -307,7 +297,6 @@ public class PCPSearchResponseTransformer {
 	 * @param benefitpackages
 	 * @return List<BenefitPackage>
 	 */
-	@ExcludeFromJacocoGeneratedReport
 	private List<BenefitPackage> transformWSBenefitPackages(List<com.deltadental.platform.pcp.stub.BenefitPackage> benefitpackages) {
 		log.info("START PCPSearchResponseTransformer.transformWSBenefitPackages");
 		List<BenefitPackage> domainsBps = benefitpackages.stream().map(this::transformBenefitPackage).collect(Collectors.toList());

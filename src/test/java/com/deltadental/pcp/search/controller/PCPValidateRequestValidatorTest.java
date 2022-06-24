@@ -30,9 +30,23 @@ public class PCPValidateRequestValidatorTest {
 					PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.name());
 		}
 	}
+	
+	@Test
+	public void testContractIdNull_Exception() {
+		try {
+			PCPValidateRequest pcpValidateRequestValidate = PCPValidateRequest.builder().contractId("")
+					.lookAheadDays("60").memberType("01").mtvPersonId("001234").mtvPersonId("personId003")
+					.product("120012001").providerId("001234110").recordIdentifier("DC1234").sourceSystem("Test_system")
+					.build();
+			validator.validate(pcpValidateRequestValidate);
+		} catch (ServiceException exception) {
+			Assertions.assertEquals(exception.getErrorCode().toString(),
+					PCPSearchServiceErrors.PROVIDERS_CONTRACTID.name());
+		}
+	}
 
 	@Test
-	public void testmemberTypeBlankValidate_Failed() {
+	public void testMemberTypeBlankValidate_Failed() {
 		try {
 			PCPValidateRequest pcpValidateRequestValidate = PCPValidateRequest.builder().contractId("12345")
 					.lookAheadDays("60").mtvPersonId("001234").mtvPersonId("personId003").product("120012001")
@@ -41,6 +55,32 @@ public class PCPValidateRequestValidatorTest {
 		} catch (ServiceException exception) {
 			Assertions.assertEquals(exception.getErrorCode().toString(),
 					PCPSearchServiceErrors.PROVIDERS_MEMBERID.name());
+		}
+	}
+
+	@Test
+	public void testMemberTypeLengthValidate_Failed() {
+		try {
+			PCPValidateRequest pcpValidateRequestValidate = PCPValidateRequest.builder().contractId("12345")
+					.memberType("12345").lookAheadDays("60").mtvPersonId("001234").mtvPersonId("personId003").product("120012001")
+					.providerId("001234110").recordIdentifier("DC1234").sourceSystem("Test_system").build();
+			validator.validate(pcpValidateRequestValidate);
+		} catch (ServiceException exception) {
+			Assertions.assertEquals(exception.getErrorCode().toString(),
+					PCPSearchServiceErrors.PROVIDERS_MEMBERID.name());
+		}
+	}
+
+	@Test
+	public void testMemberTypeDigitOnlyValidate_Failed() {
+		try {
+			PCPValidateRequest pcpValidateRequestValidate = PCPValidateRequest.builder().contractId("12345")
+					.memberType("A1").lookAheadDays("60").mtvPersonId("001234").mtvPersonId("personId003").product("120012001")
+					.providerId("001234110").recordIdentifier("DC1234").sourceSystem("Test_system").build();
+			validator.validate(pcpValidateRequestValidate);
+		} catch (ServiceException exception) {
+			Assertions.assertEquals(exception.getErrorCode().toString(),
+					PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.name());
 		}
 	}
 

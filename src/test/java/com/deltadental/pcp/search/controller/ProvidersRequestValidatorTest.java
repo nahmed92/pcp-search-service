@@ -124,6 +124,24 @@ public class ProvidersRequestValidatorTest {
 	}
 	
 	@Test
+    public void testProvidersRequestPROVIDERSMEMBERIDDigitOnly_Failed(){
+    	try {
+    		ProvidersRequest providersRequest = ProvidersRequest.builder()
+    				.address(new Address())
+    				.autoAssignment("Y")
+    				.contractId("12344")
+    				.memberId("A1")
+    				.pcpEffectiveDate("02-04-2022")
+    				.sourceSystem("source_01")
+    				.build();
+    	validator.validateProvidersRequest(providersRequest);
+    	}catch(ServiceException exception) {
+    		Assertions.assertEquals(exception.getErrorCode().toString() ,
+    				PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.name());
+    	}
+	}
+	
+	@Test
     public void testProvidersRequestPROVIDERSEffectiveDateNotBlnk_Failed(){
     	try {
     		ProvidersRequest providersRequest = ProvidersRequest.builder()
