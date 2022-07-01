@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.controller;
+package com.deltadental.pcp.search.validator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.deltadental.pcp.search.domain.Address;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
+import com.deltadental.pcp.search.validator.ProvidersRequestValidator;
 import com.deltadental.platform.common.exception.ServiceException;
 
 public class ProvidersRequestValidatorTest {
