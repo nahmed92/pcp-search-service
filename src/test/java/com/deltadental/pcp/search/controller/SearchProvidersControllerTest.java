@@ -4,6 +4,8 @@ import com.deltadental.pcp.search.domain.PCPAssignmentResponse;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.domain.ProvidersResponse;
 import com.deltadental.pcp.search.service.PCPSearchService;
+import com.deltadental.pcp.search.validator.ProvidersRequestValidator;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -21,10 +21,11 @@ import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "/pcp/search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(value = "/pcp/search")
+@RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
+@Api(value = "/pcp-search")
 @Slf4j
-public class FacilitySearchController {
+@Deprecated
+public class OldFacilitySearchController {
 
 	@Autowired
 	private PCPSearchService pcpSearchService;
@@ -37,9 +38,9 @@ public class FacilitySearchController {
 	@ResponseBody
 	@GetMapping(value = "/facility/{facility-id}")
 	public ResponseEntity<Facility> facilitySearch(@PathVariable("facility-id") String facilityId) {
-		log.info("START FacilitySearchController.searchFacility");
+		log.info("START OldFacilitySearchController.searchFacility");
 		Facility response = pcpSearchService.searchFacility(facilityId);
-		log.info("END FacilitySearchController.searchFacility");
+		log.info("END OldFacilitySearchController.searchFacility");
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }
