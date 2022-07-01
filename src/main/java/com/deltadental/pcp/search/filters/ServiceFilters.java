@@ -14,7 +14,7 @@ public class ServiceFilters {
 		FilterRegistrationBean<LoggerFilter> registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setName("Logger");
 		registrationBean.setFilter(new LoggerFilter());
-		registrationBean.setOrder(4);
+		registrationBean.setOrder(1);
 		return registrationBean;
 	}
 }

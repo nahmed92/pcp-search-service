@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.controller;
+package com.deltadental.pcp.search.validator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

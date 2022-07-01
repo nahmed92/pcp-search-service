@@ -24,10 +24,11 @@ import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "/pcp/search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(value = "/pcp/search")
+@RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
+@Api(value = "/pcp-search")
 @Slf4j
-public class SearchProvidersController {
+@Deprecated
+public class OldSearchProvidersController {
 
 	private static final String SUCCESS = "Success";
 	
@@ -46,10 +47,10 @@ public class SearchProvidersController {
 	@ResponseBody
 	@PostMapping(value = "/providers/_search", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ProvidersResponse> searchProviders(@RequestBody ProvidersRequest providersRequest) throws ServiceException {
-		log.info("START SearchProvidersController.searchProviders");
+		log.info("START OldSearchProvidersController.searchProviders");
 		requestValidator.validateProvidersRequest(providersRequest);
 		ProvidersResponse providersResponse = pcpSearchService.searchProviders(providersRequest);
-		log.info("END SearchProvidersController.searchProviders");		
+		log.info("END OldSearchProvidersController.searchProviders");		
 		return getHttpStatus(providersResponse);
 	}
 

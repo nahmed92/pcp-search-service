@@ -27,11 +27,12 @@ import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "/pcp/search", produces = { MediaType.APPLICATION_JSON_VALUE })
-@Api(value = "/pcp/search")
+@RequestMapping(value = "/pcp-search", produces = { MediaType.APPLICATION_JSON_VALUE })
+@Api(value = "/pcp-search")
 @Slf4j
 @Validated
-public class PCPValidateController {
+@Deprecated
+public class OldPCPValidateController {
 
 	@Autowired(required = true)
 	@Qualifier("pcpSearchService")
@@ -44,12 +45,12 @@ public class PCPValidateController {
 			@ApiResponse(code = 404, message = "Unable to validate provider.", response = ServiceError.class),
 			@ApiResponse(code = 500, message = "Internal server error.", response = ServiceError.class) })
 	@ResponseBody
-	@PostMapping(value = "/validate", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+	@PostMapping(value = "/pcp/validate", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<PCPAssignmentResponse> validate(@Valid @RequestBody PCPValidateRequest pcpValidateRequest) {
-		log.info("START PCPValidateController.validate");
+		log.info("START OldPCPValidateController.validate");
 		PCPAssignmentResponse pcpAssignmentResponse = pcpSearchService.validate(pcpValidateRequest);
-		log.info("END PCPValidateController.validate");
+		log.info("END OldPCPValidateController.validate");
 		return new ResponseEntity<>(pcpAssignmentResponse,HttpStatus.OK);
 	}
 }
