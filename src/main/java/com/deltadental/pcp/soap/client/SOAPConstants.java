@@ -2,6 +2,10 @@ package com.deltadental.pcp.soap.client;
 
 public class SOAPConstants {
 
+	// Solve sonar issue
+    private SOAPConstants() {
+        throw new UnsupportedOperationException("Constant Class can not be instantiated");
+    }
 	public static final String SOAP_CALL = "SOAP-CALL";
 	public static final String SUB_CODE = "SUB-CODE";
 	public static final String SOAP_REQ_SEND = "SOAP-REQ-SEND";

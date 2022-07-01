@@ -10,6 +10,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
+import com.deltadental.pcp.search.domain.Address;
 import com.deltadental.pcp.search.domain.ProvidersRequest;
 import com.deltadental.pcp.search.error.PCPSearchServiceErrors;
 import com.deltadental.platform.common.exception.ServiceException;
@@ -26,78 +27,91 @@ public class ProvidersRequestValidator {
 
 		log.info("START ProvidersRequestValidator.validateProvidersRequest()");
 		if (request != null) {
-
-			if (StringUtils.isBlank(request.getAutoAssignment())) {
-				throw PCPSearchServiceErrors.PCP_SEARCH_001.createException();
-			}
-			if (!CollectionUtils.containsAny(VALID_AUTO_SIGN_FLAGS, request.getAutoAssignment())) {
-				throw PCPSearchServiceErrors.PCP_SEARCH_002.createException();
-			}
-
-			if (StringUtils.isEmpty(request.getContractId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
-			} else {
-				if(!allowDigitsOnly(request.getContractId())) {
-					throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
-				}
-			}
-
-			if (StringUtils.isBlank(request.getMemberId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
-			} else {
-				if (StringUtils.trim(request.getMemberId()).length() != 2) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
-				}
-				if(!allowDigitsOnly(request.getMemberId())) {
-					throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
-				}
-			}
-
-			if (StringUtils.isBlank(request.getPcpEffectiveDate())) {
-				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
-			} else {
-				try {
-					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
-					LocalDate.parse(request.getPcpEffectiveDate(), formatter);
-				} catch (Exception e) {
-					throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
-				}
-			}
-
-			if (StringUtils.isBlank(request.getSourceSystem())) {
-				throw PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM.createException();
-			}
-
-			if (StringUtils.isBlank(request.getUserId())) {
-				throw PCPSearchServiceErrors.PROVIDERS_USERID.createException();
-			}
-
-			if(request.getAddress() != null) {
-				if (StringUtils.isBlank(request.getAddress().getZipCode())) {
-					throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException();
-				} else {
-					if (!isZipCodeValid(request.getAddress().getZipCode())) {
-						throw PCPSearchServiceErrors.PROVIDERS_ZIP_FORMAT.createException();
-					}
-				}
-			} else {
-				throw PCPSearchServiceErrors.ADDRESS_REQUIRED.createException();
-			}
-			
+			validateForAutoAssignment(request.getAutoAssignment());
+			validateForContractId(request.getContractId());
+			validateForMemberId(request.getMemberId());
+			validateForPCPEffectiveDate(request.getPcpEffectiveDate());
+			validateForBlankField(request.getSourceSystem(), PCPSearchServiceErrors.PROVIDERS_SOURCESYSTEM);
+			validateForBlankField(request.getUserId(), PCPSearchServiceErrors.PROVIDERS_USERID);
+			validateForAdressField(request.getAddress());
 		} else {
 			throw PCPSearchServiceErrors.PROVIDER_SEARCH_REQUEST.createException();
 		}
 
 		log.info("END ProvidersRequestValidator.validateProvidersRequest()");
 	}
-	
+
+	private void validateForAutoAssignment(String autoAssignment) {
+		if (StringUtils.isBlank(autoAssignment)) {
+			throw PCPSearchServiceErrors.PCP_SEARCH_001.createException();
+		} else if (!CollectionUtils.containsAny(VALID_AUTO_SIGN_FLAGS, autoAssignment)) {
+			throw PCPSearchServiceErrors.PCP_SEARCH_002.createException();
+		}
+	}
+
+	private void validateForMemberId(String memberId) {
+		if (StringUtils.isBlank(memberId)) {
+			throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
+		} else {
+			if (StringUtils.trim(memberId).length() != 2) {
+				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID.createException();
+			}
+			if (!allowDigitsOnly(memberId)) {
+				throw PCPSearchServiceErrors.PROVIDERS_MEMBERID_DIGITS_ONLY.createException();
+			}
+		}
+
+	}
+
+	private void validateForContractId(String contractId) {
+		if (StringUtils.isEmpty(contractId)) {
+			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID.createException();
+		} else if (!allowDigitsOnly(contractId)) {
+			throw PCPSearchServiceErrors.PROVIDERS_CONTRACTID_DIGITS_ONLY.createException();
+		}
+	}
+
+	private void validateForPCPEffectiveDate(String pcpEffectiveDate) {
+		if (StringUtils.isBlank(pcpEffectiveDate)) {
+			throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
+		} else {
+			try {
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+				LocalDate.parse(pcpEffectiveDate, formatter);
+			} catch (Exception e) {
+				throw PCPSearchServiceErrors.PROVIDERS_PCPEFFECTIVEDATE.createException();
+			}
+		}
+
+	}
+
+	private void validateForBlankField(String field, PCPSearchServiceErrors pcpSearchServiceErrors) {
+		if (StringUtils.isBlank(field)) {
+			throw pcpSearchServiceErrors.createException();
+		}
+	}
+
+	private void validateForAdressField(Address address) {
+		if (address == null) {
+			throw PCPSearchServiceErrors.ADDRESS_REQUIRED.createException();
+		} else {
+			if (StringUtils.isBlank(address.getZipCode())) {
+				throw PCPSearchServiceErrors.PROVIDERS_ZIP.createException();
+			} else {
+				if (!isZipCodeValid(address.getZipCode())) {
+					throw PCPSearchServiceErrors.PROVIDERS_ZIP_FORMAT.createException();
+				}
+			}
+		}
+	}
+
 	public boolean isZipCodeValid(String zipCode) {
-		String regex = "^[0-9]{5}(?:-[0-9]{4})?$";		 
+		String regex = "^[0-9]{5}(?:-[0-9]{4})?$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(zipCode);
 		return matcher.matches();
 	}
-	
+
 	public boolean allowDigitsOnly(String field) {
 		String regex = "\\d+";
 		Pattern pattern = Pattern.compile(regex);

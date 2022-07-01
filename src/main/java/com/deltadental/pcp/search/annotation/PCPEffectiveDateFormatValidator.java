@@ -13,13 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PCPEffectiveDateFormatValidator implements ConstraintValidator<PCPEffectiveDateFormat, String>  {
 	
-	private static final DateFormat _DATEFORMAT = new SimpleDateFormat("MM-dd-yyyy");
+	private final DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 	
-	@Override
-    public void initialize(PCPEffectiveDateFormat constraint) {
-    
-	}
-
 	@Override
 	public boolean isValid(String pcpEffectiveDate, ConstraintValidatorContext context) {
 		if(StringUtils.isEmpty(pcpEffectiveDate)) {
@@ -28,7 +23,7 @@ public class PCPEffectiveDateFormatValidator implements ConstraintValidator<PCPE
             return false;
 		} else {
 			try {
-				_DATEFORMAT.parse(pcpEffectiveDate);
+				df.parse(pcpEffectiveDate);
 				return true;
 			} catch (Exception e) {
 				context.disableDefaultConstraintViolation();

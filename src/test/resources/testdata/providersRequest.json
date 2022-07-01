@@ -2,5 +2,11 @@
 	"contractID": "9743320316",
 	"memberId": "01",
 	"pcpEffectiveDate": "10-01-2021",
-	"zipcode": "94105"
+	"zipcode": "94105",
+	"address":{
+	 "addressLine1": "Test Address",
+	 "city": "Albuquerque",
+	 "state": "NM",
+	 "zipCode": "87111"
+	}
 }

@@ -5,6 +5,7 @@ import static org.mockito.Mockito.times;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -51,6 +52,9 @@ public class PCPSearchServiceImplTest {
 	@Mock 
 	private PCPSearchRequestTransformer pcpSearchRequestTransformerMock;
 	
+	@Mock
+	private ProvidersAuditService providersAuditServiceMock;
+	
 	@Mock 
 	private PCPSearchResponseTransformer pcpSearchResponseTransformerMock;
 
@@ -61,9 +65,10 @@ public class PCPSearchServiceImplTest {
 		pcpSearchServiceImpl.setPcpAssignmentSoapClient(pcpAssignmentSoapClientMock);
 		pcpSearchServiceImpl.setPcpSearchRequestTransformer(pcpSearchRequestTransformerMock);
 		pcpSearchServiceImpl.setPcpSearchResponseTransformer(pcpSearchResponseTransformerMock);
+		pcpSearchServiceImpl.setProvidersAuditService(providersAuditServiceMock);
 	}
 
-	//@Test //FIXME:
+	@Test //FIXME:
 	@DisplayName("Testing Providers success")
 	void testProviders() throws Exception  {
 		ProvidersRequest providersRequest = mapper

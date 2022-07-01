@@ -42,6 +42,6 @@ public class FacilitySearchController {
 		log.info("START PCPSearchProvidersController.searchFacility");
 		Facility response = pcpSearchService.searchFacility(facilityId);
 		log.info("END PCPSearchProvidersController.searchFacility");
-		return new ResponseEntity<Facility>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }
