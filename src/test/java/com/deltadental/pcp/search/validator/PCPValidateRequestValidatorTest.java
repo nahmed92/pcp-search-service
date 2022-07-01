@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.controller;
+package com.deltadental.pcp.search.validator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
