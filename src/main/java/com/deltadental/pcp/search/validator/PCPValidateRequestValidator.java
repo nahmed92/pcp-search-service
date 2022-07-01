@@ -1,4 +1,4 @@
-package com.deltadental.pcp.search.controller;
+package com.deltadental.pcp.search.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
