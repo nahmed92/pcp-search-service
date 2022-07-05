@@ -13,7 +13,7 @@
 	<artifactId>pcp-search-service</artifactId>
 	<version>1.0.0</version>
 	<name>pcp-search-service</name>
-	<description>Wrapper Springboot Service for PCP Inquiry Service</description>
+	<description>Springboot Service for PCP Inquiry Service</description>
 	<properties>
 		<service.name>${project.name}</service.name>
 
@@ -66,7 +66,7 @@
 		<!-- Logger versions -->
 		<log4j2.version>2.14.0</log4j2.version>
 		<slf4j.version>1.7.25</slf4j.version>
-		<jackson.version>2.10.2</jackson.version>
+		<jackson.version>2.13.3</jackson.version>
 
 	</properties>
 
@@ -412,7 +412,7 @@
 			</plugin>
 			<!-- End Docker image creation -->
 
-			<plugin>
+			<!--<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
     			<artifactId>maven-jaxb2-plugin</artifactId>
 				<version>0.14.0</version>
@@ -433,7 +433,36 @@
 			        	<include>*.wsdl</include>
 			       	</schemaIncludes>
 				</configuration>
+			</plugin>-->
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.14.0</version>
+				<executions>
+					<execution>
+						<id>GeneratePCPSearchServiceStubs</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLanguage>WSDL</schemaLanguage>
+					<generatePackage>com.deltadental.platform.pcp.stub</generatePackage>
+					<generateDirectory>${project.build.directory}/generated/src/main/java</generateDirectory>
+					<!--<schemaDirectory>${project.basedir}/src/main/resources/wsdl/pcp</schemaDirectory>
+					<schemaIncludes>
+						<include>*.wsdl</include>
+					</schemaIncludes>-->
+					<schemas>
+						<schema>
+							<url>http://aw-lx0558.deltadev.ent:24011/pcpservices/assignment?wsdl</url>
+						</schema>
+					</schemas>
+				</configuration>
 			</plugin>
+
 			<!-- Jacoco integration test plugin -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
